@@ -1,0 +1,19 @@
+{
+  "name": "balaji-udhyog-leonardo-pipeline",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Automated Leonardo AI image generation pipeline for the Balaji Udhyog export website.",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "generate": "node generate-leonardo-images.js",
+    "dry-run": "node generate-leonardo-images.js --dry-run",
+    "p1": "node generate-leonardo-images.js --priority=1",
+    "p2": "node generate-leonardo-images.js --priority=2",
+    "p3": "node generate-leonardo-images.js --priority=3",
+    "download": "node download-generated-assets.js"
+  },
+  "dependencies": {
+    "sharp": "^0.33.5"
+  }
+}

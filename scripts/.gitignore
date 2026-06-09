@@ -1,0 +1,10 @@
+# Secrets — never commit
+.env
+
+# Node
+node_modules/
+
+# Pipeline state / logs
+.leonardo-manifest.json
+.leonardo-plan.json
+*.log

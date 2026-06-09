@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Export Inquiries — Balaji Udhyog Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root{--navy:#0a1d3a;--navy-deep:#06122a;--gold:#c8a55b;--gold-dim:#8a7340;--paper:#f5f2ec;--ink:#14171c;--ink-2:#2a2f38;--grey:#6b7280;--line:rgba(10,29,58,.12);--mono:'JetBrains Mono',monospace;--body:'Inter',sans-serif;--disp:'Montserrat',sans-serif}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--body);background:var(--paper);color:var(--ink);font-size:14px}
+  header{background:var(--navy-deep);color:#fff;padding:18px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:12px}
+  .mark{width:36px;height:36px;border:1px solid var(--gold);display:grid;place-items:center;position:relative}
+  .mark::before{content:"";position:absolute;inset:4px;border:1px solid rgba(200,165,91,.4)}
+  .mark span{font-family:var(--disp);font-weight:700;color:var(--gold);font-size:13px}
+  .brand b{font-family:var(--disp);letter-spacing:.08em;font-size:15px}
+  .brand small{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.22em;color:var(--gold);text-transform:uppercase}
+  .ctrls{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .ctrls input{font-family:var(--mono);font-size:12px;padding:8px 10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff;width:200px}
+  .ctrls button{font-family:var(--body);font-size:12px;text-transform:uppercase;letter-spacing:.06em;background:var(--gold);color:var(--navy);border:0;padding:9px 16px;cursor:pointer;font-weight:600}
+  .stats{display:flex;gap:0;background:#fff;border-bottom:1px solid var(--line)}
+  .stat{padding:18px 28px;border-right:1px solid var(--line)}
+  .stat b{font-family:var(--disp);font-size:24px;color:var(--navy);display:block}
+  .stat small{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--gold-dim);text-transform:uppercase}
+  .wrap{padding:24px 28px}
+  table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line)}
+  th{background:var(--navy);color:#fff;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-align:left;padding:10px 12px;font-weight:500}
+  td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top;font-size:13px}
+  tr:hover td{background:#faf8f3}
+  .sku,.muted{font-family:var(--mono);font-size:11px;color:var(--grey)}
+  .co{font-weight:600}
+  .wa{display:inline-block;background:#1eb858;color:#fff;font-size:11px;padding:5px 10px;text-decoration:none;border-radius:3px;white-space:nowrap}
+  select.status{font-family:var(--mono);font-size:11px;padding:5px 8px;border:1px solid var(--line);text-transform:uppercase;letter-spacing:.06em}
+  .pill{display:inline-block;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border:1px solid var(--line);color:var(--gold-dim)}
+  .empty{padding:60px;text-align:center;color:var(--grey)}
+  .msg{padding:10px 28px;font-family:var(--mono);font-size:12px}
+  .msg.err{background:#fdecea;color:#a3261d}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><div class="mark"><span>BU</span></div><div><b>BALAJI UDHYOG</b><small>Export Inquiry Team</small></div></div>
+  <div class="ctrls">
+    <input id="token" type="password" placeholder="Admin token">
+    <button onclick="save()">Load inquiries</button>
+    <button onclick="load()" style="background:#fff;color:var(--navy)">Refresh</button>
+  </div>
+</header>
+<div class="stats" id="stats"></div>
+<div id="msg"></div>
+<div class="wrap">
+  <table>
+    <thead><tr><th>Received</th><th>Company / Contact</th><th>Country</th><th>Interest</th><th>Volume</th><th>Source</th><th>Status</th><th>WhatsApp</th></tr></thead>
+    <tbody id="rows"><tr><td colspan="8" class="empty">Enter your admin token and load inquiries.</td></tr></tbody>
+  </table>
+</div>
+<script>
+  const STATUSES = ['new','quoted','sample-sent','po','repeat','cold','closed'];
+  const $ = s => document.querySelector(s);
+  function tok(){ return $('#token').value || localStorage.getItem('bu_admin_token') || ''; }
+  function save(){ localStorage.setItem('bu_admin_token', $('#token').value); load(); }
+  window.addEventListener('load', () => { const t = localStorage.getItem('bu_admin_token'); if (t) { $('#token').value = t; load(); } });
+
+  async function load(){
+    $('#msg').innerHTML = '';
+    try{
+      const r = await fetch('/api/leads', { headers: { 'X-Admin-Token': tok() } });
+      if (r.status === 401){ msg('Unauthorized — check the admin token.', true); return; }
+      const { leads } = await r.json();
+      render(leads || []);
+    }catch(e){ msg('Could not reach the backend. Is it running? ('+e.message+')', true); }
+  }
+  function msg(t, err){ $('#msg').innerHTML = '<div class="msg'+(err?' err':'')+'">'+t+'</div>'; }
+
+  function render(leads){
+    const f = leads.reduce((a,l)=>{a[l.status]=(a[l.status]||0)+1;return a;},{});
+    $('#stats').innerHTML = '<div class="stat"><b>'+leads.length+'</b><small>Total</small></div>'
+      + ['new','quoted','sample-sent','po','closed'].map(s=>'<div class="stat"><b>'+(f[s]||0)+'</b><small>'+s+'</small></div>').join('');
+    if (!leads.length){ $('#rows').innerHTML = '<tr><td colspan="8" class="empty">No inquiries yet.</td></tr>'; return; }
+    $('#rows').innerHTML = leads.map(l => {
+      const fld = l.fields || {};
+      const interest = fld['Product Interest']||fld['Product interest']||fld['Finish']||'—';
+      const vol = fld['Order Volume / Notes']||fld['Volume / Notes']||fld['Quantity / Volume']||fld['Volume & notes']||'—';
+      const opts = STATUSES.map(s=>'<option'+(s===l.status?' selected':'')+'>'+s+'</option>').join('');
+      return '<tr><td class="muted">'+new Date(l.ts).toLocaleString()+'</td>'
+        +'<td><span class="co">'+(l.company||'—')+'</span><br><span class="muted">'+(l.name||'')+' · '+(l.email||l.phone||'')+'</span></td>'
+        +'<td>'+(l.country||'—')+'</td><td>'+interest+'</td><td>'+vol+'</td>'
+        +'<td><span class="pill">'+(l.source||'web')+'</span><br><span class="muted">'+(l.page||'')+'</span></td>'
+        +'<td><select class="status" onchange="setStatus(\''+l.id+'\',this.value)">'+opts+'</select></td>'
+        +'<td><a class="wa" href="'+(l.whatsapp||'#')+'" target="_blank" rel="noopener">Reply on WhatsApp</a></td></tr>';
+    }).join('');
+  }
+  async function setStatus(id, status){
+    await fetch('/api/leads/'+id, { method:'PATCH', headers:{'Content-Type':'application/json','X-Admin-Token':tok()}, body: JSON.stringify({status}) });
+  }
+</script>
+</body>
+</html>

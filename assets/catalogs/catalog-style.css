@@ -1,0 +1,62 @@
+/* Balaji Udhyog — catalogue / brochure print styles (A4 landscape spreads + portrait) */
+:root{--navy:#0a1d3a;--navy-deep:#06122a;--gold:#c8a55b;--gold-soft:#d9bd80;--gold-dim:#8a7340;
+--paper:#f5f2ec;--paper-2:#ebe6db;--ink:#14171c;--ink-2:#2a2f38;--grey:#6b7280;--line:rgba(10,29,58,.12);
+--mono:'JetBrains Mono',ui-monospace,monospace;--body:'Inter',Arial,sans-serif;--disp:'Montserrat',Arial,sans-serif;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--body);background:#bdb8ab;color:var(--ink);font-size:13px;line-height:1.55}
+img{display:block;max-width:100%}
+.bar{max-width:297mm;margin:14px auto 0;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.bar button{font-family:var(--body);font-size:12px;letter-spacing:.06em;text-transform:uppercase;background:var(--navy);color:#fff;border:0;padding:10px 18px;cursor:pointer}
+.bar small{font-family:var(--mono);font-size:11px;color:#2a2f38}
+.page{position:relative;width:297mm;height:210mm;margin:16px auto;background:var(--paper);overflow:hidden;box-shadow:0 12px 44px rgba(0,0,0,.28)}
+.page.portrait{width:210mm;height:297mm}
+.pad{position:absolute;inset:0;padding:18mm 20mm}
+.ey{font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-dim)}
+.on-navy .ey{color:var(--gold-soft)}
+h1,h2,h3{font-family:var(--disp);font-weight:600;letter-spacing:-.01em;color:var(--ink)}
+.on-navy{background:var(--navy-deep);color:var(--paper)}.on-navy h1,.on-navy h2,.on-navy h3{color:var(--paper)}
+.imgfill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,18,42,.25),rgba(6,18,42,.8))}
+.mark{width:46px;height:46px;border:1px solid var(--gold);display:grid;place-items:center;position:relative}
+.mark::before{content:"";position:absolute;inset:4px;border:1px solid rgba(200,165,91,.45)}
+.mark span{font-family:var(--disp);font-weight:700;font-size:16px;color:var(--gold)}
+/* cover */
+.cover .pad{display:flex;flex-direction:column;justify-content:space-between;z-index:2}
+.cover h1{font-size:54px;font-weight:600;letter-spacing:-.02em;line-height:1.02;color:var(--paper);max-width:16ch}
+.cover h1 em{font-style:normal;color:var(--gold);font-weight:300}
+.cover .sub{font-size:16px;color:rgba(245,242,236,.8);max-width:52ch;margin-top:14px}
+.cover .top{display:flex;align-items:center;gap:14px}
+.cover .top b{font-family:var(--disp);font-weight:600;font-size:18px;letter-spacing:.1em;color:var(--paper)}
+.cover .top small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--gold);text-transform:uppercase}
+.cover .meta{display:flex;gap:40px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,242,236,.7)}
+.cover .meta b{display:block;font-family:var(--disp);font-size:26px;color:var(--gold);letter-spacing:-.01em}
+/* spread: image + text */
+.spread{display:grid;grid-template-columns:1fr 1fr;height:100%}
+.spread .vis{position:relative;overflow:hidden}
+.spread .txt{padding:18mm 18mm;display:flex;flex-direction:column;justify-content:center}
+.spread h2{font-size:34px;font-weight:600;letter-spacing:-.02em;margin-top:10px}
+.spread h2 em{font-style:normal;color:var(--gold-dim);font-weight:300}
+.spread p{font-size:13.5px;color:var(--ink-2);line-height:1.7;margin-top:14px;max-width:46ch}
+.skus{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:1px;background:var(--line)}
+.skus li{background:var(--paper);display:flex;justify-content:space-between;padding:8px 0;font-size:12.5px}
+.skus li small{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--gold-dim)}
+.specrow{display:flex;gap:26px;margin-top:18px}
+.specrow div small{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;color:var(--gold-dim);text-transform:uppercase;display:block}
+.specrow div b{font-family:var(--disp);font-size:18px;font-weight:600;color:var(--ink)}
+/* product grid (line sheet) */
+.sheet-head{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid var(--line);padding-bottom:12px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10mm 8mm;margin-top:14mm}
+.pc{display:flex;flex-direction:column}
+.pc .im{aspect-ratio:4/3;position:relative;overflow:hidden;background:var(--paper-2);border:1px solid var(--line)}
+.pc h4{font-size:13px;font-weight:600;margin-top:8px;letter-spacing:-.01em}
+.pc .sku{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;color:var(--gold-dim);text-transform:uppercase}
+.pc .moq{font-size:11px;color:var(--ink-2);margin-top:auto;padding-top:6px}
+/* terms / info panels */
+.cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14mm;margin-top:12mm}
+.cols h3{font-size:16px;margin-bottom:8px}.cols p,.cols li{font-size:12px;color:var(--ink-2);line-height:1.65}
+.cols ul{list-style:none}.cols li{display:flex;justify-content:space-between;border-bottom:1px dashed var(--line);padding:4px 0}
+.cols li b{color:var(--ink);font-family:var(--mono);font-size:11px}
+.foot{position:absolute;left:20mm;right:20mm;bottom:12mm;display:flex;justify-content:space-between;font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey)}
+.on-navy .foot{color:rgba(245,242,236,.5)}
+.bignum{font-family:var(--disp);font-weight:600;color:var(--gold)}
+@media print{body{background:#fff}.bar{display:none}.page{box-shadow:none;margin:0;page-break-after:always}@page{size:A4 landscape;margin:0}.page.portrait{page-break-after:always}}

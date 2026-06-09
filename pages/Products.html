@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Products — Balaji Udhyog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+  /* Products-specific */
+  .p-hero{position:relative;background:var(--paper);color:var(--ink);padding:180px 0 80px;border-bottom:1px solid var(--line)}
+  .p-hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end}
+  @media (max-width:880px){.p-hero-grid{grid-template-columns:1fr;gap:30px}}
+  .p-hero h1{font-size:clamp(48px,5.6vw,88px);font-weight:500;letter-spacing:-.025em;line-height:1.02;margin-top:24px}
+  .p-hero h1 em{font-style:normal;color:var(--gold);font-weight:300}
+  .p-hero .meta{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-dim);display:flex;flex-direction:column;gap:10px;padding-bottom:14px}
+  .p-hero .meta b{color:var(--ink-2);font-weight:500}
+
+  /* Filter strip */
+  .filter-strip{position:sticky;top:78px;z-index:50;background:rgba(245,242,236,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:18px 0}
+  .filter-strip .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .fchips{display:flex;gap:8px;flex-wrap:wrap}
+  .fchip{padding:8px 16px;border:1px solid var(--line);font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);cursor:pointer;transition:all .25s}
+  .fchip.active{background:var(--navy);color:var(--paper);border-color:var(--navy)}
+  .fchip:hover{border-color:var(--navy)}
+  .fcount{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--gold-dim);text-transform:uppercase}
+
+  /* Main category list */
+  .pcat-list{padding:80px 0 120px}
+  .pcat{
+    display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center;
+    padding:80px 0;border-bottom:1px solid var(--line);
+  }
+  .pcat:nth-child(even){grid-template-columns:1fr 1.2fr;direction:rtl}
+  .pcat:nth-child(even) > *{direction:ltr}
+  @media (max-width:880px){.pcat,.pcat:nth-child(even){grid-template-columns:1fr;gap:36px;padding:48px 0;direction:ltr}}
+  .pcat .visual{aspect-ratio:4/3;position:relative}
+  .pcat .visual .ph{position:absolute;inset:0}
+  .pcat .visual .corner{
+    position:absolute;top:24px;right:24px;font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;
+    color:var(--gold);text-transform:uppercase;background:rgba(10,29,58,.7);padding:8px 12px;backdrop-filter:blur(4px);
+  }
+  .pcat .visual .label{
+    position:absolute;left:24px;bottom:24px;font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:rgba(255,255,255,.7);text-transform:uppercase;
+  }
+  .pcat .visual.bright .label{color:rgba(10,29,58,.55)}
+  .pcat h2{font-size:clamp(28px,3vw,44px);font-weight:500;letter-spacing:-.02em;line-height:1.08;margin-top:16px;max-width:14ch}
+  .pcat h2 em{font-style:normal;color:var(--gold);font-weight:300}
+  .pcat p{font-size:16px;line-height:1.7;color:var(--ink-2);margin-top:18px;max-width:50ch}
+  .pcat .skus{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;margin-top:28px;max-width:480px}
+  .pcat .skus li{font-size:14px;color:var(--ink-2);padding:8px 0;border-top:1px solid var(--line);list-style:none;display:flex;justify-content:space-between;gap:12px}
+  .pcat .skus li small{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--gold-dim)}
+  .pcat .specrow{display:flex;gap:32px;margin-top:28px;flex-wrap:wrap}
+  .pcat .specrow div{display:flex;flex-direction:column;gap:4px}
+  .pcat .specrow small{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;color:var(--gold-dim);text-transform:uppercase}
+  .pcat .specrow b{font-family:var(--display);font-size:22px;font-weight:500;letter-spacing:-.01em}
+  .pcat .actions{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<div class="page-curtain"></div>
+
+<!-- NAV (shared markup) -->
+<nav class="nav solid" id="nav">
+  <div class="wrap nav-inner">
+    <a href="../Balaji Udhyog.html" class="logo"><div class="logo-text"><b>BALAJI UDHYOG</b><small>Est · India · Exporters</small></div></a>
+    <div class="nav-menu">
+      <a href="../Balaji Udhyog.html">Home</a>
+      <a href="About.html">About</a>
+      <div class="dropdown">
+        <a href="Products.html" class="has-down active">Products</a>
+        <div class="dropdown-panel">
+          <a href="products/Furniture Hardware.html"><span>Furniture Hardware</span><small>01</small></a>
+          <a href="products/Locks - Hardware.html"><span>Locks &amp; Hardware</span><small>02</small></a>
+          <a href="products/Bathroom Hardware.html"><span>Bathroom Hardware</span><small>03</small></a>
+          <a href="products/Brassware.html"><span>Brassware</span><small>04</small></a>
+          <a href="products/Metal Art Ware.html"><span>Metal Art Ware</span><small>05</small></a>
+          <a href="products/Glassware.html"><span>Glassware</span><small>06</small></a>
+          <a href="products/Home Decor.html"><span>Home Decor</span><small>07</small></a>
+        </div>
+      </div>
+      <a href="Export Services.html">Export Services</a>
+      <a href="Africa Market.html">Africa Market</a>
+      <a href="Blog.html">Blog</a>
+      <a href="Contact.html">Contact</a>
+    </div>
+    <div class="nav-cta"><a href="Contact.html" class="pill">Request Catalogue</a><div class="burger"><span></span><span></span><span></span></div></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="p-hero">
+  <div class="wrap">
+    <div class="crumbs" style="color:var(--gold-dim)"><a href="../Balaji Udhyog.html">Home</a> <em>/</em> <span>Products</span></div>
+    <div class="p-hero-grid">
+      <div class="reveal">
+        <div class="eyebrow">02 / Catalogue</div>
+        <h1>Seven categories.<br><em>One reliable partner.</em></h1>
+      </div>
+      <div class="meta reveal" data-d="1">
+        <div><b>Active SKUs ·</b> 4,200+</div>
+        <div><b>Categories ·</b> 7</div>
+        <div><b>Avg lead time ·</b> 28 days</div>
+        <div><b>MOQ ·</b> from 500 units</div>
+        <div><b>Inco terms ·</b> FOB · CIF · CFR</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- FILTER STRIP -->
+<div class="filter-strip">
+  <div class="wrap">
+    <div class="fchips">
+      <div class="fchip active">All Categories</div>
+      <div class="fchip">Hardware</div>
+      <div class="fchip">Brass &amp; Metal</div>
+      <div class="fchip">Glass &amp; Decor</div>
+      <div class="fchip">Private Label</div>
+    </div>
+    <div class="fcount">07 / 07 categories</div>
+  </div>
+</div>
+
+<!-- CATEGORY LIST -->
+<section class="pcat-list">
+  <div class="wrap">
+
+    <article class="pcat reveal">
+      <div class="visual">
+        <div class="ph paper bright"><img class="img-cover" src="../assets/images/categories/furniture-hardware-hero.webp?v2026053002" alt="Furniture Hardware category — Balaji Udhyog export range" width="1200" height="900" loading="lazy" decoding="async"></div>
+        <span class="corner">01 · Hardware</span>
+        
+      </div>
+      <div>
+        <div class="mono-lbl">Category 01</div>
+        <h2>Furniture Hardware<br><em>for cabinetry &amp; joinery.</em></h2>
+        <p>Hinges, drawer slides, handles, knobs, brackets, locks and gas struts — sourced from precision-engineering units in Aligarh and the NCR. Suitable for residential, hospitality and contract furniture builders.</p>
+        <ul class="skus">
+          <li>Cabinet hinges <small>SKU-101</small></li>
+          <li>Drawer slides <small>SKU-102</small></li>
+          <li>Pull handles <small>SKU-103</small></li>
+          <li>Knobs <small>SKU-104</small></li>
+          <li>Brackets <small>SKU-105</small></li>
+          <li>Gas struts <small>SKU-106</small></li>
+        </ul>
+        <div class="specrow">
+          <div><small>MOQ</small><b>500 units</b></div>
+          <div><small>Lead time</small><b>21 days</b></div>
+          <div><small>Finishes</small><b>SS · Brass · MB</b></div>
+        </div>
+        <div class="actions">
+          <a href="products/Furniture Hardware.html" class="btn btn-ghost">View category <span class="arr"></span></a>
+          <a href="Contact.html" class="btn btn-gold">Request quote <span class="arr"></span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="pcat reveal">
+      <div class="visual">
+        <div class="ph dark"><img class="img-cover" src="../assets/images/categories/locks-hardware-hero.webp?v2026053002" alt="Locks &amp; Hardware category — Balaji Udhyog export range" width="1200" height="900" loading="lazy" decoding="async"></div>
+        <span class="corner">02 · Security</span>
+        
+      </div>
+      <div>
+        <div class="mono-lbl">Category 02</div>
+        <h2>Locks &amp; Hardware<br><em>from Aligarh.</em></h2>
+        <p>Padlocks, mortise locks, cylinder locks, door closers, smart locks and security hardware — direct from the lock capital of India. BIS / ISI certified ranges available.</p>
+        <ul class="skus">
+          <li>Padlocks <small>SKU-201</small></li>
+          <li>Mortise locks <small>SKU-202</small></li>
+          <li>Cylinder locks <small>SKU-203</small></li>
+          <li>Door closers <small>SKU-204</small></li>
+          <li>Smart locks <small>SKU-205</small></li>
+          <li>Tower bolts <small>SKU-206</small></li>
+        </ul>
+        <div class="specrow">
+          <div><small>MOQ</small><b>1,000 units</b></div>
+          <div><small>Lead time</small><b>30 days</b></div>
+          <div><small>Certs</small><b>BIS · ISI · CE</b></div>
+        </div>
+        <div class="actions">
+          <a href="products/Locks - Hardware.html" class="btn btn-ghost">View category <span class="arr"></span></a>
+          <a href="Contact.html" class="btn btn-gold">Request quote <span class="arr"></span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="pcat reveal">
+      <div class="visual">
+        <div class="ph glass"><img class="img-cover" src="../assets/images/categories/bathroom-hardware-hero.webp?v2026053002" alt="Bathroom Hardware category — Balaji Udhyog export range" width="1200" height="900" loading="lazy" decoding="async"></div>
+        <span class="corner">03 · Bath</span>
+        
+      </div>
+      <div>
+        <div class="mono-lbl">Category 03</div>
+        <h2>Bathroom Hardware<br><em>premium fittings.</em></h2>
+        <p>Faucets, showers, towel bars, soap dishes, robe hooks, mirrors and complete sanitary ranges. Manufactured in Jagadhri and Delhi NCR brass foundries — chrome, brushed nickel and matte black finishes available.</p>
+        <ul class="skus">
+          <li>Faucets <small>SKU-301</small></li>
+          <li>Shower sets <small>SKU-302</small></li>
+          <li>Towel bars <small>SKU-303</small></li>
+          <li>Robe hooks <small>SKU-304</small></li>
+          <li>Soap dishes <small>SKU-305</small></li>
+          <li>Bath accessories <small>SKU-306</small></li>
+        </ul>
+        <div class="specrow">
+          <div><small>MOQ</small><b>500 sets</b></div>
+          <div><small>Lead time</small><b>35 days</b></div>
+          <div><small>Finishes</small><b>CR · BN · MB · Gold</b></div>
+        </div>
+        <div class="actions">
+          <a href="products/Bathroom Hardware.html" class="btn btn-ghost">View category <span class="arr"></span></a>
+          <a href="Contact.html" class="btn btn-gold">Request quote <span class="arr"></span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="pcat reveal">
+      <div class="visual">
+        <div class="ph brass"><img class="img-cover" src="../assets/images/categories/brassware-hero.webp?v2026053002" alt="Brassware category — Balaji Udhyog export range" width="1200" height="900" loading="lazy" decoding="async"></div>
+        <span class="corner">04 · Signature</span>
+        
+      </div>
+      <div>
+        <div class="mono-lbl">Category 04 · Signature</div>
+        <h2>Brassware<br><em>from Muradabad.</em></h2>
+        <p>Our oldest category. Hand-cast pots, idols, lamps, vases, candle holders, decorative items — finished by master engravers in workshops that have run continuously since the 17th century.</p>
+        <ul class="skus">
+          <li>Decorative pots <small>SKU-401</small></li>
+          <li>Idols &amp; figurines <small>SKU-402</small></li>
+          <li>Oil lamps <small>SKU-403</small></li>
+          <li>Vases <small>SKU-404</small></li>
+          <li>Candle holders <small>SKU-405</small></li>
+          <li>Trays &amp; bowls <small>SKU-406</small></li>
+        </ul>
+        <div class="specrow">
+          <div><small>MOQ</small><b>200 units</b></div>
+          <div><small>Lead time</small><b>28 days</b></div>
+          <div><small>Finishes</small><b>Antique · Polish · Patina</b></div>
+        </div>
+        <div class="actions">
+          <a href="products/Brassware.html" class="btn btn-ghost">View category <span class="arr"></span></a>
+          <a href="Contact.html" class="btn btn-gold">Request quote <span class="arr"></span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="pcat reveal">
+      <div class="visual">
+        <div class="ph navy"><img class="img-cover" src="../assets/images/categories/metal-art-ware-hero.webp?v2026053002" alt="Metal Art Ware category — Balaji Udhyog export range" width="1200" height="900" loading="lazy" decoding="async"></div>
+        <span class="corner">05 · Artware</span>
+        
+      </div>
+      <div>
+        <div class="mono-lbl">Category 05</div>
+        <h2>Metal Art Ware<br><em>handcrafted in India.</em></h2>
+        <p>Wall art, sculptures, planters, statement decor and large-scale installations in brass, copper, iron and mixed metals. Suitable for hotel, retail and luxury residential applications.</p>
+        <ul class="skus">
+          <li>Wall art <small>SKU-501</small></li>
+          <li>Sculptures <small>SKU-502</small></li>
+          <li>Planters <small>SKU-503</small></li>
+          <li>Bookends <small>SKU-504</small></li>
+          <li>Trinket boxes <small>SKU-505</small></li>
+          <li>Large installations <small>SKU-506</small></li>
+        </ul>
+        <div class="specrow">
+          <div><small>MOQ</small><b>100 units</b></div>
+          <div><small>Lead time</small><b>35 days</b></div>
+          <div><small>Custom</small><b>OEM available</b></div>
+        </div>
+        <div class="actions">
+          <a href="products/Metal Art Ware.html" class="btn btn-ghost">View category <span class="arr"></span></a>
+          <a href="Contact.html" class="btn btn-gold">Request quote <span class="arr"></span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="pcat reveal">
+      <div class="visual">
+        <div class="ph glass"><img class="img-cover" src="../assets/images/categories/glassware-hero.webp?v2026053002" alt="Glassware category — Balaji Udhyog export range" width="1200" height="900" loading="lazy" decoding="async"></div>
+        <span class="corner">06 · Glass</span>
+        
+      </div>
+      <div>
+        <div class="mono-lbl">Category 06</div>
+        <h2>Glassware<br><em>from Firozabad.</em></h2>
+        <p>Furnace-blown chandeliers, hand-cut crystal, decorative glass, lighting and luxury glass decor. Built to spec for hotel groups, retailers and high-end interior projects.</p>
+        <ul class="skus">
+          <li>Chandeliers <small>SKU-601</small></li>
+          <li>Vases <small>SKU-602</small></li>
+          <li>Decanters <small>SKU-603</small></li>
+          <li>Bowls &amp; platters <small>SKU-604</small></li>
+          <li>Lighting <small>SKU-605</small></li>
+          <li>Decorative panels <small>SKU-606</small></li>
+        </ul>
+        <div class="specrow">
+          <div><small>MOQ</small><b>50 pieces</b></div>
+          <div><small>Lead time</small><b>45 days</b></div>
+          <div><small>Custom</small><b>Shapes &amp; colors</b></div>
+        </div>
+        <div class="actions">
+          <a href="products/Glassware.html" class="btn btn-ghost">View category <span class="arr"></span></a>
+          <a href="Contact.html" class="btn btn-gold">Request quote <span class="arr"></span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="pcat reveal">
+      <div class="visual">
+        <div class="ph paper bright"><img class="img-cover" src="../assets/images/categories/home-decor-hero.webp?v2026053002" alt="Home Decor category — Balaji Udhyog export range" width="1200" height="900" loading="lazy" decoding="async"></div>
+        <span class="corner">07 · Decor</span>
+        
+      </div>
+      <div>
+        <div class="mono-lbl">Category 07</div>
+        <h2>Home Decor<br><em>curated collections.</em></h2>
+        <p>Mirrors, photo frames, candle holders, decorative bowls, room fragrances and seasonal collections. Curated specifically for African retail and chain store buyers — pricing tiers from value to luxury.</p>
+        <ul class="skus">
+          <li>Mirrors <small>SKU-701</small></li>
+          <li>Photo frames <small>SKU-702</small></li>
+          <li>Candle holders <small>SKU-703</small></li>
+          <li>Decorative bowls <small>SKU-704</small></li>
+          <li>Room fragrances <small>SKU-705</small></li>
+          <li>Seasonal collections <small>SKU-706</small></li>
+        </ul>
+        <div class="specrow">
+          <div><small>MOQ</small><b>500 units</b></div>
+          <div><small>Lead time</small><b>30 days</b></div>
+          <div><small>Tiers</small><b>Value · Mid · Luxury</b></div>
+        </div>
+        <div class="actions">
+          <a href="products/Home Decor.html" class="btn btn-ghost">View category <span class="arr"></span></a>
+          <a href="Contact.html" class="btn btn-gold">Request quote <span class="arr"></span></a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="inquiry-band">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow light">Catalogue request</div>
+      <h2 class="h2" style="margin-top:14px">Get the full catalogue in your inbox within 24 hours.</h2>
+      <p>4,200+ SKUs across seven categories, with current FOB pricing, MOQs and lead times. Or send your shortlist and we'll return a custom proforma.</p>
+    </div>
+    <div class="actions">
+      <a href="Contact.html" class="btn btn-gold">Request catalogue <span class="arr"></span></a>
+      <a href="https://wa.me/916290746602" target="_blank" class="btn btn-wa">WhatsApp us</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href="../Balaji Udhyog.html" class="logo"><div class="logo-text"><b>BALAJI UDHYOG</b><small>Est · India · Exporters</small></div></a>
+        <p>Premium Indian hardware and decor exporter, serving African importers, distributors and chain retailers since 1998.</p>
+        <a href="Contact.html" class="foot-cta">Start an export inquiry →</a>
+      </div>
+      <div class="foot-col"><h4>Quick Links</h4><ul>
+        <li><a href="../Balaji Udhyog.html">Home</a></li><li><a href="About.html">About Us</a></li><li><a href="Export Services.html">Export Services</a></li><li><a href="Africa Market.html">Africa Market</a></li><li><a href="Blog.html">Blog</a></li><li><a href="Contact.html">Contact</a></li>
+      </ul></div>
+      <div class="foot-col"><h4>Product Categories</h4><ul>
+        <li><a href="products/Furniture Hardware.html">Furniture Hardware</a></li><li><a href="products/Locks - Hardware.html">Locks &amp; Hardware</a></li><li><a href="products/Bathroom Hardware.html">Bathroom Hardware</a></li><li><a href="products/Brassware.html">Brassware</a></li><li><a href="products/Metal Art Ware.html">Metal Art Ware</a></li><li><a href="products/Glassware.html">Glassware</a></li><li><a href="products/Home Decor.html">Home Decor</a></li>
+      </ul></div>
+      <div class="foot-col"><h4>Contact</h4><address class="addr">
+        Balaji Udhyog<br>Noida · Uttar Pradesh<br>India · 201301<br><br>
+        <b style="color:var(--gold-soft)">balaji6ab@gmail.com</b><br>+91 6290 746 602
+      </address></div>
+    </div>
+    <div class="foot-bottom">
+      <small>© 2026 Balaji Udhyog · All rights reserved</small>
+      <div class="socials">
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.11 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.5h4.6V23H.22V8.5zM8 8.5h4.4v2h.06a4.83 4.83 0 0 1 4.34-2.37c4.64 0 5.5 3.05 5.5 7.02V23h-4.6v-6.9c0-1.65-.03-3.78-2.3-3.78-2.3 0-2.66 1.8-2.66 3.66V23H8V8.5z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        <a href="https://wa.me/916290746602" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11 11 0 0 0 3.4 17.2L2 22l4.9-1.3a11 11 0 0 0 16.6-9.4 11 11 0 0 0-3-7.8z"/></svg></a>
+        <a href="#" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 6 9-6"/></svg></a>
+      </div>
+      <small>Made for the India ⇄ Africa trade corridor</small>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/916290746602" target="_blank" class="wa-float">
+  <svg viewBox="0 0 24 24"><path d="M20.5 3.5A11 11 0 0 0 3.4 17.2L2 22l4.9-1.3a11 11 0 0 0 16.6-9.4 11 11 0 0 0-3-7.8zM12 20a8.9 8.9 0 0 1-4.6-1.3l-.3-.2-2.9.8.8-2.8-.2-.3A9 9 0 1 1 12 20z"/></svg>
+  <span>Chat with us</span>
+</a>
+
+<script>
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'-40px 0px -40px 0px',threshold:0.05});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+<script>(function(){var l=function(){document.body.classList.add("loaded")};window.addEventListener("load",l);setTimeout(l,1400);})();</script>
+</body>
+</html>

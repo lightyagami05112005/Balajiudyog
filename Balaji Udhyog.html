@@ -1,0 +1,1351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Balaji Udhyog — Indian Hardware & Decor Exporter for African Markets</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --navy:#0a1d3a;
+    --navy-2:#0e2547;
+    --navy-deep:#06122a;
+    --gold:#c8a55b;
+    --gold-soft:#d9bd80;
+    --gold-dim:#8a7340;
+    --paper:#f5f2ec;
+    --paper-2:#ebe6db;
+    --ink:#14171c;
+    --ink-2:#2a2f38;
+    --grey:#6b7280;
+    --line:rgba(10,29,58,0.12);
+    --line-dark:rgba(245,242,236,0.14);
+    --display:'Montserrat',sans-serif;
+    --body:'Inter',sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;overflow-x:hidden;max-width:100%}
+  body{
+    font-family:var(--body);
+    background:var(--paper);
+    color:var(--ink);
+    font-size:16px;
+    line-height:1.55;
+    overflow-x:hidden;
+    max-width:100%;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+
+  /* ---------- UTILITIES ---------- */
+  .wrap{max-width:1360px;margin:0 auto;padding:0 40px}
+  @media (max-width:720px){.wrap{padding:0 22px}}
+  .eyebrow{
+    font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--gold-dim);display:inline-flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:28px;height:1px;background:var(--gold)}
+  .eyebrow.light{color:var(--gold-soft)}
+  .eyebrow.light::before{background:var(--gold)}
+  h1,h2,h3,h4{font-family:var(--display);font-weight:600;letter-spacing:-.01em;color:var(--ink);line-height:1.08}
+  .display{font-size:clamp(42px,5.6vw,84px);font-weight:600;letter-spacing:-.025em;line-height:1.02}
+  .h2{font-size:clamp(32px,3.6vw,52px);letter-spacing:-.02em;line-height:1.06}
+  .h3{font-size:clamp(22px,2vw,28px);letter-spacing:-.01em}
+  .lede{font-size:clamp(15px,1.1vw,18px);color:var(--ink-2);max-width:60ch;line-height:1.6}
+  .on-dark{color:var(--paper)}
+  .on-dark h1,.on-dark h2,.on-dark h3,.on-dark h4{color:var(--paper)}
+  .on-dark .lede{color:rgba(245,242,236,.74)}
+
+  /* ---------- BUTTONS ---------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:12px;
+    padding:16px 26px;font-weight:500;font-size:14px;letter-spacing:.04em;
+    border:1px solid transparent;transition:all .35s cubic-bezier(.2,.7,.2,1);
+    text-transform:uppercase;font-family:var(--body);
+  }
+  .btn .arr{width:16px;height:1px;background:currentColor;position:relative;transition:width .35s}
+  .btn .arr::after{content:"";position:absolute;right:-1px;top:-3px;width:7px;height:7px;border-right:1px solid currentColor;border-top:1px solid currentColor;transform:rotate(45deg)}
+  .btn:hover .arr{width:26px}
+  .btn-gold{background:var(--gold);color:var(--navy)}
+  .btn-gold:hover{background:var(--gold-soft)}
+  .btn-ghost{border-color:rgba(10,29,58,.25);color:var(--navy)}
+  .btn-ghost:hover{border-color:var(--navy);background:var(--navy);color:var(--paper)}
+  .btn-ghost-light{border-color:rgba(245,242,236,.3);color:var(--paper)}
+  .btn-ghost-light:hover{border-color:var(--gold);background:var(--gold);color:var(--navy)}
+  .btn-wa{background:#1eb858;color:#fff}
+  .btn-wa:hover{background:#17a04b}
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:80;
+    transition:background .4s ease, backdrop-filter .4s ease, border-color .4s;
+    border-bottom:1px solid transparent;
+  }
+  .nav.scrolled{background:rgba(6,18,42,.82);backdrop-filter:blur(18px);border-bottom-color:var(--line-dark)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:78px}
+  .logo{display:flex;align-items:center;gap:12px;color:var(--paper)}
+  .logo-mark{
+    width:38px;height:38px;border:1px solid var(--gold);
+    display:grid;place-items:center;position:relative;
+  }
+  .logo-mark::before{content:"";position:absolute;inset:4px;border:1px solid rgba(200,165,91,.4)}
+  .logo-mark span{font-family:var(--display);font-weight:700;font-size:14px;color:var(--gold);letter-spacing:.05em}
+  .logo-text{display:flex;flex-direction:column;line-height:1.05}
+  .logo-text b{font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:.08em;color:var(--paper)}
+  .logo-text small{font-family:var(--mono);font-size:9px;letter-spacing:.28em;color:var(--gold);text-transform:uppercase;margin-top:2px}
+  .nav-menu{display:flex;align-items:center;gap:38px}
+  .nav-menu a{font-size:13px;color:rgba(245,242,236,.78);letter-spacing:.03em;position:relative;padding:6px 0;transition:color .2s}
+  .nav-menu a:hover{color:var(--paper)}
+  .nav-menu a.has-down::after{content:"";display:inline-block;width:5px;height:5px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(45deg);margin-left:7px;margin-bottom:2px;vertical-align:middle}
+  .nav-menu .dropdown{position:relative}
+  .dropdown-panel{
+    position:absolute;top:calc(100% + 18px);left:-24px;width:280px;
+    background:#0a1d3a;border:1px solid var(--line-dark);
+    padding:14px 0;opacity:0;pointer-events:none;transform:translateY(-6px);
+    transition:opacity .25s, transform .25s;
+  }
+  .dropdown:hover .dropdown-panel{opacity:1;pointer-events:auto;transform:translateY(0)}
+  .dropdown-panel a{display:flex;justify-content:space-between;align-items:center;padding:11px 24px;font-size:13px;color:rgba(245,242,236,.8)}
+  .dropdown-panel a:hover{color:var(--gold);background:rgba(200,165,91,.06)}
+  .dropdown-panel a small{font-family:var(--mono);font-size:10px;color:var(--gold-dim)}
+  .nav-cta{display:flex;align-items:center;gap:14px}
+  .nav-cta .pill{padding:9px 16px;border:1px solid var(--gold);color:var(--gold);font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-family:var(--mono);transition:all .3s}
+  .nav-cta .pill:hover{background:var(--gold);color:var(--navy)}
+  .burger{display:none}
+  @media (max-width:980px){
+    .nav-menu,.nav-cta .pill{display:none}
+    .burger{display:flex;flex-direction:column;gap:5px;width:28px;cursor:pointer}
+    .burger span{height:1px;background:var(--paper);width:100%}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;min-height:100vh;background:var(--navy-deep);color:var(--paper);
+    overflow:hidden;display:flex;align-items:flex-end;padding:140px 0 0;
+  }
+  .hero h1,.hero h2,.hero h3,.hero h4{color:var(--paper)}
+  .hero-bg{position:absolute;inset:0;display:grid;grid-template-columns:1.4fr 1fr;opacity:.7}
+  .hero-bg .h-img{position:relative;overflow:hidden}
+  .hero-bg .h-img::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(6,18,42,.35) 0%,rgba(6,18,42,.85) 70%,var(--navy-deep) 100%);
+  }
+  .hero-bg .h-img.left{
+    background:
+      repeating-linear-gradient(135deg, rgba(200,165,91,.10) 0 2px, transparent 2px 22px),
+      linear-gradient(180deg,#152f56 0%,#0a1d3a 100%);
+  }
+  .hero-bg .h-img.right{
+    background:
+      repeating-linear-gradient(45deg, rgba(200,165,91,.07) 0 2px, transparent 2px 18px),
+      radial-gradient(circle at 70% 30%, #1a3a6e 0%, #06122a 70%);
+  }
+  .hero-grid{
+    position:relative;z-index:2;width:100%;display:grid;grid-template-columns:1fr;
+    padding-bottom:80px;
+  }
+  .hero-content{max-width:1100px}
+  .hero h1{margin:24px 0 28px;max-width:18ch}
+  .hero h1 em{font-style:normal;color:var(--gold);font-weight:300}
+  .hero .lede{font-size:clamp(16px,1.25vw,20px);max-width:60ch;color:rgba(245,242,236,.82)}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:42px}
+  .hero-meta{
+    margin-top:80px;border-top:1px solid var(--line-dark);padding-top:32px;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:40px;
+  }
+  .hero-meta .stat{display:flex;flex-direction:column;gap:6px}
+  .hero-meta .num{font-family:var(--display);font-size:clamp(28px,2.6vw,40px);color:var(--paper);font-weight:500;letter-spacing:-.02em}
+  .hero-meta .num em{color:var(--gold);font-style:normal;font-weight:300}
+  .hero-meta .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,242,236,.55)}
+  @media (max-width:720px){
+    .hero-meta{grid-template-columns:repeat(2,1fr);gap:24px}
+    .hero-bg{grid-template-columns:1fr}
+    .hero-bg .h-img.right{display:none}
+  }
+
+  .hero-corner{
+    position:absolute;top:120px;right:40px;z-index:3;
+    display:flex;flex-direction:column;gap:6px;text-align:right;
+    font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,242,236,.5)
+  }
+  .hero-corner span{display:block}
+  .hero-corner .accent{color:var(--gold)}
+  @media (max-width:720px){.hero-corner{display:none}}
+
+  .ticker{
+    position:relative;z-index:3;background:var(--navy);border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);
+    overflow:hidden;
+  }
+  .ticker-track{display:flex;gap:64px;padding:18px 0;animation:slide 40s linear infinite;white-space:nowrap;width:max-content}
+  .ticker-track span{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(245,242,236,.55)}
+  .ticker-track span em{color:var(--gold);font-style:normal;margin-right:10px}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section{padding:120px 0;position:relative}
+  @media (max-width:720px){section{padding:80px 0}}
+  .section-head{display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:end;margin-bottom:64px}
+  .section-head .num{
+    font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--gold);
+  }
+  .section-head h2{margin-top:14px}
+  @media (max-width:880px){.section-head{grid-template-columns:1fr;gap:24px}}
+
+  /* ---------- PRODUCT GRID ---------- */
+  .cat-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+  .cat{
+    grid-column:span 4;background:#fff;border:1px solid var(--line);
+    aspect-ratio:1/1;position:relative;overflow:hidden;cursor:pointer;
+    transition:transform .5s cubic-bezier(.2,.7,.2,1), box-shadow .5s;
+  }
+  .cat:nth-child(1){grid-column:span 6;aspect-ratio:16/10}
+  .cat:nth-child(2){grid-column:span 6;aspect-ratio:16/10}
+  .cat:nth-child(n+3){grid-column:span 3;aspect-ratio:4/5}
+  @media (max-width:980px){
+    .cat,.cat:nth-child(1),.cat:nth-child(2){grid-column:span 6;aspect-ratio:4/5}
+    .cat:nth-child(n+3){grid-column:span 6}
+  }
+  @media (max-width:560px){
+    .cat,.cat:nth-child(1),.cat:nth-child(2),.cat:nth-child(n+3){grid-column:span 12}
+  }
+  .cat:hover{box-shadow:0 30px 60px -30px rgba(10,29,58,.35)}
+  .cat-img{
+    position:absolute;inset:0;
+    background:
+      repeating-linear-gradient(45deg, rgba(10,29,58,.05) 0 1px, transparent 1px 14px),
+      linear-gradient(160deg,#e5dfd1 0%, #cfc4ac 100%);
+    transition:transform .8s cubic-bezier(.2,.7,.2,1);
+  }
+  .cat:nth-child(2n) .cat-img{background:
+      repeating-linear-gradient(135deg, rgba(200,165,91,.10) 0 1px, transparent 1px 14px),
+      linear-gradient(160deg,#dbcaa3 0%, #b89556 100%);}
+  .cat:nth-child(3n) .cat-img{background:
+      repeating-linear-gradient(45deg, rgba(10,29,58,.08) 0 1px, transparent 1px 16px),
+      linear-gradient(160deg,#243a5e 0%, #0a1d3a 100%);}
+  .cat:hover .cat-img{transform:scale(1.06)}
+  .cat-tag{
+    position:absolute;top:18px;left:18px;font-family:var(--mono);
+    font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.7);
+    background:rgba(10,29,58,.5);backdrop-filter:blur(6px);padding:6px 10px;
+  }
+  .cat:nth-child(2n) .cat-tag{color:var(--navy);background:rgba(245,242,236,.7)}
+  .cat-foot{
+    position:absolute;left:0;right:0;bottom:0;padding:24px;
+    background:linear-gradient(180deg,transparent 0%, rgba(10,29,58,.85) 100%);
+    color:var(--paper);display:flex;justify-content:space-between;align-items:flex-end;gap:20px;
+  }
+  .cat-foot h3{color:var(--paper);font-size:clamp(20px,1.6vw,26px);font-weight:500}
+  .cat-foot .sku{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;color:var(--gold-soft);text-transform:uppercase}
+  .cat-foot .arr{
+    width:44px;height:44px;border:1px solid rgba(245,242,236,.4);display:grid;place-items:center;
+    flex-shrink:0;transition:all .3s;
+  }
+  .cat:hover .cat-foot .arr{background:var(--gold);border-color:var(--gold)}
+  .cat-foot .arr svg{width:14px;height:14px}
+
+  .cat-mono{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;
+    color:rgba(10,29,58,.3);pointer-events:none;
+  }
+  .cat:nth-child(3n) .cat-mono{color:rgba(200,165,91,.35)}
+
+  /* ---------- HUBS ---------- */
+  .hubs{background:var(--navy);color:var(--paper)}
+  .hubs .section-head .num{color:var(--gold)}
+  .hub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  @media (max-width:980px){.hub-grid{grid-template-columns:1fr}}
+  .hub{
+    border:1px solid var(--line-dark);background:linear-gradient(180deg,rgba(255,255,255,.02),transparent);
+    padding:0;position:relative;overflow:hidden;display:flex;flex-direction:column;
+    transition:border-color .4s;
+  }
+  .hub:hover{border-color:var(--gold)}
+  .hub-img{
+    aspect-ratio:4/3;position:relative;overflow:hidden;
+    background:
+      repeating-linear-gradient(45deg, rgba(200,165,91,.08) 0 1px, transparent 1px 16px),
+      linear-gradient(160deg,#1a3a6e 0%, #06122a 100%);
+  }
+  .hub:nth-child(2) .hub-img{background:
+      repeating-linear-gradient(135deg, rgba(245,242,236,.05) 0 1px, transparent 1px 14px),
+      linear-gradient(160deg,#2a2f38 0%, #14171c 100%);}
+  .hub:nth-child(3) .hub-img{background:
+      repeating-linear-gradient(45deg, rgba(200,165,91,.12) 0 1px, transparent 1px 18px),
+      linear-gradient(160deg,#b89556 0%, #6a532a 100%);}
+  .hub-img::after{
+    content:attr(data-label);position:absolute;left:24px;bottom:20px;
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;color:rgba(245,242,236,.55);text-transform:uppercase;
+  }
+  .hub-tag{
+    position:absolute;top:24px;right:24px;font-family:var(--mono);
+    font-size:10.5px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;
+    border:1px solid var(--gold);padding:5px 10px;
+  }
+  .hub-body{padding:32px 32px 36px;display:flex;flex-direction:column;gap:18px;flex:1}
+  .hub-body h3{font-size:clamp(26px,2vw,34px);font-weight:500;letter-spacing:-.02em}
+  .hub-body h3 small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--gold);margin-bottom:8px;font-weight:400;text-transform:uppercase}
+  .hub-body p{color:rgba(245,242,236,.72);font-size:14.5px;line-height:1.65}
+  .hub-list{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+  .hub-list li{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:11px 0;border-top:1px solid var(--line-dark);font-size:13.5px;
+  }
+  .hub-list li:first-child{border-top:0;padding-top:0}
+  .hub-list li small{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--gold);text-transform:uppercase}
+
+  /* ---------- WHY US ---------- */
+  .why-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .why{
+    background:var(--paper);padding:40px 36px;display:flex;flex-direction:column;gap:14px;
+    transition:background .3s;
+    grid-column:span 4;
+  }
+  .why:hover{background:#fff}
+  .why:nth-child(7){grid-column:span 12;background:var(--navy);color:var(--paper);padding:48px 48px;display:flex;flex-direction:row;justify-content:space-between;align-items:center;gap:32px}
+  .why:nth-child(7) h3{color:var(--paper)}
+  .why:nth-child(7) p{color:rgba(245,242,236,.72)}
+  @media (max-width:880px){.why{grid-column:span 6}.why:nth-child(7){grid-column:span 12;flex-direction:column;align-items:flex-start}}
+  @media (max-width:560px){.why{grid-column:span 12}}
+  .why-num{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--gold-dim)}
+  .why:nth-child(7) .why-num{color:var(--gold)}
+  .why h3{font-size:20px;font-weight:500;letter-spacing:-.01em}
+  .why p{font-size:14px;color:var(--ink-2);line-height:1.6}
+  .why-icon{width:42px;height:42px;border:1px solid var(--line);display:grid;place-items:center;color:var(--gold)}
+  .why-icon svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.4}
+  .why:nth-child(7) .why-icon{border-color:rgba(245,242,236,.2)}
+
+  /* ---------- PROCESS ---------- */
+  .process{background:var(--paper-2)}
+  .process-row{display:grid;grid-template-columns:repeat(6,1fr);gap:0;position:relative}
+  .process-row::before{content:"";position:absolute;top:30px;left:0;right:0;height:1px;background:var(--line)}
+  .process-row::after{content:"";position:absolute;top:30px;left:0;height:1px;background:var(--gold);width:100%;transform-origin:left;animation:none}
+  .step{padding:0 18px 0 0;position:relative}
+  .step-dot{
+    width:60px;height:60px;border-radius:50%;background:var(--paper);border:1px solid var(--line);
+    display:grid;place-items:center;font-family:var(--mono);font-size:13px;color:var(--gold);
+    position:relative;z-index:2;transition:all .4s;
+  }
+  .step:hover .step-dot{border-color:var(--gold);background:var(--navy);color:var(--gold)}
+  .step h4{margin-top:24px;font-size:17px;font-weight:500;letter-spacing:-.01em}
+  .step p{font-size:13px;color:var(--ink-2);margin-top:8px;line-height:1.55}
+  @media (max-width:880px){.process-row{grid-template-columns:repeat(2,1fr);gap:32px 18px}.process-row::before{display:none}}
+
+  /* ---------- AFRICA ---------- */
+  .africa{background:var(--navy-deep);color:var(--paper);overflow:hidden}
+  .africa-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:center}
+  @media (max-width:980px){.africa-grid{grid-template-columns:1fr;gap:48px}}
+  .africa .num{color:var(--gold)}
+  .africa h2,.africa .h2{color:var(--paper);margin-top:14px}
+  .africa .lede{color:rgba(245,242,236,.78)}
+  .africa-points li span{color:var(--paper)}
+  .africa-points{margin-top:36px;display:flex;flex-direction:column;gap:1px;background:var(--line-dark)}
+  .africa-points li{
+    background:var(--navy-deep);padding:18px 0;
+    display:flex;align-items:center;gap:24px;font-size:15px;
+  }
+  .africa-points li b{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--gold);width:60px;font-weight:500;text-transform:uppercase}
+  .africa-points li span{flex:1}
+  .africa-points li em{font-style:normal;color:rgba(245,242,236,.55);font-size:13px}
+
+  .map-wrap{
+    position:relative;aspect-ratio:1/1;border:1px solid var(--line-dark);
+    padding:40px;background:
+      radial-gradient(circle at 50% 50%, rgba(200,165,91,.08) 0%, transparent 60%),
+      linear-gradient(180deg, rgba(255,255,255,.02), transparent);
+  }
+  .map-wrap svg{width:100%;height:100%;display:block}
+  .map-wrap .corner{
+    position:absolute;font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:rgba(245,242,236,.45);text-transform:uppercase;
+  }
+  .map-wrap .c1{top:20px;left:24px}.map-wrap .c2{top:20px;right:24px;text-align:right}
+  .map-wrap .c3{bottom:20px;left:24px}.map-wrap .c4{bottom:20px;right:24px;text-align:right;color:var(--gold)}
+
+  /* ---------- GALLERY ---------- */
+  .gallery-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:140px;gap:12px}
+  .gi{position:relative;overflow:hidden;cursor:pointer}
+  .gi::after{
+    content:attr(data-label);position:absolute;left:14px;bottom:12px;
+    font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.78);text-transform:uppercase;
+    z-index:2;
+  }
+  .gi .gi-fill{position:absolute;inset:0;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+  .gi:hover .gi-fill{transform:scale(1.07)}
+  .gi.a{grid-column:span 4;grid-row:span 3;background:#0a1d3a}
+  .gi.b{grid-column:span 4;grid-row:span 2;background:#b89556}
+  .gi.c{grid-column:span 4;grid-row:span 2;background:#2a2f38}
+  .gi.d{grid-column:span 4;grid-row:span 2;background:#dbcaa3}
+  .gi.e{grid-column:span 4;grid-row:span 3;background:#cfc4ac}
+  .gi.f{grid-column:span 4;grid-row:span 2;background:#152f56}
+  .gi.g{grid-column:span 8;grid-row:span 2;background:#243a5e}
+  .gi .gi-fill{background:
+    repeating-linear-gradient(45deg, rgba(255,255,255,.05) 0 1px, transparent 1px 14px);
+  }
+  .gi.a .gi-fill,.gi.f .gi-fill,.gi.g .gi-fill{background:
+    repeating-linear-gradient(45deg, rgba(200,165,91,.12) 0 1px, transparent 1px 16px),
+    linear-gradient(160deg, rgba(255,255,255,.02), rgba(0,0,0,.2));
+  }
+  .gi.b .gi-fill,.gi.d .gi-fill{background:
+    repeating-linear-gradient(135deg, rgba(10,29,58,.08) 0 1px, transparent 1px 14px),
+    linear-gradient(160deg, rgba(255,255,255,.1), rgba(0,0,0,.05));
+  }
+  @media (max-width:880px){
+    .gallery-grid{grid-template-columns:repeat(6,1fr);grid-auto-rows:120px}
+    .gi.a,.gi.b,.gi.c,.gi.d,.gi.e,.gi.f{grid-column:span 3;grid-row:span 2}
+    .gi.g{grid-column:span 6;grid-row:span 2}
+  }
+
+  /* ---------- BLOG ---------- */
+  .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  @media (max-width:880px){.blog-grid{grid-template-columns:1fr}}
+  .post{display:flex;flex-direction:column;gap:20px;cursor:pointer;group:post}
+  .post-img{aspect-ratio:4/3;position:relative;overflow:hidden;background:#e5dfd1}
+  .post-img .pi-fill{position:absolute;inset:0;transition:transform .8s cubic-bezier(.2,.7,.2,1);background:
+    repeating-linear-gradient(45deg, rgba(10,29,58,.06) 0 1px, transparent 1px 14px),
+    linear-gradient(160deg,#e5dfd1, #b89556);}
+  .post:nth-child(2) .post-img .pi-fill{background:
+    repeating-linear-gradient(135deg, rgba(200,165,91,.12) 0 1px, transparent 1px 16px),
+    linear-gradient(160deg,#152f56, #06122a);}
+  .post:nth-child(3) .post-img .pi-fill{background:
+    repeating-linear-gradient(45deg, rgba(10,29,58,.08) 0 1px, transparent 1px 14px),
+    linear-gradient(160deg,#2a2f38, #14171c);}
+  .post:hover .pi-fill{transform:scale(1.05)}
+  .post-tag{position:absolute;top:14px;left:14px;font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;background:var(--paper);padding:5px 9px;color:var(--navy)}
+  .post-meta{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;color:var(--grey);text-transform:uppercase;display:flex;gap:14px}
+  .post-meta span:not(:last-child)::after{content:"·";margin-left:14px}
+  .post h3{font-size:22px;font-weight:500;letter-spacing:-.01em;line-height:1.25}
+  .post p{font-size:14px;color:var(--ink-2);line-height:1.6}
+  .post .read{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--gold-dim);text-transform:uppercase;margin-top:4px;display:inline-flex;align-items:center;gap:10px}
+  .post .read::after{content:"→";color:var(--gold)}
+
+  /* ---------- CONTACT ---------- */
+  .contact{background:var(--paper-2)}
+  .contact-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:start}
+  @media (max-width:980px){.contact-grid{grid-template-columns:1fr;gap:48px}}
+  .contact h2{max-width:14ch}
+  .contact-info{margin-top:40px;display:flex;flex-direction:column;gap:1px;background:var(--line)}
+  .contact-info li{background:var(--paper-2);padding:20px 0;display:grid;grid-template-columns:140px 1fr;gap:24px;align-items:center;font-size:15px}
+  .contact-info li small{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;color:var(--gold-dim);text-transform:uppercase}
+  .contact-info li b{font-weight:500}
+  .contact-info li span{font-size:13px;color:var(--ink-2)}
+
+  .form{background:#fff;padding:48px;border:1px solid var(--line)}
+  .form .eyebrow{margin-bottom:8px}
+  .form h3{font-size:24px;font-weight:500;margin-bottom:32px;letter-spacing:-.01em}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+  .form-row.full{grid-template-columns:1fr}
+  .field label{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:8px}
+  .field input,.field select,.field textarea{
+    width:100%;border:0;border-bottom:1px solid var(--line);background:transparent;
+    padding:10px 0;font:inherit;font-size:15px;color:var(--ink);outline:none;transition:border-color .25s;
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{border-bottom-color:var(--gold)}
+  .field textarea{resize:none;min-height:80px}
+  .form .actions{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap}
+  .form-note{margin-top:18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--grey);text-transform:uppercase}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--navy-deep);color:var(--paper);padding:100px 0 40px;position:relative}
+  .foot-top{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:60px;padding-bottom:64px;border-bottom:1px solid var(--line-dark)}
+  @media (max-width:880px){.foot-top{grid-template-columns:1fr 1fr;gap:40px}}
+  @media (max-width:560px){.foot-top{grid-template-columns:1fr}}
+  .foot-brand p{color:rgba(245,242,236,.65);margin-top:18px;font-size:14px;max-width:36ch;line-height:1.65}
+  .foot-col h4{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-bottom:22px;font-weight:500}
+  .foot-col ul{display:flex;flex-direction:column;gap:12px}
+  .foot-col a{font-size:14px;color:rgba(245,242,236,.72);transition:color .2s}
+  .foot-col a:hover{color:var(--gold)}
+  .foot-col .addr{font-size:14px;color:rgba(245,242,236,.72);line-height:1.7;font-style:normal}
+  .foot-cta{margin-top:24px;display:inline-flex;gap:12px;padding:14px 22px;border:1px solid var(--gold);color:var(--gold);font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;transition:all .3s}
+  .foot-cta:hover{background:var(--gold);color:var(--navy)}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:36px;flex-wrap:wrap;gap:20px}
+  .foot-bottom small{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;color:rgba(245,242,236,.5);text-transform:uppercase}
+  .foot-bottom .socials{display:flex;gap:10px}
+  .foot-bottom .socials a{
+    width:38px;height:38px;border:1px solid var(--line-dark);display:grid;place-items:center;transition:all .3s;
+  }
+  .foot-bottom .socials a:hover{border-color:var(--gold);color:var(--gold)}
+  .foot-bottom .socials svg{width:14px;height:14px}
+
+  /* ---------- WHATSAPP FLOAT ---------- */
+  .wa-float{
+    position:fixed;right:26px;bottom:26px;z-index:90;
+    display:flex;align-items:center;gap:10px;
+    background:#1eb858;color:#fff;padding:14px 18px;
+    border-radius:50px;box-shadow:0 18px 40px -10px rgba(30,184,88,.4);
+    font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+    transition:transform .3s, box-shadow .3s;
+  }
+  .wa-float:hover{transform:translateY(-2px);box-shadow:0 22px 50px -10px rgba(30,184,88,.55)}
+  .wa-float svg{width:18px;height:18px;fill:#fff}
+  .wa-float::before{
+    content:"";position:absolute;inset:-4px;border-radius:50px;
+    border:1px solid rgba(30,184,88,.5);animation:ping 2.6s ease-out infinite;
+  }
+  @keyframes ping{0%{transform:scale(1);opacity:.8}80%,100%{transform:scale(1.15);opacity:0}}
+
+  /* ---------- REVEAL ---------- */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal[data-d="1"]{transition-delay:.08s}
+  .reveal[data-d="2"]{transition-delay:.16s}
+  .reveal[data-d="3"]{transition-delay:.24s}
+  .reveal[data-d="4"]{transition-delay:.32s}
+
+  /* ---------- REAL IMAGE LAYER ---------- */
+  /* Real <img> drops onto the gradient placeholders; the gradient stays behind
+     as a loading skeleton / graceful fallback until real assets are added. */
+  .img-cover{
+    position:absolute;inset:0;width:100%;height:100%;
+    object-fit:cover;display:block;z-index:1;
+    transition:transform .8s cubic-bezier(.2,.7,.2,1);
+  }
+  .cat-tag,.cat-foot,.hub-tag,.post-tag,.cat-mono{z-index:3}
+  .cat:hover .img-cover,
+  .gi:hover .img-cover,
+  .post:hover .img-cover{transform:scale(1.06)}
+  /* hero panels: photo sits behind the navy scrim (.h-img::after) */
+  .h-img .img-cover{z-index:0}
+
+  /* ---------- PHASE 2 · CONVERSION SECTIONS ---------- */
+  .trust-bar{border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);background:var(--navy)}
+  .trust-bar .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:20px 40px}
+  .trust-bar .tb{display:flex;align-items:center;gap:11px;font-size:12.5px;color:rgba(245,242,236,.74)}
+  .trust-bar .tb svg{width:18px;height:18px;stroke:var(--gold);fill:none;stroke-width:1.5;flex-shrink:0}
+  .trust-bar .tb b{font-weight:600;color:var(--paper)}
+  @media (max-width:720px){.trust-bar .wrap{padding:18px 22px;gap:14px}}
+
+  .metric-strip{background:var(--navy-deep);color:var(--paper);position:relative;overflow:hidden;padding:0}
+  .metric-strip::before{content:"";position:absolute;inset:0;opacity:.4;background:repeating-linear-gradient(135deg,rgba(200,165,91,.08) 0 1px,transparent 1px 22px)}
+  .metric-row{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);gap:40px;padding:70px 0}
+  @media (max-width:760px){.metric-row{grid-template-columns:repeat(2,1fr);gap:30px;padding:54px 0}}
+  .metric{display:flex;flex-direction:column;gap:8px}
+  .metric b{font-family:var(--display);font-size:clamp(30px,3vw,46px);font-weight:500;color:var(--paper);letter-spacing:-.02em;line-height:1}
+  .metric b em{font-style:normal;color:var(--gold);font-weight:300}
+  .metric small{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:rgba(245,242,236,.55);text-transform:uppercase}
+
+  .market-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+  @media (max-width:980px){.market-grid{grid-template-columns:repeat(3,1fr)}}
+  @media (max-width:620px){.market-grid{grid-template-columns:repeat(2,1fr)}}
+  .market{display:flex;flex-direction:column;gap:9px;background:#fff;border:1px solid var(--line);padding:24px 22px;transition:transform .4s,border-color .4s;color:inherit}
+  .market:hover{transform:translateY(-4px);border-color:var(--gold)}
+  .market .mc{font-family:var(--display);font-size:26px;font-weight:600;color:var(--gold)}
+  .market h3{font-size:17px;font-weight:500;letter-spacing:-.01em}
+  .market small{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--grey);text-transform:uppercase;line-height:1.6}
+  .market .mlink{margin-top:auto;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--gold-dim);text-transform:uppercase;display:inline-flex;gap:8px;padding-top:10px}
+  .market .mlink::after{content:"\2192";color:var(--gold)}
+
+  .quote-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  @media (max-width:860px){.quote-grid{grid-template-columns:1fr}}
+  .quote{background:#fff;border:1px solid var(--line);padding:34px 32px;display:flex;flex-direction:column;gap:18px;transition:border-color .4s,transform .4s}
+  .quote:hover{border-color:var(--gold);transform:translateY(-4px)}
+  .quote .qm{font-family:var(--display);font-size:46px;line-height:.6;color:var(--gold);height:24px}
+  .quote p{font-size:15.5px;line-height:1.6;color:var(--ink-2)}
+  .quote .by{margin-top:auto;display:flex;flex-direction:column;gap:3px;border-top:1px solid var(--line);padding-top:18px}
+  .quote .by b{font-size:14px;font-weight:600;color:var(--ink)}
+  .quote .by small{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--gold-dim);text-transform:uppercase}
+
+  .dl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media (max-width:860px){.dl-grid{grid-template-columns:1fr}}
+  .dl-card{display:flex;flex-direction:column;gap:15px;background:#fff;border:1px solid var(--line);padding:30px 30px 28px;transition:transform .4s,border-color .4s,box-shadow .4s}
+  .dl-card:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 30px 56px -34px rgba(10,29,58,.35)}
+  .dl-card .dl-top{display:flex;justify-content:space-between;align-items:flex-start;gap:18px}
+  .dl-icon{width:46px;height:46px;border:1px solid var(--gold);display:grid;place-items:center;color:var(--gold);flex-shrink:0}
+  .dl-icon svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.4}
+  .dl-card .fmt{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--gold-dim);text-transform:uppercase}
+  .dl-card h3{font-size:19px;font-weight:500;letter-spacing:-.01em;line-height:1.25}
+  .dl-card p{font-size:13.5px;color:var(--ink-2);line-height:1.55}
+  .dl-card .dl-meta{margin-top:auto;display:flex;gap:16px;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;color:var(--grey);text-transform:uppercase;padding-top:6px}
+  .dl-card .dl-btn{margin-top:14px;display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:var(--navy);border-bottom:1px solid var(--gold);padding-bottom:6px;align-self:flex-start;transition:gap .3s}
+  .dl-card .dl-btn::after{content:"\2193";color:var(--gold)}
+  .dl-card:hover .dl-btn{gap:14px}
+
+  .reveal[data-d="5"]{transition-delay:.4s}
+
+  .page-curtain{position:fixed;inset:0;z-index:1000;background:var(--navy-deep);display:grid;place-items:center;transition:opacity .9s ease,visibility .9s ease}
+  .page-curtain .pcm{width:54px;height:54px;border:1px solid var(--gold);display:grid;place-items:center;position:relative;animation:pcm-pulse 1.4s ease-in-out infinite}
+  .page-curtain .pcm::before{content:"";position:absolute;inset:5px;border:1px solid rgba(200,165,91,.4)}
+  .page-curtain .pcm span{font-family:var(--display);font-weight:700;font-size:18px;color:var(--gold);letter-spacing:.05em}
+  @keyframes pcm-pulse{0%,100%{opacity:.55;transform:scale(.96)}50%{opacity:1;transform:scale(1)}}
+  body.loaded .page-curtain{opacity:0;visibility:hidden;pointer-events:none}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1!important;transform:none!important}.page-curtain{display:none!important}}
+
+</style>
+</head>
+<body>
+<div class="page-curtain"></div>
+
+<!-- ==================== NAV ==================== -->
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#" class="logo">
+      
+      <div class="logo-text">
+        <b>BALAJI UDHYOG</b>
+        <small>Est · India · Exporters</small>
+      </div>
+    </a>
+    <div class="nav-menu">
+      <a href="Balaji Udhyog.html" class="active">Home</a>
+      <a href="pages/About.html">About</a>
+      <div class="dropdown">
+        <a href="pages/Products.html" class="has-down">Products</a>
+        <div class="dropdown-panel">
+          <a href="pages/products/items/index.html"><span>All Products</span><small>72</small></a>
+          <a href="pages/products/Furniture Hardware.html"><span>Furniture Hardware</span><small>01</small></a>
+          <a href="pages/products/Locks - Hardware.html"><span>Locks &amp; Hardware</span><small>02</small></a>
+          <a href="pages/products/Bathroom Hardware.html"><span>Bathroom Hardware</span><small>03</small></a>
+          <a href="pages/products/Brassware.html"><span>Brassware</span><small>04</small></a>
+          <a href="pages/products/Metal Art Ware.html"><span>Metal Art Ware</span><small>05</small></a>
+          <a href="pages/products/Glassware.html"><span>Glassware</span><small>06</small></a>
+          <a href="pages/products/Home Decor.html"><span>Home Decor</span><small>07</small></a>
+        </div>
+      </div>
+      <a href="pages/Export Services.html">Export Services</a>
+      <a href="pages/Africa Market.html">Africa Market</a>
+      <a href="pages/Blog.html">Blog</a>
+      <a href="pages/Contact.html">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a href="pages/Contact.html" class="pill">Request Catalogue</a>
+      <div class="burger"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+
+<!-- ==================== HERO ==================== -->
+<header class="hero" id="home">
+  <div class="hero-bg">
+    <div class="h-img left"><img class="img-cover" src="assets/images/hero/hero-brass-foundry-left.webp" alt="Master artisan lifting a glowing hand-cast brass vessel in a Muradabad foundry" width="1080" height="1350" loading="eager" decoding="async" fetchpriority="high"></div>
+    <div class="h-img right"><img class="img-cover" src="assets/images/hero/hero-export-port-right.webp" alt="Shipping containers stacked at an Indian export seaport at dusk" width="1080" height="1350" loading="eager" decoding="async"></div>
+  </div>
+  <div class="hero-corner">
+    <span>India · Africa Trade Corridor</span>
+    <span class="accent">EST. 1998</span>
+    <span>Port of Mundra · Nhava Sheva</span>
+  </div>
+  <div class="wrap hero-grid">
+    <div class="hero-content">
+      <div class="eyebrow light reveal">Indian Hardware &amp; Decor · For African Markets</div>
+      <h1 class="display reveal" data-d="1">
+        Premium Indian Hardware<br>&amp; Decor Exporter<br><em>for African Markets.</em>
+      </h1>
+      <p class="lede reveal" data-d="2">
+        Trusted sourcing and export partner for African importers, wholesalers and distributors. Direct from the manufacturing hubs of Muradabad, Aligarh and Firozabad — shipped to ports across the continent.
+      </p>
+      <div class="hero-actions reveal" data-d="3">
+        <a href="#products" class="btn btn-gold">Explore Products <span class="arr"></span></a>
+        <a href="#contact" class="btn btn-ghost-light">Request Catalogue <span class="arr"></span></a>
+        <a href="https://wa.me/916290746602" target="_blank" class="btn btn-wa">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20.5 3.5A11 11 0 0 0 3.4 17.2L2 22l4.9-1.3a11 11 0 0 0 16.6-9.4 11 11 0 0 0-3-7.8zM12 20a8.9 8.9 0 0 1-4.6-1.3l-.3-.2-2.9.8.8-2.8-.2-.3A9 9 0 1 1 12 20zm5-6.6c-.3-.1-1.7-.8-1.9-.9s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.5.1a7.3 7.3 0 0 1-2.2-1.4 8 8 0 0 1-1.5-1.8c-.2-.3 0-.4.1-.6l.4-.4.3-.4c.1-.2 0-.3 0-.4l-.9-2.1c-.2-.5-.5-.4-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 6 6 0 0 0 1.2 3.1 13.6 13.6 0 0 0 5.1 4.4c.7.3 1.2.5 1.7.6a4 4 0 0 0 1.8.1 3 3 0 0 0 2-1.4 2.4 2.4 0 0 0 .2-1.4c-.1-.2-.3-.3-.6-.4z"/></svg>
+          WhatsApp Us
+        </a>
+      </div>
+      <div class="hero-meta reveal" data-d="4">
+        <div class="stat"><div class="num">25<em>+</em></div><div class="lbl">Years Exporting</div></div>
+        <div class="stat"><div class="num">14<em>+</em></div><div class="lbl">African Markets</div></div>
+        <div class="stat"><div class="num">600<em>+</em></div><div class="lbl">Verified Factories</div></div>
+        <div class="stat"><div class="num">3<em>k</em></div><div class="lbl">Container Shipments</div></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span><em>◆</em> Mundra Port</span>
+    <span><em>◆</em> Lagos · Nigeria</span>
+    <span><em>◆</em> Mombasa · Kenya</span>
+    <span><em>◆</em> Durban · South Africa</span>
+    <span><em>◆</em> Tema · Ghana</span>
+    <span><em>◆</em> Dar es Salaam · Tanzania</span>
+    <span><em>◆</em> Abidjan · Côte d'Ivoire</span>
+    <span><em>◆</em> Apapa · Nigeria</span>
+    <span><em>◆</em> Mundra Port</span>
+    <span><em>◆</em> Lagos · Nigeria</span>
+    <span><em>◆</em> Mombasa · Kenya</span>
+    <span><em>◆</em> Durban · South Africa</span>
+    <span><em>◆</em> Tema · Ghana</span>
+    <span><em>◆</em> Dar es Salaam · Tanzania</span>
+    <span><em>◆</em> Abidjan · Côte d'Ivoire</span>
+    <span><em>◆</em> Apapa · Nigeria</span>
+  </div>
+</div>
+
+<!-- ==================== TRUST BAR ==================== -->
+<div class="trust-bar reveal">
+  <div class="wrap">
+    <div class="tb"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4-6.3-4.6L5.7 21.4 8 14 2 9.4h7.6z"/></svg><span><b>25 years</b> shipping into Africa</span></div>
+    <div class="tb"><svg viewBox="0 0 24 24"><path d="M3 9l9-6 9 6v12H3z"/><path d="M9 21V12h6v9"/></svg><span><b>600+</b> verified factories</span></div>
+    <div class="tb"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><b>&lt;0.4%</b> shipment damage</span></div>
+    <div class="tb"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 9h18"/></svg><span><b>Port-ready</b> SONCAP · KEBS · SABS</span></div>
+    <div class="tb"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span><b>24h</b> inquiry response</span></div>
+  </div>
+</div>
+
+<!-- ==================== PRODUCT CATEGORIES ==================== -->
+<section id="products">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="num">02 / Catalogue</div>
+        <h2 class="h2">Seven categories.<br>One reliable partner.</h2>
+      </div>
+      <p class="lede">From hand-finished brassware in Muradabad to industrial-grade locks from Aligarh — every category is sourced directly from verified factories, quality-audited, and packaged for international freight.</p>
+    </div>
+
+    <div class="cat-grid">
+      <a href="pages/products/Brassware.html" class="cat reveal">
+        <div class="cat-img"></div>
+        <img class="img-cover" src="assets/images/categories/brassware-hero.webp?v2026060603" alt="Handcrafted brassware and cast metals from Muradabad" width="1600" height="1000" loading="lazy" decoding="async">
+        <div class="cat-tag">Signature</div>
+        <div class="cat-foot">
+          <div>
+            <div class="sku">04 · Brassware</div>
+            <h3>Brassware &amp; Cast Metals</h3>
+          </div>
+          <div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+
+      <a href="pages/products/Metal Art Ware.html" class="cat reveal" data-d="1">
+        <div class="cat-img"></div>
+        <img class="img-cover" src="assets/images/categories/metal-art-ware-hero.webp?v2026060603" alt="Handcrafted metal art ware and decorative sculptures" width="1600" height="1000" loading="lazy" decoding="async">
+        <div class="cat-tag">Handcrafted</div>
+        <div class="cat-foot">
+          <div>
+            <div class="sku">05 · Metal Art Ware</div>
+            <h3>Metal Art &amp; Handicrafts</h3>
+          </div>
+          <div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+
+      <a href="pages/products/Furniture Hardware.html" class="cat reveal">
+        <div class="cat-img"></div>
+        <img class="img-cover" src="assets/images/categories/furniture-hardware-hero.webp?v2026060603" alt="Precision furniture hardware — hinges, slides and handles" width="1000" height="1250" loading="lazy" decoding="async">
+        <div class="cat-tag">01</div>
+        <div class="cat-foot">
+          <div><h3>Furniture Hardware</h3></div>
+          <div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+
+      <a href="pages/products/Locks - Hardware.html" class="cat reveal" data-d="1">
+        <div class="cat-img"></div>
+        <img class="img-cover" src="assets/images/categories/locks-hardware-hero.webp?v2026060603" alt="Precision-engineered locks and security hardware from Aligarh" width="1000" height="1250" loading="lazy" decoding="async">
+        <div class="cat-tag">02</div>
+        <div class="cat-foot">
+          <div><h3>Locks &amp; Hardware</h3></div>
+          <div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+
+      <a href="pages/products/Bathroom Hardware.html" class="cat reveal" data-d="2">
+        <div class="cat-img"></div>
+        <img class="img-cover" src="assets/images/categories/bathroom-hardware-hero.webp?v2026060603" alt="Premium bathroom hardware and sanitary fittings" width="1000" height="1250" loading="lazy" decoding="async">
+        <div class="cat-tag">03</div>
+        <div class="cat-foot">
+          <div><h3>Bathroom Hardware</h3></div>
+          <div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+
+      <a href="pages/products/Glassware.html" class="cat reveal" data-d="3">
+        <div class="cat-img"></div>
+        <img class="img-cover" src="assets/images/categories/glassware-hero.webp?v2026060603" alt="Hand-blown glassware and crystal from Firozabad" width="1000" height="1250" loading="lazy" decoding="async">
+        <div class="cat-tag">06</div>
+        <div class="cat-foot">
+          <div><h3>Glassware</h3></div>
+          <div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+
+      <a href="pages/products/Home Decor.html" class="cat reveal" data-d="3">
+        <div class="cat-img"></div>
+        <img class="img-cover" src="assets/images/categories/home-decor-hero.webp?v2026060603" alt="Curated home decor and accent pieces for export" width="1000" height="1250" loading="lazy" decoding="async">
+        <div class="cat-tag">07</div>
+        <div class="cat-foot">
+          <div><h3>Home Decor</h3></div>
+          <div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== MANUFACTURING HUBS ==================== -->
+<section class="hubs" id="about">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="num">03 / Origin</div>
+        <h2 class="h2">India's<br>manufacturing strength.</h2>
+      </div>
+      <p class="lede">Three legendary craft cities. Each with centuries of expertise, modern factories, and the export volume to fulfill containerised orders for African distributors and chain retailers.</p>
+    </div>
+
+    <div class="hub-grid">
+      <a class="hub reveal" href="pages/hubs/Muradabad.html" style="text-decoration:none;color:inherit">
+        <div class="hub-img"><img class="img-cover" src="assets/images/hubs/moradabad/moradabad-aerial.webp?v2026053001" alt="Aerial view of the Muradabad brass foundry district at golden hour" width="1200" height="900" loading="lazy" decoding="async">
+          <div class="hub-tag">U.P. · India</div>
+        </div>
+        <div class="hub-body">
+          <h3><small>Hub 01</small>Muradabad</h3>
+          <p>The brass capital of India. A 400-year-old craft ecosystem of foundries, polishers and master engravers producing the world's most refined brassware and metal artware.</p>
+          <ul class="hub-list">
+            <li><span>Solid &amp; cast brassware</span><small>Tier 1</small></li>
+            <li><span>Metal handicrafts</span><small>Tier 1</small></li>
+            <li><span>Decorative homeware</span><small>Tier 1</small></li>
+            <li><span>OEM &amp; private label</span><small>Available</small></li>
+          </ul>
+        </div>
+      </a>
+
+      <a class="hub reveal" data-d="1" href="pages/hubs/Aligarh.html" style="text-decoration:none;color:inherit">
+        <div class="hub-img"><img class="img-cover" src="assets/images/hubs/aligarh/aligarh-aerial.webp?v2026053001" alt="Aerial view of the Aligarh hardware-manufacturing district" width="1200" height="900" loading="lazy" decoding="async">
+          <div class="hub-tag">U.P. · India</div>
+        </div>
+        <div class="hub-body">
+          <h3><small>Hub 02</small>Aligarh</h3>
+          <p>India's lock and hardware capital. From precision-engineered cylinder locks to padlocks and industrial hardware — Aligarh produces over 75% of India's lock exports.</p>
+          <ul class="hub-list">
+            <li><span>Mortise &amp; cylinder locks</span><small>Tier 1</small></li>
+            <li><span>Padlocks &amp; security</span><small>Tier 1</small></li>
+            <li><span>Industrial hardware</span><small>Tier 1</small></li>
+            <li><span>BIS / ISI certified ranges</span><small>Available</small></li>
+          </ul>
+        </div>
+      </a>
+
+      <a class="hub reveal" data-d="2" href="pages/hubs/Firozabad.html" style="text-decoration:none;color:inherit">
+        <div class="hub-img"><img class="img-cover" src="assets/images/hubs/firozabad/firozabad-aerial.webp?v2026053001" alt="Aerial view of the Firozabad glass-furnace district at dusk" width="1200" height="900" loading="lazy" decoding="async">
+          <div class="hub-tag">U.P. · India</div>
+        </div>
+        <div class="hub-body">
+          <h3><small>Hub 03</small>Firozabad</h3>
+          <p>The city of glass. Furnace-blown chandeliers, hand-cut crystal, and decorative glassware crafted by artisans whose lineage dates to the Mughal era — built to spec for hotel and retail clients.</p>
+          <ul class="hub-list">
+            <li><span>Decorative glassware</span><small>Tier 1</small></li>
+            <li><span>Chandeliers &amp; lighting</span><small>Tier 1</small></li>
+            <li><span>Luxury glass decor</span><small>Tier 1</small></li>
+            <li><span>Custom shapes &amp; colors</span><small>Available</small></li>
+          </ul>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== WHY US ==================== -->
+<section id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="num">04 / Capabilities</div>
+        <h2 class="h2">Why importers across<br>Africa work with us.</h2>
+      </div>
+      <p class="lede">Sourcing from India is easy. Sourcing the right factory, at the right price, with documentation that clears your port — that's what we do. Twenty-five years, three thousand containers, zero compromises.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why reveal">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-6 9 6v12H3V9z"/><path d="M9 21V12h6v9"/></svg></div>
+        <div class="why-num">/ 01</div>
+        <h3>Direct factory sourcing</h3>
+        <p>No middlemen, no markups. We work straight with 600+ verified factories across India's craft hubs.</p>
+      </div>
+      <div class="why reveal" data-d="1">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 2l9 4-9 4-9-4 9-4z"/><path d="M3 10l9 4 9-4M3 16l9 4 9-4"/></svg></div>
+        <div class="why-num">/ 02</div>
+        <h3>Export quality assurance</h3>
+        <p>Pre-shipment inspection, batch sampling, and third-party QC available on every order over 1 CBM.</p>
+      </div>
+      <div class="why reveal" data-d="2">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 1v22M5 8h11a3 3 0 0 1 0 6H8a3 3 0 0 0 0 6h11"/></svg></div>
+        <div class="why-num">/ 03</div>
+        <h3>Competitive pricing</h3>
+        <p>Volume contracts, FOB or CIF, with transparent BOM breakdowns and locked-in rates for 90 days.</p>
+      </div>
+      <div class="why reveal">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M3 7h13l5 5v5h-3M3 7v10h11M3 7l3-3h10l3 3"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></div>
+        <div class="why-num">/ 04</div>
+        <h3>Bulk order support</h3>
+        <p>FCL and LCL handling. Mixed-container consolidation across categories from a single PO.</p>
+      </div>
+      <div class="why reveal" data-d="1">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div>
+        <div class="why-num">/ 05</div>
+        <h3>Reliable logistics</h3>
+        <p>Direct shipping out of Mundra and Nhava Sheva. Dedicated forwarders for Lagos, Mombasa, Durban.</p>
+      </div>
+      <div class="why reveal" data-d="2">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="1"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg></div>
+        <div class="why-num">/ 06</div>
+        <h3>OEM &amp; private label</h3>
+        <p>Build your house brand. Custom packaging, MOQ from 500 units, full IP protection on designs.</p>
+      </div>
+      <div class="why reveal">
+        <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-7 8-13a8 8 0 1 0-16 0c0 6 8 13 8 13z"/><circle cx="12" cy="9" r="3"/></svg></div>
+        <div>
+          <div class="why-num">/ 07</div>
+          <h3>African market understanding</h3>
+          <p>Two and a half decades shipping into West, East and Southern Africa. We know your duty structures, port behaviours, local distributor expectations, and the seasonal rhythms of your retail calendar.</p>
+        </div>
+        <a href="#contact" class="btn btn-gold" style="white-space:nowrap">Schedule a call <span class="arr"></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PROCESS ==================== -->
+<section class="process">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="num">05 / Workflow</div>
+        <h2 class="h2">From inquiry to your<br>warehouse door.</h2>
+      </div>
+      <p class="lede">A predictable six-stage process. Each milestone documented, each handoff confirmed, each shipment tracked from factory floor to final mile.</p>
+    </div>
+
+    <div class="process-row">
+      <div class="step reveal">
+        <div class="step-dot">01</div>
+        <h4>Inquiry</h4>
+        <p>Share your product list, target volume and destination port.</p>
+      </div>
+      <div class="step reveal" data-d="1">
+        <div class="step-dot">02</div>
+        <h4>Product Selection</h4>
+        <p>Samples couriered. Specs, finishes and SKUs locked in.</p>
+      </div>
+      <div class="step reveal" data-d="2">
+        <div class="step-dot">03</div>
+        <h4>Production</h4>
+        <p>Factory PO issued. Weekly progress photos and timeline updates.</p>
+      </div>
+      <div class="step reveal" data-d="3">
+        <div class="step-dot">04</div>
+        <h4>Packaging</h4>
+        <p>Export-grade packaging. Pre-shipment QC and inspection report.</p>
+      </div>
+      <div class="step reveal" data-d="4">
+        <div class="step-dot">05</div>
+        <h4>Shipment</h4>
+        <p>Container loaded at ICD. B/L, CO and full documentation issued.</p>
+      </div>
+      <div class="step reveal" data-d="4">
+        <div class="step-dot">06</div>
+        <h4>Delivery</h4>
+        <p>Door delivery or port pickup. Live tracking until handover.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SHIPMENT METRICS ==================== -->
+<section class="metric-strip">
+  <div class="wrap">
+    <div class="metric-row">
+      <div class="metric reveal"><b>3<em>k+</em></b><small>Containers shipped</small></div>
+      <div class="metric reveal" data-d="1"><b>99.4<em>%</em></b><small>On-time dispatch</small></div>
+      <div class="metric reveal" data-d="2"><b>&lt;0.4<em>%</em></b><small>Shipment damage rate</small></div>
+      <div class="metric reveal" data-d="3"><b>14<em>+</em></b><small>African markets served</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== AFRICA ==================== -->
+<section class="africa" id="africa">
+  <div class="wrap">
+    <div class="africa-grid">
+      <div class="reveal">
+        <div class="eyebrow light">06 / Africa Focus</div>
+        <h2 class="h2" style="margin-top:14px">Built specifically<br>for African importers.</h2>
+        <p class="lede" style="margin-top:24px">Our entire operation — from docs team to dispatch team — is structured around the realities of African import: ECOWAS &amp; SADC compliance, port-specific paperwork, USD &amp; EUR invoicing, and freight rates we've negotiated container-by-container for the past 25 years.</p>
+
+        <ul class="africa-points">
+          <li><b>NG</b><span>Nigeria</span><em>Lagos · Apapa · Tin Can Island</em></li>
+          <li><b>KE</b><span>Kenya</span><em>Mombasa · Nairobi ICD</em></li>
+          <li><b>ZA</b><span>South Africa</span><em>Durban · Cape Town · Johannesburg</em></li>
+          <li><b>GH</b><span>Ghana</span><em>Tema · Takoradi</em></li>
+          <li><b>TZ</b><span>Tanzania</span><em>Dar es Salaam · Zanzibar</em></li>
+        </ul>
+
+        <div style="margin-top:40px;display:flex;gap:14px;flex-wrap:wrap">
+          <a href="#contact" class="btn btn-gold">Talk to our Africa Export Team <span class="arr"></span></a>
+          <a href="#" class="btn btn-ghost-light">Download Market Guide <span class="arr"></span></a>
+        </div>
+      </div>
+
+      <div class="map-wrap reveal" data-d="1">
+        <span class="corner c1">N 35° · W 18°</span>
+        <span class="corner c2">N 35° · E 50°</span>
+        <span class="corner c3">S 35° · W 18°</span>
+        <span class="corner c4">India ⇄ Africa</span>
+        <!-- Stylized Africa silhouette + India dot + trade arc -->
+        <svg viewBox="0 0 500 500" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <pattern id="dots" x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse">
+              <circle cx="1" cy="1" r="0.7" fill="rgba(200,165,91,.35)"/>
+            </pattern>
+            <pattern id="dots2" x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse">
+              <circle cx="1" cy="1" r="0.9" fill="rgba(200,165,91,.9)"/>
+            </pattern>
+          </defs>
+          <!-- Simplified Africa silhouette -->
+          <path d="M 245 78 C 220 78, 205 88, 200 100 L 195 118 C 185 122, 178 130, 175 142 L 170 156 C 165 165, 162 175, 165 188 L 168 200 C 162 210, 158 222, 162 234 L 170 250 C 168 264, 172 278, 180 292 L 195 312 C 200 326, 208 340, 218 354 L 230 372 C 232 388, 240 402, 250 414 L 262 426 C 270 432, 280 432, 288 424 L 298 412 C 308 402, 314 388, 316 372 L 320 354 C 326 338, 330 320, 330 302 L 332 282 C 338 270, 344 256, 348 240 L 352 222 C 354 208, 350 192, 342 178 L 332 162 C 326 148, 318 134, 308 122 L 296 108 C 286 96, 270 88, 254 80 Z"
+                fill="url(#dots)" stroke="rgba(200,165,91,.45)" stroke-width="1"/>
+
+          <!-- Country dots -->
+          <!-- Nigeria -->
+          <circle cx="220" cy="220" r="5" fill="#c8a55b"/>
+          <text x="232" y="223" font-family="JetBrains Mono" font-size="10" fill="rgba(245,242,236,.7)" letter-spacing="1.5">NG · LAGOS</text>
+          <!-- Ghana -->
+          <circle cx="205" cy="232" r="4" fill="#c8a55b"/>
+          <text x="138" y="235" font-family="JetBrains Mono" font-size="10" fill="rgba(245,242,236,.7)" letter-spacing="1.5">GH · TEMA</text>
+          <!-- Kenya -->
+          <circle cx="308" cy="265" r="5" fill="#c8a55b"/>
+          <text x="320" y="268" font-family="JetBrains Mono" font-size="10" fill="rgba(245,242,236,.7)" letter-spacing="1.5">KE · MOMBASA</text>
+          <!-- Tanzania -->
+          <circle cx="305" cy="290" r="4" fill="#c8a55b"/>
+          <text x="320" y="293" font-family="JetBrains Mono" font-size="10" fill="rgba(245,242,236,.7)" letter-spacing="1.5">TZ · DAR</text>
+          <!-- South Africa -->
+          <circle cx="275" cy="395" r="5" fill="#c8a55b"/>
+          <text x="290" y="398" font-family="JetBrains Mono" font-size="10" fill="rgba(245,242,236,.7)" letter-spacing="1.5">ZA · DURBAN</text>
+
+          <!-- India dot -->
+          <circle cx="430" cy="210" r="6" fill="#c8a55b"/>
+          <circle cx="430" cy="210" r="14" fill="none" stroke="rgba(200,165,91,.4)" stroke-width="1"/>
+          <text x="430" y="195" font-family="JetBrains Mono" font-size="10" fill="#c8a55b" letter-spacing="1.5" text-anchor="middle">INDIA · MUNDRA</text>
+
+          <!-- Trade arcs -->
+          <path d="M 430 210 Q 360 140 308 265" fill="none" stroke="rgba(200,165,91,.45)" stroke-width="1" stroke-dasharray="2 4"/>
+          <path d="M 430 210 Q 300 160 220 220" fill="none" stroke="rgba(200,165,91,.45)" stroke-width="1" stroke-dasharray="2 4"/>
+          <path d="M 430 210 Q 380 320 275 395" fill="none" stroke="rgba(200,165,91,.45)" stroke-width="1" stroke-dasharray="2 4"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== EXPORT MARKETS ==================== -->
+<section id="markets">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="num">/ Export Markets</div>
+        <h2 class="h2">Export teams<br>across Africa.</h2>
+      </div>
+      <p class="lede">Dedicated desks for our priority markets — each with the ports, conformity scheme and buying cycles built in. Open a market for the full sourcing brief, product previews and an inquiry line.</p>
+    </div>
+    <div class="market-grid">
+      <a class="market reveal" href="pages/hardware-exporter-nigeria.html"><div class="mc">NG</div><h3>Nigeria</h3><small>Apapa · Tin Can<br>SONCAP-ready</small><span class="mlink">Open market</span></a>
+      <a class="market reveal" data-d="1" href="pages/brassware-supplier-kenya.html"><div class="mc">KE</div><h3>Kenya</h3><small>Mombasa · Nairobi<br>KEBS-PVoC</small><span class="mlink">Open market</span></a>
+      <a class="market reveal" data-d="2" href="pages/bathroom-hardware-ghana.html"><div class="mc">GH</div><h3>Ghana</h3><small>Tema · Takoradi<br>GSA docs</small><span class="mlink">Open market</span></a>
+      <a class="market reveal" data-d="3" href="pages/furniture-hardware-tanzania.html"><div class="mc">TZ</div><h3>Tanzania</h3><small>Dar es Salaam<br>TBS docs</small><span class="mlink">Open market</span></a>
+      <a class="market reveal" data-d="4" href="pages/Africa Market.html"><div class="mc">ZA</div><h3>South Africa</h3><small>Durban · Cape Town<br>SABS</small><span class="mlink">Open market</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== GALLERY ==================== -->
+<section id="gallery">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="num">07 / Gallery</div>
+        <h2 class="h2">Selected work,<br>shipped.</h2>
+      </div>
+      <p class="lede">A small sample from recent shipments. Add a finished catalogue request to receive the complete product range with current pricing in your inbox within 24 hours.</p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gi a reveal"><div class="gi-fill"></div><img class="img-cover" src="assets/images/gallery/brassware-moradabad.webp" alt="Brassware crafted in Muradabad" width="1200" height="900" loading="lazy" decoding="async"></div>
+      <div class="gi b reveal" data-d="1"><div class="gi-fill"></div><img class="img-cover" src="assets/images/gallery/cylinder-locks-aligarh.webp" alt="Cylinder locks manufactured in Aligarh" width="1200" height="900" loading="lazy" decoding="async"></div>
+      <div class="gi c reveal" data-d="2"><div class="gi-fill"></div><img class="img-cover" src="assets/images/gallery/home-decor.webp" alt="Home decor pieces ready for export" width="1200" height="900" loading="lazy" decoding="async"></div>
+      <div class="gi d reveal"><div class="gi-fill"></div><img class="img-cover" src="assets/images/gallery/chandelier-firozabad.webp" alt="Crystal chandelier crafted in Firozabad" width="1200" height="900" loading="lazy" decoding="async"></div>
+      <div class="gi e reveal" data-d="1"><div class="gi-fill"></div><img class="img-cover" src="assets/images/gallery/bathroom-hardware.webp" alt="Premium bathroom hardware fittings" width="1200" height="900" loading="lazy" decoding="async"></div>
+      <div class="gi f reveal" data-d="2"><div class="gi-fill"></div><img class="img-cover" src="assets/images/gallery/metal-artware.webp" alt="Handcrafted metal art ware" width="1200" height="900" loading="lazy" decoding="async"></div>
+      <div class="gi g reveal" data-d="3"><div class="gi-fill"></div><img class="img-cover" src="assets/images/gallery/container-loading-mundra.webp" alt="Container loading at Mundra port" width="1600" height="900" loading="lazy" decoding="async"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TESTIMONIALS ==================== -->
+<section id="testimonials">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="num">/ Buyers</div>
+        <h2 class="h2">What importers<br>tell us.</h2>
+      </div>
+      <p class="lede">A few notes from the distributors and project buyers we ship to. Names withheld on request — trade references available under NDA.</p>
+    </div>
+    <div class="quote-grid">
+      <div class="quote reveal">
+        <div class="qm">&ldquo;</div>
+        <p>Mixed containers, clean SONCAP paperwork every time, and a manager who actually answers the phone when something needs unsticking at Apapa.</p>
+        <div class="by"><b>Procurement Lead</b><small>Building hardware distributor · Lagos</small></div>
+      </div>
+      <div class="quote reveal" data-d="1">
+        <div class="qm">&ldquo;</div>
+        <p>The brass quality is consistent batch to batch — that's the part most India suppliers can't hold. KEBS-PVoC was handled end to end.</p>
+        <div class="by"><b>Director</b><small>Home &amp; decor retail chain · Nairobi</small></div>
+      </div>
+      <div class="quote reveal" data-d="2">
+        <div class="qm">&ldquo;</div>
+        <p>One finish family across every bath accessory, one container, one invoice. That's rare from an Indian supplier.</p>
+        <div class="by"><b>Project Manager</b><small>Hospitality fit-out firm · Accra</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== BLOG ==================== -->
+<section id="blog" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="num">08 / Journal</div>
+        <h2 class="h2">Notes from the<br>export floor.</h2>
+      </div>
+      <p class="lede">Market briefings, factory tours, and trade insights — written for African importers and sourcing professionals.</p>
+    </div>
+
+    <div class="blog-grid">
+      <article class="post reveal">
+        <div class="post-img"><div class="pi-fill"></div><img class="img-cover" src="assets/images/blog/market-insight.webp" alt="Why African importers prefer Indian hardware — journal banner" width="1200" height="900" loading="lazy" decoding="async"><span class="post-tag">Market Insight</span></div>
+        <div class="post-meta"><span>May 12 · 2026</span><span>8 min read</span></div>
+        <h3>Why African importers increasingly prefer Indian hardware over Chinese alternatives.</h3>
+        <p>Quality consistency, smaller MOQs, and 30% better margins on retail — a deep dive into the structural shift unfolding across West African distribution.</p>
+        <a href="#" class="read">Read article</a>
+      </article>
+
+      <article class="post reveal" data-d="1">
+        <div class="post-img"><div class="pi-fill"></div><img class="img-cover" src="assets/images/blog/hub-guide.webp" alt="The Muradabad brass industry — journal banner" width="1200" height="900" loading="lazy" decoding="async"><span class="post-tag">Hub Guide</span></div>
+        <div class="post-meta"><span>Apr 28 · 2026</span><span>12 min read</span></div>
+        <h3>The Muradabad brass industry: a buyer's guide to the world's oldest export cluster.</h3>
+        <p>How 400 years of craft expertise scaled into a $1.2B export economy — and what to look for when sourcing brassware at scale.</p>
+        <a href="#" class="read">Read article</a>
+      </article>
+
+      <article class="post reveal" data-d="2">
+        <div class="post-img"><div class="pi-fill"></div><img class="img-cover" src="assets/images/blog/directory.webp" alt="Best furniture hardware exporters in India — journal banner" width="1200" height="900" loading="lazy" decoding="async"><span class="post-tag">Directory</span></div>
+        <div class="post-meta"><span>Apr 15 · 2026</span><span>6 min read</span></div>
+        <h3>The best furniture hardware exporters in India — and how to vet them.</h3>
+        <p>Five red flags, four green ones, and the certifications that actually matter when picking a long-term sourcing partner.</p>
+        <a href="#" class="read">Read article</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CATALOG DOWNLOADS ==================== -->
+<section id="catalog" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="num">/ Downloads</div>
+        <h2 class="h2">Catalogues &amp;<br>export brochures.</h2>
+      </div>
+      <p class="lede">Everything a serious buyer needs to evaluate us — the full catalogue, per-category line sheets and the Africa export brochure. Request access and we'll email the latest 2026 editions within the hour.</p>
+    </div>
+    <div class="dl-grid">
+      <div class="dl-card reveal">
+        <div class="dl-top"><div class="dl-icon"><svg viewBox="0 0 24 24"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></svg></div><span class="fmt">PDF · 2026</span></div>
+        <h3>Master Export Catalogue 2026</h3>
+        <p>2,228 SKUs across nine collections — 900 distinct products fully illustrated, every finish &amp; size, with material, MOQ, lead time and FOB Mundra pricing. Built for African importers.</p>
+        <div class="dl-meta"><span>123 pages</span><span>~91 MB · PDF</span></div>
+        <a href="assets/catalogs/master-export-catalogue-2026.pdf" target="_blank" rel="noopener" class="dl-btn">Download PDF</a>
+      </div>
+      <div class="dl-card reveal" data-d="1">
+        <div class="dl-top"><div class="dl-icon"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div><span class="fmt">PDF · Line sheets</span></div>
+        <h3>Category Collections</h3>
+        <p>Per-category line sheets — brassware, locks, bathroom, glassware and more — with specs and packing data.</p>
+        <div class="dl-meta"><span>9 collections</span><span>~3 MB ea.</span></div>
+        <a href="assets/catalogs/brassware-collection.html" target="_blank" rel="noopener" class="dl-btn">View collection</a>
+      </div>
+      <div class="dl-card reveal" data-d="2">
+        <div class="dl-top"><div class="dl-icon"><svg viewBox="0 0 24 24"><path d="M3 7h13l5 5v5h-3M3 7v10h11M3 7l3-3h10l3 3"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></div><span class="fmt">PDF · Brochure</span></div>
+        <h3>Africa Export Brochure</h3>
+        <p>How we ship into African ports — lanes, conformity schemes, packaging and the six-stage export process.</p>
+        <div class="dl-meta"><span>16 pages</span><span>~5 MB</span></div>
+        <a href="assets/catalogs/africa-export-brochure.html" target="_blank" rel="noopener" class="dl-btn">Open brochure</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CONTACT ==================== -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="eyebrow">09 / Get in touch</div>
+        <h2 class="h2" style="margin-top:14px">Let's move your<br>next container.</h2>
+        <p class="lede" style="margin-top:22px">Tell us what you need — a single SKU, a mixed container, or a full private-label program. We respond inside one business day, with samples and indicative pricing.</p>
+
+        <ul class="contact-info">
+          <li><small>WhatsApp</small><div><b>+91 6290 746 602</b><br><span>24/7 export desk · English &amp; French</span></div></li>
+          <li><small>Email</small><div><b>balaji6ab@gmail.com</b><br><span>Africa team: balaji6ab@gmail.com</span></div></li>
+          <li><small>HQ</small><div><b>Noida · Uttar Pradesh</b><br><span>India · 201301</span></div></li>
+          <li><small>Ports</small><div><b>Mundra · Nhava Sheva</b><br><span>FCL · LCL · Direct &amp; transhipment</span></div></li>
+        </ul>
+
+        <div style="margin-top:34px;display:flex;gap:12px;flex-wrap:wrap">
+          <a href="https://wa.me/916290746602" target="_blank" class="btn btn-wa">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20.5 3.5A11 11 0 0 0 3.4 17.2L2 22l4.9-1.3a11 11 0 0 0 16.6-9.4 11 11 0 0 0-3-7.8zM12 20a8.9 8.9 0 0 1-4.6-1.3l-.3-.2-2.9.8.8-2.8-.2-.3A9 9 0 1 1 12 20zm5-6.6c-.3-.1-1.7-.8-1.9-.9s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.5.1a7.3 7.3 0 0 1-2.2-1.4 8 8 0 0 1-1.5-1.8c-.2-.3 0-.4.1-.6l.4-.4.3-.4c.1-.2 0-.3 0-.4l-.9-2.1c-.2-.5-.5-.4-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 6 6 0 0 0 1.2 3.1 13.6 13.6 0 0 0 5.1 4.4c.7.3 1.2.5 1.7.6a4 4 0 0 0 1.8.1 3 3 0 0 0 2-1.4 2.4 2.4 0 0 0 .2-1.4c-.1-.2-.3-.3-.6-.4z"/></svg>
+            Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <form class="form reveal" data-d="1" onsubmit="event.preventDefault();alert('Inquiry received — our Africa export team will respond within 24 hours.')">
+        <div class="eyebrow">Export Inquiry</div>
+        <h3>Request catalogue &amp; quotation</h3>
+
+        <div class="form-row">
+          <div class="field"><label>Full Name</label><input type="text" required placeholder="Your name"></div>
+          <div class="field"><label>Company</label><input type="text" required placeholder="Company name"></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label>Country</label>
+            <select required>
+              <option value="">Select country</option>
+              <option>Nigeria</option><option>Kenya</option><option>South Africa</option>
+              <option>Ghana</option><option>Tanzania</option><option>Other</option>
+            </select>
+          </div>
+          <div class="field"><label>Destination Port</label><input type="text" placeholder="e.g. Lagos, Mombasa"></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label>Email</label><input type="email" required placeholder="you@company.com"></div>
+          <div class="field"><label>WhatsApp / Phone</label><input type="tel" placeholder="+234 …"></div>
+        </div>
+        <div class="form-row full">
+          <div class="field"><label>Product Interest</label>
+            <select>
+              <option>Multiple categories</option>
+              <option>Furniture Hardware</option><option>Locks &amp; Hardware</option>
+              <option>Bathroom Hardware</option><option>Brassware</option>
+              <option>Metal Art Ware</option><option>Glassware</option><option>Home Decor</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row full">
+          <div class="field"><label>Order Volume / Notes</label><textarea placeholder="FCL 20'/40', MOQ, target SKUs, target delivery…"></textarea></div>
+        </div>
+
+        <div class="actions">
+          <button class="btn btn-gold" type="submit">Send Inquiry <span class="arr"></span></button>
+          <button class="btn btn-ghost" type="button">Download Catalogue PDF <span class="arr"></span></button>
+        </div>
+        <p class="form-note">Response within 1 business day · NDA available on request</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href="#" class="logo">
+          
+          <div class="logo-text">
+            <b>BALAJI UDHYOG</b>
+            <small>Est · India · Exporters</small>
+          </div>
+        </a>
+        <p>Premium Indian hardware and decor exporter, serving African importers, distributors and chain retailers since 1998.</p>
+        <a href="#contact" class="foot-cta">Start an export inquiry →</a>
+      </div>
+
+      <div class="foot-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="Balaji Udhyog.html">Home</a></li>
+          <li><a href="pages/About.html">About Us</a></li>
+          <li><a href="pages/products/items/index.html">All Products</a></li>
+          <li><a href="pages/Capabilities.html">Capability &amp; Quality</a></li>
+          <li><a href="pages/Export Services.html">Export Services</a></li>
+          <li><a href="pages/Africa Market.html">Africa Market</a></li>
+          <li><a href="pages/Blog.html">Blog</a></li>
+          <li><a href="pages/Contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h4>Product Categories</h4>
+        <ul>
+          <li><a href="pages/products/Furniture Hardware.html">Furniture Hardware</a></li>
+          <li><a href="pages/products/Locks - Hardware.html">Locks &amp; Hardware</a></li>
+          <li><a href="pages/products/Bathroom Hardware.html">Bathroom Hardware</a></li>
+          <li><a href="pages/products/Brassware.html">Brassware</a></li>
+          <li><a href="pages/products/Metal Art Ware.html">Metal Art Ware</a></li>
+          <li><a href="pages/products/Glassware.html">Glassware</a></li>
+          <li><a href="pages/products/Home Decor.html">Home Decor</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <address class="addr">
+          Balaji Udhyog<br>
+          Noida · Uttar Pradesh<br>
+          India · 201301<br><br>
+          <b style="color:var(--gold-soft)">balaji6ab@gmail.com</b><br>
+          +91 6290 746 602
+        </address>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <small>© 2026 Balaji Udhyog · All rights reserved</small>
+      <div class="socials">
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.11 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.5h4.6V23H.22V8.5zM8 8.5h4.4v2h.06a4.83 4.83 0 0 1 4.34-2.37c4.64 0 5.5 3.05 5.5 7.02V23h-4.6v-6.9c0-1.65-.03-3.78-2.3-3.78-2.3 0-2.66 1.8-2.66 3.66V23H8V8.5z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        <a href="https://wa.me/916290746602" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11 11 0 0 0 3.4 17.2L2 22l4.9-1.3a11 11 0 0 0 16.6-9.4 11 11 0 0 0-3-7.8zM12 20a8.9 8.9 0 0 1-4.6-1.3l-.3-.2-2.9.8.8-2.8-.2-.3A9 9 0 1 1 12 20z"/></svg></a>
+        <a href="#" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 6 9-6"/></svg></a>
+      </div>
+      <small>Made for the India ⇄ Africa trade corridor</small>
+    </div>
+  </div>
+</footer>
+
+<!-- ==================== WHATSAPP FLOAT ==================== -->
+<a href="https://wa.me/916290746602" target="_blank" class="wa-float">
+  <svg viewBox="0 0 24 24"><path d="M20.5 3.5A11 11 0 0 0 3.4 17.2L2 22l4.9-1.3a11 11 0 0 0 16.6-9.4 11 11 0 0 0-3-7.8zM12 20a8.9 8.9 0 0 1-4.6-1.3l-.3-.2-2.9.8.8-2.8-.2-.3A9 9 0 1 1 12 20zm5-6.6c-.3-.1-1.7-.8-1.9-.9s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.5.1a7.3 7.3 0 0 1-2.2-1.4 8 8 0 0 1-1.5-1.8c-.2-.3 0-.4.1-.6l.4-.4.3-.4c.1-.2 0-.3 0-.4l-.9-2.1c-.2-.5-.5-.4-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 6 6 0 0 0 1.2 3.1 13.6 13.6 0 0 0 5.1 4.4c.7.3 1.2.5 1.7.6a4 4 0 0 0 1.8.1 3 3 0 0 0 2-1.4 2.4 2.4 0 0 0 .2-1.4c-.1-.2-.3-.3-.6-.4z"/></svg>
+  <span>Chat with us</span>
+</a>
+
+<script>
+  // Sticky nav
+  const nav = document.getElementById('nav');
+  const onScroll = () => { nav.classList.toggle('scrolled', window.scrollY > 40); };
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // Reveal on intersect
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  },{rootMargin:'-40px 0px -40px 0px', threshold:0.05});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // Cinematic load curtain
+  const lift = () => document.body.classList.add('loaded');
+  window.addEventListener('load', lift);
+  setTimeout(lift, 1400);
+</script>
+
+<script src="assets/lead-capture.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Blog — Balaji Udhyog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+
+.bl-hero{position:relative;background:var(--paper);padding:180px 0 60px;border-bottom:1px solid var(--line)}
+.bl-hero h1{font-size:clamp(48px,5.2vw,80px);font-weight:500;letter-spacing:-.025em;line-height:1.02;margin-top:24px;max-width:18ch}
+.bl-hero h1 em{font-style:normal;color:var(--gold);font-weight:300}
+.bl-hero .grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end}
+@media (max-width:880px){.bl-hero .grid{grid-template-columns:1fr;gap:32px}}
+.bl-search{display:flex;gap:0;border:1px solid var(--line);background:#fff;align-items:center;padding:6px 6px 6px 22px}
+.bl-search svg{width:18px;height:18px;flex-shrink:0;stroke:var(--gold-dim)}
+.bl-search input{flex:1;border:0;outline:none;padding:14px;font:inherit;background:transparent;font-size:14.5px}
+.bl-search button{padding:14px 22px;background:var(--navy);color:var(--paper);font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+.bl-search button:hover{background:var(--gold);color:var(--navy)}
+
+.bl-filters{padding:32px 0;border-bottom:1px solid var(--line);background:var(--paper)}
+.bl-filters .row{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.bl-filters .cats{display:flex;gap:8px;flex-wrap:wrap}
+.bl-filters .cat{padding:8px 14px;border:1px solid var(--line);font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);cursor:pointer;transition:all .25s}
+.bl-filters .cat.active{background:var(--navy);color:var(--paper);border-color:var(--navy)}
+.bl-filters .cat:hover{border-color:var(--navy)}
+.bl-filters .ct{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--gold-dim);text-transform:uppercase}
+.bl-filters .ct b{color:var(--ink);font-weight:500}
+
+/* Featured layout */
+.featured{padding:96px 0 64px}
+.feat-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:48px}
+@media (max-width:980px){.feat-grid{grid-template-columns:1fr;gap:32px}}
+.feat-main{display:flex;flex-direction:column;gap:24px;cursor:pointer}
+.feat-main .ph{aspect-ratio:4/3;position:relative}
+.feat-main h2{font-size:clamp(28px,3vw,42px);font-weight:500;letter-spacing:-.02em;line-height:1.1;margin-top:6px;max-width:20ch}
+.feat-main h2 em{font-style:normal;color:var(--gold);font-weight:300}
+.feat-main p{font-size:16px;color:var(--ink-2);line-height:1.7;max-width:60ch}
+.feat-meta{display:flex;gap:14px;font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;color:var(--gold-dim);text-transform:uppercase}
+.feat-meta span:not(:last-child)::after{content:"·";margin-left:14px}
+.feat-side{display:flex;flex-direction:column;gap:24px}
+.feat-side .it{padding:24px 0;border-top:1px solid var(--line);cursor:pointer;display:flex;gap:20px;align-items:start}
+.feat-side .it:first-child{border-top:0;padding-top:0}
+.feat-side .it .n{font-family:var(--display);font-size:36px;color:var(--gold);font-weight:300;letter-spacing:-.02em;line-height:1;flex-shrink:0;min-width:54px}
+.feat-side .it h4{font-size:17px;font-weight:500;letter-spacing:-.01em;line-height:1.28;margin-bottom:6px}
+.feat-side .it small{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;color:var(--gold-dim);text-transform:uppercase}
+
+/* Article grid */
+.articles{padding:96px 0 120px;background:var(--paper-2)}
+.art-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+@media (max-width:980px){.art-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.art-grid{grid-template-columns:1fr}}
+.art{display:flex;flex-direction:column;gap:18px;background:transparent;cursor:pointer;transition:transform .4s}
+.art:hover{transform:translateY(-4px)}
+.art .ph{aspect-ratio:4/3;position:relative}
+.art .post-tag{position:absolute;top:14px;left:14px;font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;background:rgba(245,242,236,.92);padding:5px 9px;color:var(--navy);z-index:3}
+.art h3{font-size:19px;font-weight:500;letter-spacing:-.01em;line-height:1.25}
+.art p{font-size:14px;color:var(--ink-2);line-height:1.6}
+.art .meta{display:flex;gap:12px;font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;color:var(--gold-dim);text-transform:uppercase}
+.art .meta span:not(:last-child)::after{content:"·";margin-left:12px}
+
+/* Newsletter */
+.news{padding:120px 0;background:var(--navy);color:var(--paper)}
+.news .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+@media (max-width:880px){.news .wrap{grid-template-columns:1fr}}
+.news h2{color:var(--paper)}
+.news .nf{display:flex;gap:0;background:rgba(255,255,255,.05);border:1px solid var(--line-dark);align-items:center;padding:6px}
+.news .nf input{flex:1;border:0;outline:none;padding:16px 18px;background:transparent;font:inherit;font-size:14.5px;color:var(--paper)}
+.news .nf input::placeholder{color:rgba(245,242,236,.5)}
+.news .nf button{padding:14px 22px;background:var(--gold);color:var(--navy);font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.news .legal{margin-top:18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;color:rgba(245,242,236,.5);text-transform:uppercase}
+
+</style>
+</head>
+<body>
+<div class="page-curtain"></div>
+
+<nav class="nav solid" id="nav">
+  <div class="wrap nav-inner">
+    <a href="../Balaji Udhyog.html" class="logo"><div class="logo-text"><b>BALAJI UDHYOG</b><small>Est · India · Exporters</small></div></a>
+    <div class="nav-menu">
+      <a href="../Balaji Udhyog.html">Home</a>
+      <a href="About.html">About</a>
+      <div class="dropdown">
+        <a href="Products.html" class="has-down">Products</a>
+        <div class="dropdown-panel">
+          <a href="products/Furniture Hardware.html"><span>Furniture Hardware</span><small>01</small></a>
+          <a href="products/Locks - Hardware.html"><span>Locks &amp; Hardware</span><small>02</small></a>
+          <a href="products/Bathroom Hardware.html"><span>Bathroom Hardware</span><small>03</small></a>
+          <a href="products/Brassware.html"><span>Brassware</span><small>04</small></a>
+          <a href="products/Metal Art Ware.html"><span>Metal Art Ware</span><small>05</small></a>
+          <a href="products/Glassware.html"><span>Glassware</span><small>06</small></a>
+          <a href="products/Home Decor.html"><span>Home Decor</span><small>07</small></a>
+        </div>
+      </div>
+      <a href="Export Services.html">Export Services</a>
+      <a href="Africa Market.html">Africa Market</a>
+      <a href="Blog.html" class="active">Blog</a>
+      <a href="Contact.html">Contact</a>
+    </div>
+    <div class="nav-cta"><a href="Contact.html" class="pill">Request Catalogue</a><div class="burger"><span></span><span></span><span></span></div></div>
+  </div>
+</nav>
+
+<header class="bl-hero">
+  <div class="wrap">
+    <div class="crumbs" style="color:var(--gold-dim)"><a href="../Balaji Udhyog.html">Home</a> <em>/</em> <span>Journal</span></div>
+    <div class="grid">
+      <div class="reveal">
+        <div class="eyebrow">08 / Journal</div>
+        <h1>Notes from the<br><em>export floor.</em></h1>
+      </div>
+      <div class="bl-search reveal" data-d="1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input type="search" placeholder="Search market insights, compliance, hub guides…">
+        <button>Search</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="bl-filters">
+  <div class="wrap">
+    <div class="row">
+      <div class="cats">
+        <div class="cat active">All Articles</div>
+        <div class="cat">Market Insight</div>
+        <div class="cat">Hub Guide</div>
+        <div class="cat">Compliance</div>
+        <div class="cat">Logistics</div>
+        <div class="cat">OEM</div>
+        <div class="cat">Directory</div>
+      </div>
+      <div class="ct"><b>42</b> articles · sorted newest</div>
+    </div>
+  </div>
+</div>
+
+<section class="featured">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><div class="num">/ Featured</div><h2 class="h2">Editor's picks.</h2></div>
+      <p class="lede">The four pieces our African buyers reference most often — covering market shifts, compliance regimes, and the questions we wish more importers asked us early.</p>
+    </div>
+    <div class="feat-grid">
+      <article class="feat-main reveal">
+        <div class="ph navy"><img class="img-cover" src="../assets/images/blog/feature-africa-import-shift.webp" alt="India to Africa hardware trade shift — feature banner" width="1600" height="900" loading="lazy" decoding="async"><span class="ph-tag">Featured</span></div>
+        <div class="feat-meta"><span>May 12 · 2026</span><span>Market Insight</span><span>10 min read</span></div>
+        <h2>India is quietly displacing China in African hardware imports — <em>here's why.</em></h2>
+        <p>For seven straight quarters, India's hardware exports to Sub-Saharan Africa have outpaced China's growth rate. Smaller MOQs, better quality consistency, easier documentation. A deep dive into the structural shift unfolding across West African distribution.</p>
+        <a class="btn btn-ghost" style="align-self:flex-start" href="#">Read article <span class="arr"></span></a>
+      </article>
+      <div class="feat-side">
+        <article class="it reveal" data-d="1"><div class="n">02</div><div><h4>The Muradabad brass industry: a buyer's guide</h4><small>Apr 28 · Hub Guide · 12 min</small></div></article>
+        <article class="it reveal" data-d="2"><div class="n">03</div><div><h4>SONCAP demystified — Nigerian compliance for hardware</h4><small>Apr 21 · Compliance · 6 min</small></div></article>
+        <article class="it reveal" data-d="3"><div class="n">04</div><div><h4>FCL vs LCL: when should African importers consolidate?</h4><small>Apr 02 · Logistics · 9 min</small></div></article>
+        <article class="it reveal" data-d="4"><div class="n">05</div><div><h4>Launching your own hardware brand — a five-step playbook</h4><small>Feb 28 · OEM · 9 min</small></div></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="articles">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><div class="num">/ All articles</div><h2 class="h2">Recent journal.</h2></div>
+      <p class="lede">Market briefings, factory tours and compliance primers — written for African importers and sourcing professionals.</p>
+    </div>
+    <div class="art-grid">
+      <article class="art reveal">
+        <div class="ph paper bright"><img class="img-cover" src="../assets/images/blog/market-insight.webp" alt="Market insight — journal banner" width="1600" height="900" loading="lazy" decoding="async"><span class="post-tag">Market Insight</span></div>
+        <div class="meta"><span>May 12 · 2026</span><span>10 min read</span></div>
+        <h3>Why African importers increasingly prefer Indian hardware over Chinese alternatives</h3>
+        <p>Quality consistency, smaller MOQs, and 30% better retail margins.</p>
+      </article>
+      <article class="art reveal">
+        <div class="ph brass"><img class="img-cover" src="../assets/images/blog/hub-guide.webp" alt="Manufacturing hub guide — journal banner" width="1600" height="900" loading="lazy" decoding="async"><span class="post-tag">Hub Guide</span></div>
+        <div class="meta"><span>Apr 28 · 2026</span><span>12 min read</span></div>
+        <h3>The Muradabad brass industry — a buyer's guide</h3>
+        <p>How 400 years of craft expertise scaled into a $1.2B export economy.</p>
+      </article>
+      <article class="art reveal">
+        <div class="ph navy"><img class="img-cover" src="../assets/images/blog/compliance.webp" alt="Export compliance — journal banner" width="1600" height="900" loading="lazy" decoding="async"><span class="post-tag">Compliance</span></div>
+        <div class="meta"><span>Apr 21 · 2026</span><span>6 min read</span></div>
+        <h3>SONCAP demystified — Nigeria import compliance for hardware</h3>
+        <p>Form M, PC, COC: the three documents that decide whether your container clears Apapa.</p>
+      </article>
+      <article class="art reveal">
+        <div class="ph dark"><img class="img-cover" src="../assets/images/blog/directory.webp" alt="Exporter directory — journal banner" width="1600" height="900" loading="lazy" decoding="async"><span class="post-tag">Directory</span></div>
+        <div class="meta"><span>Apr 15 · 2026</span><span>8 min read</span></div>
+        <h3>The best furniture hardware exporters in India — and how to vet them</h3>
+        <p>Five red flags, four green ones, and the certifications that actually matter.</p>
+      </article>
+      <article class="art reveal">
+        <div class="ph paper"><img class="img-cover" src="../assets/images/blog/logistics.webp" alt="Shipping logistics — journal banner" width="1600" height="900" loading="lazy" decoding="async"><span class="post-tag">Logistics</span></div>
+        <div class="meta"><span>Apr 02 · 2026</span><span>9 min read</span></div>
+        <h3>FCL vs LCL: when should African importers consolidate?</h3>
+        <p>A practical break-even analysis using our 2024 freight data on the Mundra-Lagos lane.</p>
+      </article>
+      <article class="art reveal">
+        <div class="ph glass"><img class="img-cover" src="../assets/images/blog/hub-guide.webp" alt="Manufacturing hub guide — journal banner" width="1600" height="900" loading="lazy" decoding="async"><span class="post-tag">Hub Guide</span></div>
+        <div class="meta"><span>Mar 24 · 2026</span><span>11 min read</span></div>
+        <h3>Firozabad glassware — what to ask before you place an order</h3>
+        <p>Why chandelier MOQs are higher than vases, and how furnace cycles affect lead times.</p>
+      </article>
+      <article class="art reveal">
+        <div class="ph navy"><img class="img-cover" src="../assets/images/blog/compliance.webp" alt="Export compliance — journal banner" width="1600" height="900" loading="lazy" decoding="async"><span class="post-tag">Compliance</span></div>
+        <div class="meta"><span>Mar 18 · 2026</span><span>7 min read</span></div>
+        <h3>KEBS PVoC for Kenyan importers — a practical primer</h3>
+        <p>Pre-Verification of Conformity with Intertek, SGS or Bureau Veritas, explained in plain language.</p>
+      </article>
+      <article class="art reveal">
+        <div class="ph paper bright"><img class="img-cover" src="../assets/images/blog/market-insight.webp" alt="Market insight — journal banner" width="1600" height="900" loading="lazy" decoding="async"><span class="post-tag">Market Insight</span></div>
+        <div class="meta"><span>Mar 10 · 2026</span><span>14 min read</span></div>
+        <h3>The rise of Ghana as a regional sourcing hub for West Africa</h3>
+        <p>Why Tema is increasingly used as a transhipment node for Burkina Faso and Mali.</p>
+      </article>
+      <article class="art reveal">
+        <div class="ph brass"><img class="img-cover" src="../assets/images/blog/oem.webp" alt="OEM private-label — journal banner" width="1600" height="900" loading="lazy" decoding="async"><span class="post-tag">OEM</span></div>
+        <div class="meta"><span>Feb 28 · 2026</span><span>9 min read</span></div>
+        <h3>Launching your own hardware brand — a five-step playbook</h3>
+        <p>How three of our African distributors built private-label hardware lines that outsell the originals.</p>
+      </article></div>
+  </div>
+</section>
+
+<section class="news">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow light">Newsletter</div>
+      <h2 class="h2" style="margin-top:14px">Get one thoughtful export brief per month.</h2>
+      <p style="margin-top:18px;color:rgba(245,242,236,.74);font-size:16px;line-height:1.6;max-width:50ch">Curated. Africa-relevant. Skippable. Used by 2,400+ importers and distributors across 14 countries.</p>
+    </div>
+    <div class="reveal" data-d="1">
+      <div class="nf">
+        <input type="email" placeholder="your@company.com">
+        <button>Subscribe</button>
+      </div>
+      <div class="legal">No spam · Unsubscribe in one click · GDPR compliant</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href="../Balaji Udhyog.html" class="logo"><div class="logo-text"><b>BALAJI UDHYOG</b><small>Est · India · Exporters</small></div></a>
+        <p>Premium Indian hardware and decor exporter, serving African importers, distributors and chain retailers since 1998.</p>
+        <a href="Contact.html" class="foot-cta">Start an export inquiry →</a>
+      </div>
+      <div class="foot-col"><h4>Quick Links</h4><ul>
+        <li><a href="../Balaji Udhyog.html">Home</a></li><li><a href="About.html">About Us</a></li><li><a href="Export Services.html">Export Services</a></li><li><a href="Africa Market.html">Africa Market</a></li><li><a href="Blog.html">Blog</a></li><li><a href="Contact.html">Contact</a></li>
+      </ul></div>
+      <div class="foot-col"><h4>Product Categories</h4><ul>
+        <li><a href="products/Furniture Hardware.html">Furniture Hardware</a></li><li><a href="products/Locks - Hardware.html">Locks &amp; Hardware</a></li><li><a href="products/Bathroom Hardware.html">Bathroom Hardware</a></li><li><a href="products/Brassware.html">Brassware</a></li><li><a href="products/Metal Art Ware.html">Metal Art Ware</a></li><li><a href="products/Glassware.html">Glassware</a></li><li><a href="products/Home Decor.html">Home Decor</a></li>
+      </ul></div>
+      <div class="foot-col"><h4>Contact</h4><address class="addr">
+        Balaji Udhyog<br>Noida · Uttar Pradesh<br>India · 201301<br><br>
+        <b style="color:var(--gold-soft)">balaji6ab@gmail.com</b><br>+91 6290 746 602
+      </address></div>
+    </div>
+    <div class="foot-bottom">
+      <small>© 2026 Balaji Udhyog · All rights reserved</small>
+      <div class="socials">
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.11 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.5h4.6V23H.22V8.5zM8 8.5h4.4v2h.06a4.83 4.83 0 0 1 4.34-2.37c4.64 0 5.5 3.05 5.5 7.02V23h-4.6v-6.9c0-1.65-.03-3.78-2.3-3.78-2.3 0-2.66 1.8-2.66 3.66V23H8V8.5z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        <a href="https://wa.me/916290746602" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11 11 0 0 0 3.4 17.2L2 22l4.9-1.3a11 11 0 0 0 16.6-9.4 11 11 0 0 0-3-7.8z"/></svg></a>
+        <a href="#" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 6 9-6"/></svg></a>
+      </div>
+      <small>Made for the India ⇄ Africa trade corridor</small>
+    </div>
+  </div>
+</footer>
+<a href="https://wa.me/916290746602" target="_blank" class="wa-float"><svg viewBox="0 0 24 24"><path d="M20.5 3.5A11 11 0 0 0 3.4 17.2L2 22l4.9-1.3a11 11 0 0 0 16.6-9.4 11 11 0 0 0-3-7.8zM12 20a8.9 8.9 0 0 1-4.6-1.3l-.3-.2-2.9.8.8-2.8-.2-.3A9 9 0 1 1 12 20z"/></svg><span>Chat with us</span></a>
+<script>
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'-40px 0px -40px 0px',threshold:0.05});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+<script>(function(){var l=function(){document.body.classList.add("loaded")};window.addEventListener("load",l);setTimeout(l,1400);})();</script>
+</body>
+</html>

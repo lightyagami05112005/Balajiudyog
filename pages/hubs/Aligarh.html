@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Aligarh — Balaji Udhyog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../../assets/site.css">
+<style>
+/* Documentary-style hero */
+.hub-hero{position:relative;background:var(--navy-deep);color:var(--paper);padding:0;overflow:hidden;min-height:100vh;display:flex;flex-direction:column}
+.hub-hero .top{padding:140px 0 0;flex:1;display:flex;flex-direction:column;justify-content:flex-end}
+.hub-hero .wrap{position:relative;z-index:2}
+.hub-hero::before{content:"";position:absolute;inset:0;opacity:.6;background:repeating-linear-gradient(135deg, rgba(200,165,91,.08) 0 1px, transparent 1px 28px),linear-gradient(180deg,transparent 0%, var(--navy-deep) 95%)}
+.hub-hero .label{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--gold);text-transform:uppercase}
+.hub-hero h1{font-family:var(--display);font-size:clamp(80px,12vw,200px);font-weight:400;color:var(--paper);line-height:.88;letter-spacing:-.04em;margin-top:24px}
+.hub-hero h1 em{font-style:normal;color:transparent;-webkit-text-stroke:1px rgba(200,165,91,.5)}
+.hub-hero .pos{margin-top:36px;display:flex;gap:48px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:rgba(245,242,236,.55);text-transform:uppercase;padding-bottom:60px}
+.hub-hero .pos b{color:var(--paper);font-weight:500}
+.hub-hero .pos .accent{color:var(--gold)}
+
+/* Big strip image */
+.hub-strip-img{background:var(--navy-deep);padding-bottom:80px}
+.hub-strip-img .ph{height:60vh;min-height:480px;position:relative}
+.hub-strip-img .cap{position:absolute;bottom:24px;left:24px;font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;color:rgba(255,255,255,.75);text-transform:uppercase}
+
+/* Editorial intro */
+.hub-intro{padding:160px 0;background:var(--paper)}
+.hub-intro .grid{display:grid;grid-template-columns:320px 1fr;gap:80px;align-items:start}
+@media (max-width:880px){.hub-intro .grid{grid-template-columns:1fr;gap:24px}}
+.hub-intro .ml{position:sticky;top:120px}
+.hub-intro .ml .est{font-family:var(--display);font-size:clamp(64px,8vw,120px);font-weight:300;color:var(--gold);letter-spacing:-.04em;line-height:.9}
+.hub-intro .ml .est small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--gold-dim);margin-bottom:8px;text-transform:uppercase;font-weight:400}
+.hub-intro h2{font-size:clamp(34px,3.4vw,52px);font-weight:500;letter-spacing:-.02em;line-height:1.08;max-width:18ch}
+.hub-intro h2 em{font-style:normal;color:var(--gold);font-weight:300}
+.hub-intro .body{font-size:18px;line-height:1.75;color:var(--ink-2);margin-top:24px;max-width:64ch}
+.hub-intro .body p+p{margin-top:22px}
+.hub-intro .pull{
+  margin-top:48px;padding:32px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  font-family:var(--display);font-size:clamp(22px,2vw,30px);line-height:1.3;letter-spacing:-.01em;
+}
+.hub-intro .pull em{font-style:normal;color:var(--gold);font-weight:300}
+
+/* Expertise grid (specialties) */
+.expertise{padding:140px 0;background:var(--paper-2)}
+.exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);margin-top:48px}
+@media (max-width:880px){.exp-grid{grid-template-columns:1fr}}
+.exp{background:var(--paper-2);padding:48px 36px;display:flex;flex-direction:column;gap:14px;min-height:280px}
+.exp .n{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--gold-dim);text-transform:uppercase}
+.exp h3{font-size:22px;font-weight:500;letter-spacing:-.01em}
+.exp p{font-size:14.5px;color:var(--ink-2);line-height:1.65}
+.exp .row{display:flex;justify-content:space-between;padding:10px 0;border-top:1px dashed var(--line);font-size:13px;color:var(--ink-2);font-family:var(--mono);letter-spacing:.04em}
+.exp .row b{font-weight:500;color:var(--ink)}
+
+/* Three-up factory atmosphere */
+.atmosphere{padding:140px 0;background:var(--navy);color:var(--paper);overflow:hidden;position:relative}
+.atmosphere h2{color:var(--paper)}
+.atm-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:16px;margin-top:48px}
+@media (max-width:880px){.atm-grid{grid-template-columns:1fr}}
+.atm-grid .am{position:relative}
+.atm-grid .am .ph{aspect-ratio:4/5;min-height:420px}
+.atm-grid .am .cap{position:absolute;bottom:18px;left:18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;color:rgba(255,255,255,.75);text-transform:uppercase}
+.atm-grid .am.wide .ph{aspect-ratio:auto;min-height:520px;height:100%}
+
+/* Process/craftsmanship steps */
+.craft{padding:140px 0;background:var(--paper)}
+.craft-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:0;margin-top:60px;position:relative}
+.craft-grid::before{content:"";position:absolute;top:32px;left:0;right:0;height:1px;background:var(--gold);opacity:.4}
+@media (max-width:880px){.craft-grid{grid-template-columns:repeat(2,1fr);gap:32px 18px}.craft-grid::before{display:none}}
+.craft .st{padding:0 18px 0 0;position:relative}
+.craft .st .dot{
+  width:64px;height:64px;border-radius:50%;background:var(--paper);border:1px solid var(--gold);
+  display:grid;place-items:center;font-family:var(--mono);font-size:11px;color:var(--gold);
+  position:relative;z-index:2;margin-bottom:24px;letter-spacing:.1em;
+}
+.craft .st h4{font-size:17px;font-weight:500;letter-spacing:-.01em}
+.craft .st p{font-size:13.5px;color:var(--ink-2);margin-top:8px;line-height:1.6}
+
+/* Export capability stats */
+.cap-band{padding:120px 0;background:var(--paper-2)}
+.cap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:48px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+@media (max-width:720px){.cap-grid{grid-template-columns:repeat(2,1fr)}}
+.cap{padding:36px 0;border-right:1px solid var(--line);padding-right:24px}
+.cap:last-child{border-right:0}
+@media (max-width:720px){.cap:nth-child(2){border-right:0}}
+.cap small{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;color:var(--gold-dim);text-transform:uppercase;display:block;margin-bottom:12px}
+.cap b{display:block;font-family:var(--display);font-size:clamp(36px,4vw,64px);font-weight:500;color:var(--ink);letter-spacing:-.025em;line-height:1}
+.cap b em{color:var(--gold);font-style:normal;font-weight:300}
+.cap p{font-size:13px;color:var(--ink-2);margin-top:12px;line-height:1.55}
+
+/* Linked products band */
+.linked{padding:120px 0;background:var(--navy-deep);color:var(--paper)}
+.linked h2{color:var(--paper)}
+.lp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+@media (max-width:880px){.lp-grid{grid-template-columns:1fr}}
+.lp{background:var(--navy);border:1px solid var(--line-dark);transition:transform .4s,border-color .4s;display:flex;flex-direction:column;color:var(--paper)}
+.lp:hover{transform:translateY(-4px);border-color:var(--gold)}
+.lp .ph{aspect-ratio:16/9}
+.lp .body{padding:28px}
+.lp small{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--gold);text-transform:uppercase}
+.lp h4{color:var(--paper);font-size:22px;font-weight:500;margin-top:6px;letter-spacing:-.01em}
+.lp p{color:rgba(245,242,236,.7);font-size:14px;margin-top:8px;line-height:1.55}
+.lp .read{margin-top:18px;font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--gold-soft);text-transform:uppercase;display:inline-flex;gap:10px}
+.lp .read::after{content:"→";color:var(--gold)}
+</style>
+</head>
+<body>
+<div class="page-curtain"></div>
+<nav class="nav solid" id="nav">
+  <div class="wrap nav-inner">
+    <a href="../../Balaji Udhyog.html" class="logo"><div class="logo-text"><b>BALAJI UDHYOG</b><small>Est · India · Exporters</small></div></a>
+    <div class="nav-menu">
+      <a href="../../Balaji Udhyog.html">Home</a>
+      <a href="../About.html" class="active">About</a>
+      <div class="dropdown">
+        <a href="../Products.html" class="has-down">Products</a>
+        <div class="dropdown-panel">
+          <a href="../products/Furniture Hardware.html"><span>Furniture Hardware</span><small>01</small></a>
+          <a href="../products/Locks - Hardware.html"><span>Locks &amp; Hardware</span><small>02</small></a>
+          <a href="../products/Bathroom Hardware.html"><span>Bathroom Hardware</span><small>03</small></a>
+          <a href="../products/Brassware.html"><span>Brassware</span><small>04</small></a>
+          <a href="../products/Metal Art Ware.html"><span>Metal Art Ware</span><small>05</small></a>
+          <a href="../products/Glassware.html"><span>Glassware</span><small>06</small></a>
+          <a href="../products/Home Decor.html"><span>Home Decor</span><small>07</small></a>
+        </div>
+      </div>
+      <a href="../Export Services.html">Export Services</a>
+      <a href="../Africa Market.html">Africa Market</a>
+      <a href="../Blog.html">Blog</a>
+      <a href="../Contact.html">Contact</a>
+    </div>
+    <div class="nav-cta"><a href="../Contact.html" class="pill">Request Catalogue</a><div class="burger"><span></span><span></span><span></span></div></div>
+  </div>
+</nav>
+<header class="hub-hero">
+  <div class="top">
+    <div class="wrap">
+      <div class="crumbs"><a href="../../Balaji Udhyog.html">Home</a> <em>/</em> <a href="../About.html">About</a> <em>/</em> <span>Aligarh</span></div>
+      <div class="label reveal">Hub 02 · Uttar Pradesh</div>
+      <h1 class="reveal" data-d="1">Aligarh<br><em>lock capital.</em></h1>
+      <div class="pos reveal" data-d="2">
+        <div><b style="">27.88°N · 78.07°E</b><br>Coordinates</div><div><b style="">Aligarh · U.P.</b><br>District</div><div><b style="">1870</b><br>Since</div><div><b style="color:var(--gold)">LOCKS · HARDWARE</b><br>Speciality</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="hub-strip-img" style="padding:0 0 0 0">
+  <div class="ph dark"><img class="img-cover" src="../../assets/images/hubs/aligarh/aligarh-aerial.webp?v2026053001" alt="Aerial view of the Aligarh manufacturing district" width="1200" height="900" loading="lazy" decoding="async"></div>
+</section>
+
+<section class="hub-intro">
+  <div class="wrap">
+    <div class="grid">
+      <div class="ml reveal">
+        <div class="est">1870<small>Lock industry est.</small></div>
+      </div>
+      <div>
+        <div class="eyebrow reveal">/ The hub</div>
+        <h2 class="reveal" data-d="1">India's lock capital — <em>since 1870.</em></h2>
+        <div class="body reveal" data-d="2">
+          <p>Aligarh has been making locks since 1870. Today, fifty kilometres north of Agra, it produces more than 75% of India's annual lock exports — concentrated in a 12 km radius of foundries, key-cutters, precision-engineering units and electroplating shops.</p><p>We source direct from twelve BIS-certified factories in this radius. Padlocks, mortise locks, cylinder locks, door closers, smart locks — all categories, all certifications: BIS, ISI, CE, ANSI Grade 2 where required.</p><p>Locks are the most regulated category in our catalogue. Aligarh's factories run testing labs on-site — 7-pin pick resistance, anti-saw bolt fatigue, salt-spray corrosion — and our docs team certifies output against destination-port standards before dispatch.</p>
+        </div>
+        <div class="pull reveal" data-d="3">Aligarh's lock industry is older than the German automobile. <em>And it still operates as a town.</em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="expertise">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><div class="num">/ Manufacturing expertise</div><h2 class="h2">Three things Aligarh<br>does better than anyone.</h2></div>
+      <p class="lede">Each specialty is centuries old. Each runs alongside a complete supporting ecosystem — foundries, finishers, packagers, freight forwarders.</p>
+    </div>
+    <div class="exp-grid">
+        <div class="exp reveal">
+          <div class="n">Specialty 01</div>
+          <h3>Padlocks &amp; mortise locks</h3>
+          <p>Heavy-duty padlocks, mortise lock sets, deadbolts — produced in Aligarh's oldest brass-cylinder lineages.</p>
+          <div class="row"><span>MOQ</span><b>1,000+ units</b></div><div class="row"><span>Certs</span><b>BIS · ISI · CE</b></div><div class="row"><span>Lead time</span><b>25–30 days</b></div>
+        </div>
+        <div class="exp reveal">
+          <div class="n">Specialty 02</div>
+          <h3>Cylinder &amp; smart locks</h3>
+          <p>Euro &amp; UK profile cylinders, digital deadbolts, smart locks with Bluetooth and biometric.</p>
+          <div class="row"><span>Specs</span><b>5/6/7-pin</b></div><div class="row"><span>Smart</span><b>Wi-Fi · BT · biometric</b></div><div class="row"><span>MOQ</span><b>200 units (smart)</b></div>
+        </div>
+        <div class="exp reveal">
+          <div class="n">Specialty 03</div>
+          <h3>Door closers &amp; closers</h3>
+          <p>Concealed door closers, surface closers, panic exit devices — for commercial and hospitality fitout.</p>
+          <div class="row"><span>Grades</span><b>Heavy · Standard</b></div><div class="row"><span>Adjustable</span><b>Speed · power</b></div><div class="row"><span>Certs</span><b>EN1154</b></div>
+        </div></div>
+  </div>
+</section>
+
+<section class="atmosphere">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><div class="num" style="color:var(--gold)">/ The floor</div><h2 class="h2">Factory atmosphere.</h2></div>
+      <p class="lede" style="color:rgba(245,242,236,.74)">From the foundry pour to the assembly bench. We visit every partner unit twice a year minimum — for full audit, sampling, and relationship-keeping.</p>
+    </div>
+    <div class="atm-grid">
+      <div class="am wide">
+        <div class="ph dark"><img class="img-cover" src="../../assets/images/hubs/aligarh/aligarh-factory-floor.webp?v2026053001" alt="Lock manufacturing floor in Aligarh" width="1000" height="1250" loading="lazy" decoding="async"></div>
+      </div>
+      <div class="am ">
+        <div class="ph navy"><img class="img-cover" src="../../assets/images/hubs/aligarh/aligarh-cylinder-assembly.webp?v2026053001" alt="Cylinder lock pin assembly in Aligarh" width="1000" height="1250" loading="lazy" decoding="async"></div>
+      </div>
+      <div class="am ">
+        <div class="ph paper"><img class="img-cover" src="../../assets/images/hubs/aligarh/aligarh-qc-bench.webp?v2026053001" alt="Quality-control pick-test bench in Aligarh" width="1000" height="1250" loading="lazy" decoding="async"></div>
+      </div></div>
+  </div>
+</section>
+
+<section class="craft">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><div class="num">/ Process</div><h2 class="h2">Six-stage<br>production.</h2></div>
+      <p class="lede">Every piece moves through the same six stages — from raw material to container loading. Each stage QC-checked, each handoff documented.</p>
+    </div>
+    <div class="craft-grid">
+      <div class="st reveal"><div class="dot">01</div><h4>Casting</h4><p>Brass and zinc body castings produced in-foundry. Sand and die-cast methods used.</p></div>
+      <div class="st reveal"><div class="dot">02</div><h4>Machining</h4><p>CNC machining of cylinders, bolts and internal mechanism. Precision tolerances.</p></div>
+      <div class="st reveal"><div class="dot">03</div><h4>Assembly</h4><p>Hand assembly of pin tumbler mechanisms. Key-cutting matched to lock body.</p></div>
+      <div class="st reveal"><div class="dot">04</div><h4>Plating</h4><p>Electroplating: nickel, chrome, brass-finish. PVD coatings on premium ranges.</p></div>
+      <div class="st reveal"><div class="dot">05</div><h4>Testing</h4><p>7-pin pick resistance, anti-saw bolt cycle, salt-spray corrosion testing.</p></div>
+      <div class="st reveal"><div class="dot">06</div><h4>Packaging</h4><p>Individual blister or branded boxes. Master cartons. Anti-rust desiccants.</p></div></div>
+  </div>
+</section>
+
+<section class="cap-band">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><div class="num">/ Export capability</div><h2 class="h2">By the numbers.</h2></div>
+      <p class="lede">What our Aligarh pipeline produces, ships and certifies on an annual basis.</p>
+    </div>
+    <div class="cap-grid">
+      <div class="cap reveal"><small>Factory partners</small><b>12</b><p>BIS-certified Aligarh lock manufacturers with direct supply agreements.</p></div>
+      <div class="cap reveal"><small>Annual volume</small><b>3.2<em>M</em></b><p>Lock units passed through our Aligarh pipeline in the past 12 months.</p></div>
+      <div class="cap reveal"><small>Compliance routes</small><b>14</b><p>African market certifications managed in-house — SONCAP, KEBS, SABS, TBS, GSA.</p></div>
+      <div class="cap reveal"><small>Pick-test pass</small><b>100<em>%</em></b><p>Every smart and high-security lock SKU passes our 7-pin resistance test.</p></div></div>
+  </div>
+</section>
+
+<section class="linked">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><div class="num" style="color:var(--gold)">/ Products from Aligarh</div><h2 class="h2">Three categories<br>that originate here.</h2></div>
+      <p class="lede" style="color:rgba(245,242,236,.74)">Every category we ship from this hub. Click through for full SKU range, MOQs and lead times.</p>
+    </div>
+    <div class="lp-grid">
+      <a class="lp" href="../products/Locks - Hardware.html">
+        <div class="ph dark"><img class="img-cover" src="../../assets/images/categories/locks-hardware-hero.webp?v2026053002" alt="Locks &amp; Hardware category — Balaji Udhyog export range" width="1200" height="900" loading="lazy" decoding="async"><span class="ph-tag">Category 02</span></div>
+        <div class="body"><small>Category 02</small><h4>Locks &amp; Hardware</h4><p>Padlocks, mortise, cylinder and smart locks — all certifications, all African destinations.</p><span class="read">View category</span></div>
+      </a>
+      <a class="lp" href="../products/Furniture Hardware.html">
+        <div class="ph paper"><img class="img-cover" src="../../assets/images/categories/furniture-hardware-hero.webp?v2026053002" alt="Furniture Hardware category — Balaji Udhyog export range" width="1200" height="900" loading="lazy" decoding="async"><span class="ph-tag">Category 01</span></div>
+        <div class="body"><small>Category 01</small><h4>Furniture Hardware</h4><p>Hinges, drawer slides, handles — precision furniture hardware from the same Aligarh ecosystem.</p><span class="read">View category</span></div>
+      </a>
+      <a class="lp" href="../products/Bathroom Hardware.html">
+        <div class="ph glass"><img class="img-cover" src="../../assets/images/categories/bathroom-hardware-hero.webp?v2026053002" alt="Bathroom Hardware category — Balaji Udhyog export range" width="1200" height="900" loading="lazy" decoding="async"><span class="ph-tag">Category 03</span></div>
+        <div class="body"><small>Category 03</small><h4>Bathroom Hardware</h4><p>Brass-bodied bathroom accessories produced in adjacent Jagadhri foundries.</p><span class="read">View category</span></div>
+      </a></div>
+  </div>
+</section>
+
+<section class="inquiry-band">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow light">Aligarh sourcing</div>
+      <h2 class="h2" style="margin-top:14px">Source directly from Aligarh.</h2>
+      <p>Tell us what you need — a single SKU, a mixed container, an OEM line. Our Aligarh export team responds inside one business day.</p>
+    </div>
+    <div class="actions">
+      <a href="../Contact.html" class="btn btn-gold">Start a Aligarh inquiry <span class="arr"></span></a>
+      <a href="https://wa.me/916290746602" target="_blank" class="btn btn-wa">WhatsApp us</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href="../../Balaji Udhyog.html" class="logo"><div class="logo-text"><b>BALAJI UDHYOG</b><small>Est · India · Exporters</small></div></a>
+        <p>Premium Indian hardware and decor exporter, serving African importers, distributors and chain retailers since 1998.</p>
+        <a href="../Contact.html" class="foot-cta">Start an export inquiry →</a>
+      </div>
+      <div class="foot-col"><h4>Quick Links</h4><ul>
+        <li><a href="../../Balaji Udhyog.html">Home</a></li><li><a href="../About.html">About Us</a></li><li><a href="../Export Services.html">Export Services</a></li><li><a href="../Africa Market.html">Africa Market</a></li><li><a href="../Blog.html">Blog</a></li><li><a href="../Contact.html">Contact</a></li>
+      </ul></div>
+      <div class="foot-col"><h4>Product Categories</h4><ul>
+        <li><a href="../products/Furniture Hardware.html">Furniture Hardware</a></li><li><a href="../products/Locks - Hardware.html">Locks &amp; Hardware</a></li><li><a href="../products/Bathroom Hardware.html">Bathroom Hardware</a></li><li><a href="../products/Brassware.html">Brassware</a></li><li><a href="../products/Metal Art Ware.html">Metal Art Ware</a></li><li><a href="../products/Glassware.html">Glassware</a></li><li><a href="../products/Home Decor.html">Home Decor</a></li>
+      </ul></div>
+      <div class="foot-col"><h4>Contact</h4><address class="addr">
+        Balaji Udhyog<br>Noida · Uttar Pradesh<br>India · 201301<br><br>
+        <b style="color:var(--gold-soft)">balaji6ab@gmail.com</b><br>+91 6290 746 602
+      </address></div>
+    </div>
+    <div class="foot-bottom">
+      <small>© 2026 Balaji Udhyog · All rights reserved</small>
+      <div class="socials">
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.11 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.5h4.6V23H.22V8.5zM8 8.5h4.4v2h.06a4.83 4.83 0 0 1 4.34-2.37c4.64 0 5.5 3.05 5.5 7.02V23h-4.6v-6.9c0-1.65-.03-3.78-2.3-3.78-2.3 0-2.66 1.8-2.66 3.66V23H8V8.5z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        <a href="https://wa.me/916290746602" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11 11 0 0 0 3.4 17.2L2 22l4.9-1.3a11 11 0 0 0 16.6-9.4 11 11 0 0 0-3-7.8z"/></svg></a>
+        <a href="#" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 6 9-6"/></svg></a>
+      </div>
+      <small>Made for the India ⇄ Africa trade corridor</small>
+    </div>
+  </div>
+</footer>
+<a href="https://wa.me/916290746602" target="_blank" class="wa-float"><svg viewBox="0 0 24 24"><path d="M20.5 3.5A11 11 0 0 0 3.4 17.2L2 22l4.9-1.3a11 11 0 0 0 16.6-9.4 11 11 0 0 0-3-7.8zM12 20a8.9 8.9 0 0 1-4.6-1.3l-.3-.2-2.9.8.8-2.8-.2-.3A9 9 0 1 1 12 20z"/></svg><span>Chat with us</span></a>
+<script>
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'-40px 0px -40px 0px',threshold:0.05});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+<script>(function(){var l=function(){document.body.classList.add("loaded")};window.addEventListener("load",l);setTimeout(l,1400);})();</script>
+</body>
+</html>

@@ -96,5 +96,7 @@
     await fetch('/api/leads/'+id, { method:'PATCH', headers:{'Content-Type':'application/json','X-Admin-Token':tok()}, body: JSON.stringify({status}) });
   }
 </script>
+
+<script>document.querySelector('.burger')?.addEventListener('click', function(){document.getElementById('nav')?.classList.toggle('nav-open')});</script>
 </body>
 </html>

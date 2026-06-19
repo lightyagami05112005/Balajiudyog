@@ -1,5 +1,5 @@
 // leonardo-config.js
-// Central configuration for the Balaji Udhyog Leonardo AI image pipeline.
+// Central configuration for the Balaji Udyog Leonardo AI image pipeline.
 // - Loads the API key from the environment (or a local, gitignored .env).
 // - Defines model/engine presets, aspect-ratio + master-size presets,
 //   retry / rate-limit / polling behaviour, and the generation-body builder.

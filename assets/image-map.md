@@ -82,12 +82,12 @@ Generate/upscale at the **master** size, then produce responsive variants per
 |---|---|---|---|
 | Hero | `.h-img.left` | `hero/hero-brass-foundry-left.webp` | A1 |
 | Hero | `.h-img.right` | `hero/hero-export-port-right.webp` | A2 |
-| Categories | `.cat` Brassware | `categories/brassware-hero.webp` | B1 |
-| Categories | `.cat` Metal Art Ware | `categories/metal-art-ware-hero.webp` | B2 |
-| Categories | `.cat` Furniture Hardware | `categories/furniture-hardware-hero.webp` | B3 |
-| Categories | `.cat` Locks & Hardware | `categories/locks-hardware-hero.webp` | B4 |
+| Categories | `.cat` Brassware | `categories/brassware-hero.jpg?v=9999` | B1 |
+| Categories | `.cat` Metal Art Ware | `categories/metal-art-ware-hero.jpg?v=12345?v=999` | B2 |
+| Categories | `.cat` Furniture Hardware | `categories/furniture-hardware-hero.jpg?v=999` | B3 |
+| Categories | `.cat` Locks & Hardware | `categories/locks-hardware-hero.jpg?v=999` | B4 |
 | Categories | `.cat` Bathroom Hardware | `categories/bathroom-hardware-hero.webp` | B5 |
-| Categories | `.cat` Glassware | `categories/glassware-hero.webp` | B6 |
+| Categories | `.cat` Glassware | `categories/glassware-hero.jpg?v=99999` | B6 |
 | Categories | `.cat` Home Decor | `categories/home-decor-hero.webp` | B7 |
 | Hubs | `.hub-img` Muradabad | `hubs/moradabad/moradabad-aerial.webp` | C1.0 |
 | Hubs | `.hub-img` Aligarh | `hubs/aligarh/aligarh-aerial.webp` | C2.0 |
@@ -109,12 +109,12 @@ Generate/upscale at the **master** size, then produce responsive variants per
 
 | Category corner | Image file | Prompt |
 |---|---|---|
-| 01 · Furniture Hardware | `categories/furniture-hardware-hero.webp` | B3 |
-| 02 · Locks | `categories/locks-hardware-hero.webp` | B4 |
+| 01 · Furniture Hardware | `categories/furniture-hardware-hero.jpg?v=999` | B3 |
+| 02 · Locks | `categories/locks-hardware-hero.jpg?v=999` | B4 |
 | 03 · Bathroom | `categories/bathroom-hardware-hero.webp` | B5 |
-| 04 · Brassware | `categories/brassware-hero.webp` | B1 |
-| 05 · Metal Art | `categories/metal-art-ware-hero.webp` | B2 |
-| 06 · Glass (chandelier) | `categories/glassware-hero.webp` | B6 |
+| 04 · Brassware | `categories/brassware-hero.jpg?v=9999` | B1 |
+| 05 · Metal Art | `categories/metal-art-ware-hero.jpg?v=12345?v=999` | B2 |
+| 06 · Glass (chandelier) | `categories/glassware-hero.jpg?v=99999` | B6 |
 | 07 · Home Decor | `categories/home-decor-hero.webp` | B7 |
 
 ### 3.3 Product category pages (`pages/products/*.html`)

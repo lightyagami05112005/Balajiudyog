@@ -1,4 +1,4 @@
-// server.js — Balaji Udhyog lead-capture & inquiry-management backend
+// server.js — Balaji Udyog lead-capture & inquiry-management backend
 // ---------------------------------------------------------------------------
 // A small, dependency-light Express service that the static export website
 // posts inquiries to. It:
@@ -71,7 +71,7 @@ async function notify(lead) {
 /* ---------------- WhatsApp click-to-chat link ---------------- */
 function waLink(lead) {
   const f = lead.fields || {};
-  const msg = `Hello Balaji Udhyog — inquiry from ${f.Company || f['Full Name'] || 'a buyer'} (${f.Country || lead.country || ''}). `
+  const msg = `Hello Balaji Udyog — inquiry from ${f.Company || f['Full Name'] || 'a buyer'} (${f.Country || lead.country || ''}). `
     + `Product: ${f['Product Interest'] || f['Product interest'] || f.Finish || '—'}. `
     + `Volume: ${f['Order Volume / Notes'] || f['Volume / Notes'] || f['Quantity / Volume'] || '—'}.`;
   return `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
@@ -129,7 +129,7 @@ app.get('/health', (req, res) => res.json({ ok: true, leads: readLeads().length 
 app.get('/', (req, res) => res.redirect('/admin'));
 
 app.listen(PORT, () => {
-  console.log(`\n  Balaji Udhyog lead backend running on http://localhost:${PORT}`);
+  console.log(`\n  Balaji Udyog lead backend running on http://localhost:${PORT}`);
   console.log(`  Admin: http://localhost:${PORT}/admin   (token: ${ADMIN_TOKEN === 'change-me' ? 'change-me — SET ADMIN_TOKEN!' : 'set'})`);
   console.log(`  Inquiry endpoint: POST http://localhost:${PORT}/api/inquiry`);
   if (!process.env.SMTP_HOST) console.log('  Email notifications: OFF (set SMTP_* in .env to enable)');

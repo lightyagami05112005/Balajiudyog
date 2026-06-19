@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // generate-leonardo-images.js
 // ---------------------------------------------------------------------------
-// Automated Leonardo AI image generation for the Balaji Udhyog export website.
+// Automated Leonardo AI image generation for the Balaji Udyog export website.
 //
 //   1. Parses prompt blocks from  assets/ai-image-prompts.md
 //   2. Scans every page for the image paths it references (these ARE the
@@ -173,13 +173,13 @@ const BLOG_THEME = {
 const PORTRAIT_ROLE = {
   'managing-director': 'managing director, a mature Indian businessman',
   'operations-director': 'operations director, an Indian businesswoman',
-  'africa-head': 'Africa desk head, a West African businesswoman, Lagos office backdrop',
+  'global-head': 'Global desk head, a West Global businesswoman, Lagos office backdrop',
   'head-qc': 'head of quality control, an Indian man, in a factory backdrop',
 };
 const OFFICE_PLACE = {
   'moradabad-facility': 'premium brassware-house headquarters building in an Indian industrial district in Moradabad',
   'mundra-warehouse': 'port-side export warehouse facility near Mundra',
-  'lagos': 'sleek Africa-desk office building on a Lagos boulevard',
+  'lagos': 'sleek Global-desk office building on a Lagos boulevard',
 };
 const humanize = (s) => s.replace(/-/g, ' ').trim();
 
@@ -358,7 +358,7 @@ async function runPool(jobs, worker, concurrency) {
 
 /* ===================== Main ===================== */
 async function main() {
-  console.log(C.b('\n  Balaji Udhyog · Leonardo image pipeline\n'));
+  console.log(C.b('\n  Balaji Udyog · Leonardo image pipeline\n'));
 
   const { blocks, globalNegative } = parsePrompts(PROMPTS_MD);
   console.log(C.dim(`  Parsed ${Object.keys(blocks).length} prompt blocks from ai-image-prompts.md`));

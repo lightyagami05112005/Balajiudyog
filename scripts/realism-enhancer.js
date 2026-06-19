@@ -3,7 +3,7 @@
 // Builds AUTHENTIC, MODERN, CATEGORY-DISTINCT photography prompts and away from
 // the "AI art" look AND away from the old brass-foundry/rustic universe.
 //
-// Balaji Udhyog is a diversified modern hardware & bathroom-systems exporter.
+// Balaji Udyog is a diversified modern hardware & bathroom-systems exporter.
 // Each category gets its own scene + palette (see ../assets/modern-hardware-direction.md):
 //   • bathroom  → luxury hotel bathroom, chrome / brushed nickel / matte black, white marble
 //   • locks     → architectural door in a minimalist luxury apartment, matte black / brushed steel

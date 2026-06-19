@@ -45,7 +45,7 @@ Lowercase, hyphen-separated, descriptive. No spaces, no underscores, no capitals
 
 | Type | Pattern | Example |
 |---|---|---|
-| Category hero | `categories/<category>-hero.webp` | `categories/brassware-hero.webp` |
+| Category hero | `categories/<category>-hero.webp` | `categories/brassware-hero.jpg?v=9999` |
 | SKU closeup | `products/<category>/<sku-code>-<slug>.webp` | `products/brassware/sku-401-decorative-brass-pots.webp` |
 | Gallery strip | `products/<category>/gallery-<role>.webp` | `products/glassware/gallery-lifestyle.webp` |
 | Hub aerial | `hubs/<hub>/<hub>-aerial.webp` | `hubs/aligarh/aligarh-aerial.webp` |
@@ -57,13 +57,13 @@ Lowercase, hyphen-separated, descriptive. No spaces, no underscores, no capitals
 **Responsive variants** (optional, recommended — see §5) append a width suffix:
 
 ```
-brassware-hero.webp          # master / fallback (≈1600w)
+brassware-hero.jpg?v=9999          # master / fallback (≈1600w)
 brassware-hero-1280.webp     # desktop
 brassware-hero-768.webp      # tablet
 brassware-hero-480.webp      # mobile
 ```
 
-The HTML references the master file (`brassware-hero.webp`). To serve smaller files on small
+The HTML references the master file (`brassware-hero.jpg?v=9999`). To serve smaller files on small
 screens, wire up `srcset`/`sizes` once the variants exist (snippet in §5).
 
 ---
@@ -134,11 +134,11 @@ After you generate the width variants in §2, upgrade any slot to true responsiv
 
 ```html
 <img class="img-cover"
-     src="../../assets/images/categories/brassware-hero.webp"
+     src="../../assets/images/categories/brassware-hero.jpg?v=9999"
      srcset="../../assets/images/categories/brassware-hero-480.webp 480w,
              ../../assets/images/categories/brassware-hero-768.webp 768w,
              ../../assets/images/categories/brassware-hero-1280.webp 1280w,
-             ../../assets/images/categories/brassware-hero.webp 1600w"
+             ../../assets/images/categories/brassware-hero.jpg?v=9999 1600w"
      sizes="(max-width: 560px) 100vw, (max-width: 980px) 50vw, 33vw"
      alt="Handcrafted brassware from Muradabad — Balaji Udhyog export catalogue"
      width="1600" height="1000" loading="lazy" decoding="async">

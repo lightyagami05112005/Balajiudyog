@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Lead-capture + inquiry management backend for the Balaji Udhyog export website.",
+  "description": "Lead-capture + inquiry management backend for the Balaji Udyog export website.",
   "engines": { "node": ">=18" },
   "scripts": {
     "start": "node server.js",

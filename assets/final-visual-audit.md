@@ -53,7 +53,7 @@
 
 ## Strongest images
 
-- `categories/locks-hardware-hero.webp` — 100
+- `categories/locks-hardware-hero.jpg?v=999` — 100
 - `export/branded-packaging-oem.webp` — 100
 - `export/port-arrival-inland.webp` — 100
 - `gallery/brassware-moradabad.webp` — 100

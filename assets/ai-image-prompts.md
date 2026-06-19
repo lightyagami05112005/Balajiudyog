@@ -114,7 +114,7 @@ photoreal, luxury catalogue quality, warm brass tones against navy
 **Negative Prompt** — *base +* `religious iconography focus, cheap gift-shop staging, harsh flash, white seamless studio`
 **Aspect Ratio** — 16:10 (large tile) — see image-map for crops
 **Leonardo Settings** — Photoreal v2 · Cinematic · Contrast High · CFG 7 · Upscale 2×
-**Placement** — `assets/images/categories/brassware-hero.webp`
+**Placement** — `assets/images/categories/brassware-hero.jpg?v=9999`
 
 ### B2 — Metal Art Ware
 **Main Prompt**
@@ -127,7 +127,7 @@ full-frame 50mm, shallow depth of field, premium hospitality decor mood, photore
 **Negative Prompt** — *base +* `mass-produced look, cluttered shelf, plastic, neon`
 **Aspect Ratio** — 16:10
 **Leonardo Settings** — Photoreal v2 · Cinematic · Contrast Medium-High · CFG 7 · Upscale 2×
-**Placement** — `assets/images/categories/metal-art-ware-hero.webp`
+**Placement** — `assets/images/categories/metal-art-ware-hero.jpg?v=12345?v=999`
 
 ### B3 — Furniture Hardware
 **Main Prompt**
@@ -141,7 +141,7 @@ gold and steel against navy
 **Negative Prompt** — *base +* `cheap plastic fittings, blister pack, hardware-store clutter, readable packaging`
 **Aspect Ratio** — 4:5 (standard tile)
 **Leonardo Settings** — Photoreal v2 · Cinematic · Contrast High · CFG 7 · Upscale 2×
-**Placement** — `assets/images/categories/furniture-hardware-hero.webp`
+**Placement** — `assets/images/categories/furniture-hardware-hero.jpg?v=999`
 
 ### B4 — Locks & Hardware
 **Main Prompt**
@@ -155,7 +155,7 @@ ultra detailed machining texture
 **Negative Prompt** — *base +* `toy lock, plastic, rusty cheap padlock, readable brand stamp, keys with text`
 **Aspect Ratio** — 4:5
 **Leonardo Settings** — Photoreal v2 · Cinematic · Contrast High · CFG 7 · Upscale 2×
-**Placement** — `assets/images/categories/locks-hardware-hero.webp`
+**Placement** — `assets/images/categories/locks-hardware-hero.jpg?v=999`
 
 ### B5 — Bathroom Hardware
 **Main Prompt**
@@ -182,7 +182,7 @@ Firozabad luxury glass mood, ultra detailed refraction and caustics
 **Negative Prompt** — *base +* `plastic glass, cheap pressed glass, foggy, dirty, broken edges, rainbow oversaturation`
 **Aspect Ratio** — 4:5
 **Leonardo Settings** — Photoreal v2 · Cinematic · Contrast High · CFG 6.5 · Upscale 2×
-**Placement** — `assets/images/categories/glassware-hero.webp`
+**Placement** — `assets/images/categories/glassware-hero.jpg?v=99999`
 
 ### B7 — Home Decor
 **Main Prompt**

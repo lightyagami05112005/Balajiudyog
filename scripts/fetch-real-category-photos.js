@@ -8,12 +8,12 @@ import sharp from "sharp";
 const ROOT = path.resolve("../assets/images/categories");
 
 const PHOTOS = {
-  "brassware-hero.webp":          { url: "https://images.pexels.com/photos/14127692/pexels-photo-14127692.jpeg", w: 1600, h: 1000 },
-  "metal-art-ware-hero.webp":     { url: "https://images.pexels.com/photos/5028727/pexels-photo-5028727.jpeg",   w: 1600, h: 1000 },
-  "furniture-hardware-hero.webp": { url: "https://images.pexels.com/photos/35287566/pexels-photo-35287566.jpeg", w: 1000, h: 1250 },
-  "locks-hardware-hero.webp":     { url: "https://images.pexels.com/photos/36740854/pexels-photo-36740854.jpeg", w: 1000, h: 1250 },
+  "brassware-hero.jpg?v=9999":          { url: "https://images.pexels.com/photos/14127692/pexels-photo-14127692.jpeg", w: 1600, h: 1000 },
+  "metal-art-ware-hero.jpg?v=12345?v=999":     { url: "https://images.pexels.com/photos/5028727/pexels-photo-5028727.jpeg",   w: 1600, h: 1000 },
+  "furniture-hardware-hero.jpg?v=999": { url: "https://images.pexels.com/photos/35287566/pexels-photo-35287566.jpeg", w: 1000, h: 1250 },
+  "locks-hardware-hero.jpg?v=999":     { url: "https://images.pexels.com/photos/36740854/pexels-photo-36740854.jpeg", w: 1000, h: 1250 },
   "bathroom-hardware-hero.webp":  { url: "https://images.pexels.com/photos/30560253/pexels-photo-30560253.jpeg", w: 1000, h: 1250 },
-  "glassware-hero.webp":          { url: "https://images.pexels.com/photos/7809813/pexels-photo-7809813.jpeg",   w: 1000, h: 1250 },
+  "glassware-hero.jpg?v=99999":          { url: "https://images.pexels.com/photos/7809813/pexels-photo-7809813.jpeg",   w: 1000, h: 1250 },
   "home-decor-hero.webp":         { url: "https://images.pexels.com/photos/10903296/pexels-photo-10903296.jpeg", w: 1000, h: 1250 },
 };
 

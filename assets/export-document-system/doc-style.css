@@ -1,6 +1,11 @@
 /* Export document system — shared print + screen styles (A4) */
-:root{--navy:#0a1d3a;--navy-deep:#06122a;--gold:#c8a55b;--gold-dim:#8a7340;
---paper:#fff;--ink:#14171c;--ink-2:#2a2f38;--grey:#6b7280;--line:#d9d4c8;--line-2:#eceae3;
+:root{
+  --dark-h: #FFFFFF;
+  --dark-p: rgba(255,255,255,0.85);
+  --dark-muted: rgba(255,255,255,0.6);
+  --dark-gold: #D4AF37;
+  --dark-gold-light: #F5D76E;--navy:#4682B4;--navy-deep:#2B4C63;--gold:#C87B53;--gold-dim:#B56942;
+--paper:#FAF9F6;--ink:#1F2937;--ink-2:#4B5563;--grey:#6B7280;--line:#d9d4c8;--line-2:#eceae3;
 --mono:'JetBrains Mono',ui-monospace,monospace;--body:'Inter',Arial,sans-serif;--disp:'Montserrat',Arial,sans-serif;}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:var(--body);color:var(--ink);background:#cfcabd;font-size:13px;line-height:1.5}

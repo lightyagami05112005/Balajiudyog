@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Automated Leonardo AI image generation pipeline for the Balaji Udhyog export website.",
+  "description": "Automated Leonardo AI image generation pipeline for the Balaji Udyog export website.",
   "engines": { "node": ">=18" },
   "scripts": {
     "generate": "node generate-leonardo-images.js",

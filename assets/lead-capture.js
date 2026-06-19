@@ -1,10 +1,10 @@
-/* Balaji Udhyog — lead capture client.
+/* Balaji Udyog — lead capture client.
    Intercepts every .form submit and posts it to the lead backend
    (POST /api/inquiry). If the backend is unreachable, it falls back to a
    WhatsApp / email prompt so an inquiry is never lost in front of the buyer.
 
    Configure a non-default backend before this script loads:
-     <script>window.BU_LEAD_API = 'https://api.balajiudhyog.com';</script>
+     <script>window.BU_LEAD_API = 'https://api.balajiudyog.com';</script>
 */
 (function () {
   var API = (window.BU_LEAD_API || 'http://localhost:4000').replace(/\/$/, '');
@@ -55,15 +55,15 @@
         if (!d || !d.success) throw new Error((d && d.message) || 'bad response');
         form.querySelectorAll('.field, .actions, .form-note, .form-row').forEach(function (el) { el.style.display = 'none'; });
         note(form,
-          'Thank you — your inquiry has reached our Africa desk. We respond within one business day.',
+          'Thank you — your inquiry has reached our Global desk. We respond within one business day.',
           true);
       })
       .catch(function () {
-        var wa = 'https://wa.me/916290746602?text=' + encodeURIComponent('Hello Balaji Udhyog — I would like to send an export inquiry.');
+        var wa = 'https://wa.me/916290746602?text=' + encodeURIComponent('Hello Balaji Udyog — I would like to send an export inquiry.');
         note(form,
           'We could not reach the inquiry desk just now. Please contact us directly:<br>' +
           'WhatsApp: <a href="' + wa + '" target="_blank" rel="noopener" style="color:#1eb858;font-weight:700">message us</a> &middot; ' +
-          'Email: <a href="mailto:export@balajiudhyog.com" style="color:var(--gold-dim,#8a7340);font-weight:700">export@balajiudhyog.com</a>',
+          'Email: <a href="mailto:export@balajiudyog.com" style="color:var(--gold-dim,#8a7340);font-weight:700">export@balajiudyog.com</a>',
           false);
       })
       .finally(function () { if (btn) { btn.disabled = false; btn.textContent = btn.dataset._t || 'Send inquiry'; } });

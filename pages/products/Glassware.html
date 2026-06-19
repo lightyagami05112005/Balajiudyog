@@ -3,25 +3,25 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Glassware — Balaji Udhyog</title>
+<title>Glassware — Balaji Udyog</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="../../assets/site.css?v=2">
 <style>
-.cat-hero{position:relative;color:var(--paper);padding:180px 0 100px;overflow:hidden}
+.cat-hero{position:relative;color:var(--dark-h);padding:180px 0 100px;overflow:hidden}
 .cat-hero::before{content:"";position:absolute;inset:0;opacity:.5;pointer-events:none}
 .cat-hero .wrap{position:relative;z-index:2}
 .cat-hero .grid{display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:end}
 @media (max-width:980px){.cat-hero .grid{grid-template-columns:1fr;gap:40px}}
-.cat-hero h1{font-size:clamp(48px,5.4vw,80px);color:var(--paper);font-weight:500;letter-spacing:-.025em;line-height:1.02;margin-top:24px;max-width:14ch}
+.cat-hero h1{font-size:clamp(48px,5.4vw,80px);color:var(--dark-h);font-weight:500;letter-spacing:-.025em;line-height:1.02;margin-top:24px;max-width:14ch}
 .cat-hero h1 em{font-style:normal;color:var(--gold);font-weight:300}
-.cat-hero .sub{margin-top:24px;font-size:18px;color:rgba(245,242,236,.8);max-width:54ch;line-height:1.6}
+.cat-hero .sub{margin-top:24px;font-size:18px;color:var(--dark-p);max-width:54ch;line-height:1.6}
 .cat-hero .actions{margin-top:36px;display:flex;gap:12px;flex-wrap:wrap}
 .cat-hero .meta{display:flex;flex-direction:column;gap:16px;padding-bottom:8px}
-.cat-hero .meta .it{display:flex;justify-content:space-between;padding:14px 0;border-top:1px solid var(--line-dark);font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,242,236,.55)}
+.cat-hero .meta .it{display:flex;justify-content:space-between;padding:14px 0;border-top:1px solid var(--line-dark);font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--dark-p)}
 .cat-hero .meta .it:last-child{border-bottom:1px solid var(--line-dark)}
-.cat-hero .meta .it b{color:var(--paper);font-weight:500}
+.cat-hero .meta .it b{color:var(--dark-h);font-weight:500}
 .cat-hero .meta .it em{color:var(--gold);font-style:normal}
 
 /* Intro band */
@@ -53,19 +53,19 @@
 .show .it .row{display:flex;justify-content:space-between;padding:10px 0;font-size:13px;color:var(--ink-2);border-top:1px dashed var(--line)}
 .show .it .row b{font-family:var(--mono);font-size:11px;color:var(--ink);font-weight:500;letter-spacing:.08em}
 
-/* Africa relevance */
-.af-rel{padding:120px 0;background:var(--navy);color:var(--paper);overflow:hidden;position:relative}
+/* Global relevance */
+.af-rel{padding:120px 0;background:var(--navy);color:var(--dark-h);overflow:hidden;position:relative}
 .af-rel::before{content:"";position:absolute;inset:0;opacity:.3;background:repeating-linear-gradient(135deg, rgba(200,165,91,.08) 0 1px, transparent 1px 22px)}
 .af-rel .wrap{position:relative;z-index:2}
-.af-rel h2{color:var(--paper)}
+.af-rel h2{color:var(--dark-h)}
 .af-rel .grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:start;margin-top:48px}
 @media (max-width:880px){.af-rel .grid{grid-template-columns:1fr;gap:32px}}
-.af-rel p{color:rgba(245,242,236,.74);font-size:17px;line-height:1.7;max-width:55ch}
+.af-rel p{color:var(--dark-p);font-size:17px;line-height:1.7;max-width:55ch}
 .af-rel ul{list-style:none;display:flex;flex-direction:column;gap:1px;background:var(--line-dark)}
 .af-rel ul li{background:var(--navy);padding:18px 0;display:grid;grid-template-columns:50px 1fr 200px;align-items:center;gap:20px}
 .af-rel ul li b{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--gold);font-weight:500;text-transform:uppercase}
-.af-rel ul li span{color:var(--paper);font-size:15px}
-.af-rel ul li em{font-style:normal;font-family:var(--mono);font-size:11px;color:rgba(245,242,236,.55);text-align:right;text-transform:uppercase;letter-spacing:.14em}
+.af-rel ul li span{color:var(--dark-h);font-size:15px}
+.af-rel ul li em{font-style:normal;font-family:var(--mono);font-size:11px;color:var(--dark-p);text-align:right;text-transform:uppercase;letter-spacing:.14em}
 
 /* Gallery */
 .gal{padding:140px 0;background:var(--paper)}
@@ -104,7 +104,7 @@
 .bulk h2 em{font-style:normal;color:var(--gold);font-weight:300}
 .bulk .pricetable{margin-top:48px;display:flex;flex-direction:column;gap:1px;background:var(--line)}
 .bulk .pricetable .pr{background:var(--paper);padding:18px 24px;display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:24px;align-items:center;font-size:14px}
-.bulk .pricetable .pr.hd{background:var(--navy);color:var(--paper);font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);padding:14px 24px}
+.bulk .pricetable .pr.hd{background:var(--navy);color:var(--dark-h);font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);padding:14px 24px}
 .bulk .pricetable .pr b{font-weight:500;color:var(--ink)}
 .bulk .pricetable .pr.disc{color:var(--gold-dim);font-family:var(--mono);font-size:11px;letter-spacing:.1em}
 @media (max-width:560px){.bulk .pricetable .pr{grid-template-columns:1fr 1fr;font-size:12.5px}}
@@ -127,9 +127,9 @@
 <div class="page-curtain"></div>
 <nav class="nav solid" id="nav">
   <div class="wrap nav-inner">
-    <a href="../../Balaji Udhyog.html" class="logo"><div class="logo-text"><b>BALAJI UDHYOG</b><small>Est · India · Exporters</small></div></a>
+    <a href="../../Balaji Udyog.html" class="logo"><div class="logo-text"><b>BALAJI UDYOG</b><small>Est · India · Exporters</small></div></a>
     <div class="nav-menu">
-      <a href="../../Balaji Udhyog.html">Home</a>
+      <a href="../../Balaji Udyog.html">Home</a>
       <a href="../About.html">About</a>
       <div class="dropdown">
         <a href="../Products.html" class="has-down active">Products</a>
@@ -144,7 +144,6 @@
         </div>
       </div>
       <a href="../Export Services.html">Export Services</a>
-      <a href="../Africa Market.html">Africa Market</a>
       <a href="../Blog.html">Blog</a>
       <a href="../Contact.html">Contact</a>
     </div>
@@ -153,297 +152,67 @@
 </nav>
 <header class="cat-hero" style="background:linear-gradient(180deg, var(--navy-deep), var(--navy))">
   <div class="wrap">
-    <div class="crumbs"><a href="../../Balaji Udhyog.html">Home</a> <em>/</em> <a href="../Products.html">Products</a> <em>/</em> <span>Glassware</span></div>
+    <div class="crumbs"><a href="../../Balaji Udyog.html">Home</a> <em>/</em> <a href="../Products.html">Products</a> <em>/</em> <span>Glassware</span></div>
     <div class="grid">
       <div>
-        <div class="eyebrow light reveal">Category 06 · Firozabad</div>
-        <h1 class="reveal" data-d="1">Glassware<br><em>from Firozabad &mdash; the city of glass.</em></h1>
-        <p class="sub reveal" data-d="2">Furnace-blown chandeliers, hand-cut crystal, decorative glassware and luxury glass decor — built to spec for hotel groups, chain retailers and high-end interior projects across Africa.</p>
+        <div class="eyebrow light reveal">Category 06 · Sourced in India</div>
+        <h1 class="reveal" data-d="1">Glassware<br><em>from India &mdash; the city of glass.</em></h1>
+        <p class="sub reveal" data-d="2">Furnace-blown chandeliers, hand-cut crystal, decorative glassware and luxury glass decor — built to spec for hotel groups, chain retailers and high-end interior projects worldwide.</p>
         <div class="actions reveal" data-d="3">
-          <a href="../Contact.html" class="btn btn-gold">Request quote <span class="arr"></span></a>
-          <a href="https://wa.me/916290746602" target="_blank" class="btn btn-wa">WhatsApp Us</a>
+          <a href="https://wa.me/916290746602?text=Hello%20Balaji%20Udyog%2C%20I%20would%20like%20to%20request%20the%20catalogue." target="_blank" class="btn btn-wa">Request Catalogue on WhatsApp</a>
         </div>
       </div>
       <div class="meta reveal" data-d="2">
         <div class="it"><span>Category</span><b>06 / 07</b></div>
-        <div class="it"><span>Source hub</span><b>Firozabad</b></div>
-        <div class="it"><span>SKUs in catalogue</span><b><em>450+</em></b></div>
-        <div class="it"><span>Active African markets</span><b>14</b></div>
+        <div class="it"><span>Sourcing</span><b>India</b></div>
+        
         <div class="it"><span>Shipments / year</span><b>140+ containers</b></div>
       </div>
     </div>
   </div>
 </header>
 
-<section class="cat-intro">
-  <div class="wrap">
-    <div class="grid">
-      <div class="reveal">
-        <div class="eyebrow">Introduction</div>
-        <h2 style="margin-top:14px">A category we know <em>by hand.</em></h2>
-      </div>
-      <div class="body reveal" data-d="1">
-        <p>Firozabad has been making glass since the Mughal era. Today, fifty kilometres south of Agra, it houses India's only large-scale hand-blown glass cluster — chandeliers, crystal, decorative glass, all furnace-fired at temperatures the Chinese mass-glass industry doesn't touch.</p><p>Our largest chandelier shipment last year was a 1,200-piece order for a hotel group across three Durban and Cape Town properties — six chandelier designs, custom-coloured glass, individually crated. Lead time forty-five days from PO. Damage rate at destination: zero.</p>
-      </div>
-    </div>
-    <div class="specs">
-      <div class="s"><small>MOQ</small><b>50 pieces</b></div><div class="s"><small>Lead time</small><b>45 days</b></div><div class="s"><small>Custom</small><b>Shapes & colors</b></div><div class="s"><small>Damage rate</small><b><0.4%</b></div>
-    </div>
-  </div>
-</section>
-
-<section class="show">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div><div class="num">/ Product showcase</div><h2 class="h2">Active SKUs in<br>this category.</h2></div>
-      <p class="lede">A sample from the live catalogue. The complete product range (with current pricing, MOQs and lead times) is sent on catalogue request — usually inside 24 hours.</p>
-    </div>
-    <div class="show-grid">
-        <div class="it reveal">
-          <div class="ph glass"><img class="img-cover" src="../../assets/images/products/glassware/sku-601-chandeliers.webp" alt="Chandeliers — Glassware for export, Balaji Udhyog" width="1200" height="900" loading="lazy" decoding="async"><span class="ph-tag">SKU-601</span></div>
-          <div class="body">
-            <small>SKU-601</small>
-            <h4>Chandeliers (3-light to 24-light)</h4>
-            <div class="row"><span>MOQ</span><b>50 units</b></div>
-            <div class="row"><span>Lead time</span><b>45d</b></div>
-            <div class="row"><span>Material</span><b>Hand-blown · brass arms</b></div>
-          </div>
-        </div>
-        <div class="it reveal">
-          <div class="ph glass"><img class="img-cover" src="../../assets/images/products/glassware/sku-602-decorative-vases.webp" alt="Decorative vases — Glassware for export, Balaji Udhyog" width="1200" height="900" loading="lazy" decoding="async"><span class="ph-tag">SKU-602</span></div>
-          <div class="body">
-            <small>SKU-602</small>
-            <h4>Decorative vases</h4>
-            <div class="row"><span>MOQ</span><b>200 units</b></div>
-            <div class="row"><span>Lead time</span><b>35d</b></div>
-            <div class="row"><span>Material</span><b>Hand-blown glass</b></div>
-          </div>
-        </div>
-        <div class="it reveal">
-          <div class="ph glass"><img class="img-cover" src="../../assets/images/products/glassware/sku-603-decanters-barware.webp" alt="Decanters &amp; barware — Glassware for export, Balaji Udhyog" width="1200" height="900" loading="lazy" decoding="async"><span class="ph-tag">SKU-603</span></div>
-          <div class="body">
-            <small>SKU-603</small>
-            <h4>Decanters & barware</h4>
-            <div class="row"><span>MOQ</span><b>200 units</b></div>
-            <div class="row"><span>Lead time</span><b>30d</b></div>
-            <div class="row"><span>Material</span><b>Crystal-cut glass</b></div>
-          </div>
-        </div>
-        <div class="it reveal">
-          <div class="ph glass"><img class="img-cover" src="../../assets/images/products/glassware/sku-604-bowls-platters-centrepieces.webp" alt="Bowls, platters &amp; centrepieces — Glassware for export, Balaji Udhyog" width="1200" height="900" loading="lazy" decoding="async"><span class="ph-tag">SKU-604</span></div>
-          <div class="body">
-            <small>SKU-604</small>
-            <h4>Bowls, platters & centrepieces</h4>
-            <div class="row"><span>MOQ</span><b>200 units</b></div>
-            <div class="row"><span>Lead time</span><b>30d</b></div>
-            <div class="row"><span>Material</span><b>Hand-blown glass</b></div>
-          </div>
-        </div>
-        <div class="it reveal">
-          <div class="ph glass"><img class="img-cover" src="../../assets/images/products/glassware/sku-605-pendant-lights-lamps.webp" alt="Pendant lights &amp; lamps — Glassware for export, Balaji Udhyog" width="1200" height="900" loading="lazy" decoding="async"><span class="ph-tag">SKU-605</span></div>
-          <div class="body">
-            <small>SKU-605</small>
-            <h4>Pendant lights & lamps</h4>
-            <div class="row"><span>MOQ</span><b>100 units</b></div>
-            <div class="row"><span>Lead time</span><b>40d</b></div>
-            <div class="row"><span>Material</span><b>Glass + brass fittings</b></div>
-          </div>
-        </div>
-        <div class="it reveal">
-          <div class="ph glass"><img class="img-cover" src="../../assets/images/products/glassware/sku-606-decorative-glass-panels.webp" alt="Decorative glass panels — Glassware for export, Balaji Udhyog" width="1200" height="900" loading="lazy" decoding="async"><span class="ph-tag">SKU-606</span></div>
-          <div class="body">
-            <small>SKU-606</small>
-            <h4>Decorative glass panels</h4>
-            <div class="row"><span>MOQ</span><b>50 units</b></div>
-            <div class="row"><span>Lead time</span><b>45d</b></div>
-            <div class="row"><span>Material</span><b>Cast / fused glass</b></div>
-          </div>
-        </div>
-        <div class="it reveal">
-          <div class="ph glass"><img class="img-cover" src="../../assets/images/products/glassware/sku-607-stained-coloured-glass.webp" alt="Stained / coloured glass — Glassware for export, Balaji Udhyog" width="1200" height="900" loading="lazy" decoding="async"><span class="ph-tag">SKU-607</span></div>
-          <div class="body">
-            <small>SKU-607</small>
-            <h4>Stained / coloured glass</h4>
-            <div class="row"><span>MOQ</span><b>100 units</b></div>
-            <div class="row"><span>Lead time</span><b>45d</b></div>
-            <div class="row"><span>Material</span><b>Hand-pulled</b></div>
-          </div>
-        </div>
-        <div class="it reveal">
-          <div class="ph glass"><img class="img-cover" src="../../assets/images/products/glassware/sku-608-glass-wall-art.webp" alt="Glass wall art — Glassware for export, Balaji Udhyog" width="1200" height="900" loading="lazy" decoding="async"><span class="ph-tag">SKU-608</span></div>
-          <div class="body">
-            <small>SKU-608</small>
-            <h4>Glass wall art</h4>
-            <div class="row"><span>MOQ</span><b>100 units</b></div>
-            <div class="row"><span>Lead time</span><b>45d</b></div>
-            <div class="row"><span>Material</span><b>Fused glass</b></div>
-          </div>
-        </div>
-        <div class="it reveal">
-          <div class="ph glass"><img class="img-cover" src="../../assets/images/products/glassware/sku-609-custom-hospitality-lighting.webp" alt="Custom hospitality lighting — Glassware for export, Balaji Udhyog" width="1200" height="900" loading="lazy" decoding="async"><span class="ph-tag">SKU-609</span></div>
-          <div class="body">
-            <small>SKU-609</small>
-            <h4>Custom hospitality lighting</h4>
-            <div class="row"><span>MOQ</span><b>1 install units</b></div>
-            <div class="row"><span>Lead time</span><b>12wk</b></div>
-            <div class="row"><span>Material</span><b>Bespoke</b></div>
-          </div>
-        </div></div>
-  </div>
-</section>
-
-<section class="af-rel">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div><div class="num" style="color:var(--gold)">/ Africa relevance</div><h2 class="h2">How this category<br>moves across Africa.</h2></div>
-      <p class="lede" style="color:rgba(245,242,236,.74)">Hospitality and luxury retail. Custom chandelier commissions are our specialty.</p>
-    </div>
-    <div class="grid">
-      <p>Every African market we ship into has its own buying rhythm. Furniture refits in Lagos run on different cycles to hotel build-outs in Mombasa or chain retail launches in Johannesburg. Our export teams track these cycles so production windows line up with sell-through, not the other way around.</p>
-      <ul>
-        <li><b>NG</b><span>Lagos hotel groups, luxury residential</span><em>Volume</em></li>
-        <li><b>KE</b><span>Coastal resort lighting projects</span><em>Project-based</em></li>
-        <li><b>ZA</b><span>Boutique hospitality, high-end retail</span><em>Year-round</em></li>
-        <li><b>GH</b><span>Hotel chandelier installations</span><em>Project-based</em></li>
-        <li><b>TZ</b><span>Resort lighting refits</span><em>Seasonal</em></li></ul>
-    </div>
-  </div>
-</section>
-
-<section class="gal">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div><div class="num">/ Gallery</div><h2 class="h2">Selected work,<br>shipped.</h2></div>
-      <p class="lede">A small sample from recent shipments in this category. Full visual catalogue available on request.</p>
-    </div>
-    
-    <div class="gal-grid">
-      <div class="gi a ph glass reveal"><img class="img-cover" src="../../assets/images/products/glassware/gallery-hero.webp" alt="Glassware — featured export piece" width="1600" height="1000" loading="lazy" decoding="async"><span class="ph-tag">Featured</span></div>
-      <div class="gi b ph navy reveal" data-d="1"><img class="img-cover" src="../../assets/images/products/glassware/gallery-detail-1.webp" alt="Glassware — close-up craftsmanship detail" width="1200" height="900" loading="lazy" decoding="async"></div>
-      <div class="gi c ph glass reveal" data-d="2"><img class="img-cover" src="../../assets/images/products/glassware/gallery-detail-2.webp" alt="Glassware — close-up craftsmanship detail" width="1200" height="900" loading="lazy" decoding="async"></div>
-      <div class="gi d ph dark reveal"><img class="img-cover" src="../../assets/images/products/glassware/gallery-lifestyle.webp" alt="Glassware styled in a premium interior setting" width="1200" height="900" loading="lazy" decoding="async"></div>
-      <div class="gi e ph glass reveal" data-d="1"><img class="img-cover" src="../../assets/images/products/glassware/gallery-packaging.webp" alt="Glassware in export-grade protective packaging" width="1200" height="900" loading="lazy" decoding="async"></div>
-      <div class="gi f ph paper reveal" data-d="2"><img class="img-cover" src="../../assets/images/products/glassware/gallery-container.webp" alt="Container loading at an Indian export port" width="1200" height="900" loading="lazy" decoding="async"></div>
-    </div>
-  </div>
-</section>
-
-<section class="pkg">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div><div class="num">/ Packaging</div><h2 class="h2">Built for 35-day<br>ocean transit.</h2></div>
-      <p class="lede">Four-stage export packaging protocol, refined over twenty-five years and three thousand containers — designed for African port handling realities, not showroom shelves.</p>
-    </div>
-    <div class="pkg-grid">
-      <div class="it reveal"><div class="step">Stage 01</div><h4>Inner protection</h4><p>Individual wrapping in tissue, foam or air-cell — per product fragility. Anti-rust treatment on metals; humidity sachets on hygroscopic items.</p></div>
-      <div class="it reveal" data-d="1"><div class="step">Stage 02</div><h4>Inner cartons</h4><p>5-ply corrugated inner cartons with internal dividers. Cartons sized for one-person handling at African distributor warehouses.</p></div>
-      <div class="it reveal" data-d="2"><div class="step">Stage 03</div><h4>Outer cartons / crates</h4><p>7-ply outer cartons or ISPM-15 fumigated wooden crates for fragile items. Steel-strapped &amp; corner-protected.</p></div>
-      <div class="it reveal" data-d="3"><div class="step">Stage 04</div><h4>Container loading</h4><p>Block-and-brace technique. Desiccants per CBM. Container photo manifest at door-close — sent to you on dispatch day.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="bulk">
-  <div class="wrap">
-    <div class="grid">
-      <div class="reveal">
-        <div class="eyebrow">Bulk pricing</div>
-        <h2 style="margin-top:14px">FCL discounts<br><em>that scale.</em></h2>
-        <p class="lede" style="margin-top:22px">Volume contracts get locked-in rates for ninety days. Mixed-category containers count toward total volume — you don't have to take a single SKU to hit the discount band.</p>
-
-        <div class="pricetable">
-          <div class="pr hd"><span>Tier</span><span>Volume</span><span>Discount</span><span>Lead time</span></div>
-          <div class="pr"><b>Sample</b><span>50–200 pieces</span><span class="disc">List price</span><span>15 days</span></div>
-          <div class="pr"><b>Trade</b><span>200–500 pieces</span><span class="disc">— 5%</span><span>21 days</span></div>
-          <div class="pr"><b>LCL</b><span>1–18 CBM</span><span class="disc">— 12%</span><span>25 days</span></div>
-          <div class="pr"><b>FCL · 20'</b><span>18–32 CBM</span><span class="disc">— 18%</span><span>28 days</span></div>
-          <div class="pr"><b>FCL · 40'</b><span>32–66 CBM</span><span class="disc">— 22%</span><span>30 days</span></div>
-          <div class="pr"><b>Contract</b><span>3+ containers / year</span><span class="disc">— 26% + 90d lock</span><span>Priority</span></div>
-        </div>
-
-        <div style="margin-top:32px;display:flex;gap:12px;flex-wrap:wrap">
-          <a href="../Contact.html" class="btn btn-gold">Request bulk quote <span class="arr"></span></a>
-          <a href="https://wa.me/916290746602" target="_blank" class="btn btn-wa">WhatsApp us</a>
-        </div>
-      </div>
-
-      <form class="form reveal" data-d="1" onsubmit="event.preventDefault();alert('Glassware inquiry received — our Africa export team will respond within 24 hours.')">
-        <div class="eyebrow">Wholesale inquiry</div>
-        <h3>Glassware · Quick quote</h3>
-        <div class="form-row"><div class="field"><label>Full Name</label><input type="text" required placeholder="Your name"></div><div class="field"><label>Company</label><input type="text" required placeholder="Company name"></div></div>
-        <div class="form-row"><div class="field"><label>Country</label><select required><option value="">Select country</option><option>Nigeria</option><option>Kenya</option><option>South Africa</option><option>Ghana</option><option>Tanzania</option><option>Other</option></select></div><div class="field"><label>Volume tier</label><select><option>Sample (50–200 pieces)</option><option>Trade (200–500)</option><option>LCL (1–18 CBM)</option><option>FCL 20'</option><option>FCL 40'</option><option>Contract (3+ containers)</option></select></div></div>
-        <div class="form-row"><div class="field"><label>Email</label><input type="email" required placeholder="you@company.com"></div><div class="field"><label>WhatsApp</label><input type="tel" placeholder="+234 …"></div></div>
-        <div class="form-row full"><div class="field"><label>SKUs / Notes</label><textarea placeholder="SKUs of interest, target prices, target delivery…"></textarea></div></div>
-        <div class="actions"><button class="btn btn-gold" type="submit">Send inquiry <span class="arr"></span></button></div>
-        <p class="form-note">Indicative quote within 24 hours · NDA available</p>
-      </form>
-    </div>
-  </div>
-</section>
-
 <section class="inquiry-band">
   <div class="wrap">
     <div>
       <div class="eyebrow light">WhatsApp · 24/7</div>
-      <h2 class="h2" style="margin-top:14px">Skip the email loop. Send SKUs on WhatsApp.</h2>
-      <p>Our Glassware team responds in minutes during business hours, with sample photos and indicative FOB pricing.</p>
+      <h2 class="h2" style="margin-top:14px">Request the full catalogue.</h2>
+      <p>Our export team responds in minutes on WhatsApp with the complete product catalogue, pricing, and MOQ details.</p>
     </div>
     <div class="actions">
-      <a href="https://wa.me/916290746602" target="_blank" class="btn btn-wa">Chat on WhatsApp</a>
-      <a href="../Contact.html" class="btn btn-ghost-light">Use the form <span class="arr"></span></a>
+      <a href="https://wa.me/916290746602?text=Hello%20Balaji%20Udyog%2C%20I%20would%20like%20to%20request%20the%20catalogue." target="_blank" class="btn btn-wa">Request Catalogue on WhatsApp</a>
     </div>
   </div>
 </section>
 
-<section class="rel">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div><div class="num">/ Related</div><h2 class="h2">Explore adjacent<br>categories.</h2></div>
-      <p class="lede">Most of our African customers buy across multiple categories. Pair this with these adjacent lines for richer container mixes.</p>
-    </div>
-    <div class="rel-row">
-      <a class="r reveal" href="Home Decor.html">
-        <div class="ph paper"><img class="img-cover" src="../../assets/images/categories/home-decor-hero.webp?v2026053002" alt="Home Decor category — Balaji Udhyog export range" width="1200" height="900" loading="lazy" decoding="async"><span class="ph-tag">07</span></div>
-        <div class="body"><small>Category 07</small><h4>Home Decor</h4><span class="read">View category</span></div>
-      </a>
-      <a class="r reveal" href="Furniture Hardware.html">
-        <div class="ph paper"><img class="img-cover" src="../../assets/images/categories/furniture-hardware-hero.webp?v2026053002" alt="Furniture Hardware category — Balaji Udhyog export range" width="1200" height="900" loading="lazy" decoding="async"><span class="ph-tag">01</span></div>
-        <div class="body"><small>Category 01</small><h4>Furniture Hardware</h4><span class="read">View category</span></div>
-      </a>
-      <a class="r reveal" href="Locks - Hardware.html">
-        <div class="ph dark"><img class="img-cover" src="../../assets/images/categories/locks-hardware-hero.webp?v2026053002" alt="Locks &amp; Hardware category — Balaji Udhyog export range" width="1200" height="900" loading="lazy" decoding="async"><span class="ph-tag">02</span></div>
-        <div class="body"><small>Category 02</small><h4>Locks & Hardware</h4><span class="read">View category</span></div>
-      </a></div>
-  </div>
-</section>
 <footer>
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand">
-        <a href="../../Balaji Udhyog.html" class="logo"><div class="logo-text"><b>BALAJI UDHYOG</b><small>Est · India · Exporters</small></div></a>
-        <p>Premium Indian hardware and decor exporter, serving African importers, distributors and chain retailers since 1998.</p>
+        <a href="../../Balaji Udyog.html" class="logo"><div class="logo-text"><b>BALAJI UDYOG</b><small>Est · India · Exporters</small></div></a>
+        <p>Premium Indian hardware and decor exporter, serving global importers, distributors and chain retailers since 1998.</p>
         <a href="../Contact.html" class="foot-cta">Start an export inquiry →</a>
       </div>
       <div class="foot-col"><h4>Quick Links</h4><ul>
-        <li><a href="../../Balaji Udhyog.html">Home</a></li><li><a href="../About.html">About Us</a></li><li><a href="../Export Services.html">Export Services</a></li><li><a href="../Africa Market.html">Africa Market</a></li><li><a href="../Blog.html">Blog</a></li><li><a href="../Contact.html">Contact</a></li>
+        <li><a href="../../Balaji Udyog.html">Home</a></li><li><a href="../About.html">About Us</a></li><li><a href="../Export Services.html">Export Services</a></li><li></li><li><a href="../Blog.html">Blog</a></li><li><a href="../Contact.html">Contact</a></li>
       </ul></div>
       <div class="foot-col"><h4>Product Categories</h4><ul>
         <li><a href="Furniture Hardware.html">Furniture Hardware</a></li><li><a href="Locks - Hardware.html">Locks &amp; Hardware</a></li><li><a href="Bathroom Hardware.html">Bathroom Hardware</a></li><li><a href="Brassware.html">Brassware</a></li><li><a href="Metal Art Ware.html">Metal Art Ware</a></li><li><a href="Glassware.html">Glassware</a></li><li><a href="Home Decor.html">Home Decor</a></li>
       </ul></div>
       <div class="foot-col"><h4>Contact</h4><address class="addr">
-        Balaji Udhyog<br>Noida · Uttar Pradesh<br>India · 201301<br><br>
+        Balaji Udyog<br>Noida · Uttar Pradesh<br>India · 201301<br><br>
         <b style="color:var(--gold-soft)">balaji6ab@gmail.com</b><br>+91 6290 746 602
       </address></div>
     </div>
     <div class="foot-bottom">
-      <small>© 2026 Balaji Udhyog · All rights reserved</small>
+      <small>© 2026 Balaji Udyog · All rights reserved</small>
       <div class="socials">
         <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.11 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.5h4.6V23H.22V8.5zM8 8.5h4.4v2h.06a4.83 4.83 0 0 1 4.34-2.37c4.64 0 5.5 3.05 5.5 7.02V23h-4.6v-6.9c0-1.65-.03-3.78-2.3-3.78-2.3 0-2.66 1.8-2.66 3.66V23H8V8.5z"/></svg></a>
         <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
         <a href="https://wa.me/916290746602" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11 11 0 0 0 3.4 17.2L2 22l4.9-1.3a11 11 0 0 0 16.6-9.4 11 11 0 0 0-3-7.8z"/></svg></a>
         <a href="#" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 6 9-6"/></svg></a>
       </div>
-      <small>Made for the India ⇄ Africa trade corridor</small>
+      <small>Made for the India ⇄ Global trade corridor</small>
     </div>
   </div>
 </footer>
@@ -456,5 +225,6 @@
 <script src="../../assets/lead-capture.js" defer></script>
 
 <script>document.querySelector('.burger')?.addEventListener('click', function(){document.getElementById('nav')?.classList.toggle('nav-open')});</script>
+  <script src="../../assets/inquiry-modal.js" defer></script>
 </body>
 </html>

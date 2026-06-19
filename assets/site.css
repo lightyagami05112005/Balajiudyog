@@ -129,24 +129,28 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:600;letter-spacing:-.01em;col
 }
 @media (max-width:980px){
   .nav-menu,.nav-cta .pill{display:none}
-  .burger{display:flex;flex-direction:column;gap:5px;width:28px;cursor:pointer}
-  .burger span{height:1px;background:var(--paper);width:100%;transition:transform .3s, opacity .3s}
+  .burger{display:flex;flex-direction:column;gap:5px;width:28px;cursor:pointer;z-index:90}
+  .burger span{height:2px;background:var(--navy);width:100%;transition:transform .3s, opacity .3s;border-radius:1px}
   .nav.nav-open .nav-menu{
     display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;
     background:rgba(250,249,246,.98);backdrop-filter:blur(18px);padding:20px 30px;align-items:flex-start;
-    border-bottom:1px solid var(--line-dark);
+    border-bottom:1px solid var(--line);
+    box-shadow:0 12px 32px rgba(0,0,0,.08);
   }
-  .nav.nav-open .nav-menu > a, .nav.nav-open .dropdown{width:100%;border-bottom:1px solid rgba(245,242,236,.05);padding:12px 0}
-  .nav.nav-open .dropdown > a{width:100%;display:block;}
+  .nav.nav-open .nav-menu > a, .nav.nav-open .dropdown{width:100%;border-bottom:1px solid var(--line);padding:12px 0}
+  .nav.nav-open .nav-menu > a{color:var(--ink);font-size:15px}
+  .nav.nav-open .dropdown > a{width:100%;display:block;color:var(--ink);font-size:15px}
   .nav.nav-open .dropdown-panel{
     position:static;transform:none;opacity:1;pointer-events:auto;
     background:transparent;border:none;padding:10px 0 0 15px;width:100%;
     min-width:auto;backdrop-filter:none;
   }
-  .nav.nav-open .dropdown-panel a{padding:8px 0;border-bottom:none;}
-  .nav.nav-open .burger span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+  .nav.nav-open .dropdown-panel a{padding:8px 0;border-bottom:none;color:var(--ink-2);font-size:14px}
+  .nav.nav-open .dropdown-panel a:hover{color:var(--gold)}
+  .nav.nav-open .burger span{background:var(--navy)}
+  .nav.nav-open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
   .nav.nav-open .burger span:nth-child(2){opacity:0}
-  .nav.nav-open .burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+  .nav.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 }
 
 /* ---------- PAGE HERO (default for sub-pages) ---------- */

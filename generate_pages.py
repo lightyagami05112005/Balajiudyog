@@ -82,7 +82,10 @@ template = """<!doctype html>
 <body>
 <nav class="nav">
   <div class="wrap nav-inner">
-    <a href="../../Balaji Udyog.html" class="logo-text"><b>BALAJI UDYOG</b></a>
+    <a href="../../Balaji Udyog.html" class="logo-text" style="display:flex;align-items:center;gap:10px;">
+      <img src="../../assets/images/logo.jpg" alt="Balaji Udyog Logo" style="height:40px; border-radius:4px;">
+      <b>BALAJI UDYOG</b>
+    </a>
     <a href="../../Balaji Udyog.html" style="font-size:14px;color:var(--ink-2)">← Back to Home</a>
   </div>
 </nav>

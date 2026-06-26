@@ -671,10 +671,45 @@
 </nav>
 
 <!-- ==================== HERO SLIDER ==================== -->
-<div class="hero-slider" id="home" style="background:var(--navy-deep);position:relative;width:100%;height:80vh;min-height:500px;overflow:hidden;">
-  <div class="hero-slide active" style="position:absolute;inset:0;background-image: url('assets/images/banners/banner1.png');background-size:cover;background-position:center;opacity:1;transition:opacity 1s ease-in-out;z-index:2;"></div>
-  <div class="hero-slide" style="position:absolute;inset:0;background-image: url('assets/images/banners/banner2.png');background-size:cover;background-position:center;opacity:0;transition:opacity 1s ease-in-out;z-index:1;"></div>
-  <div class="hero-slide" style="position:absolute;inset:0;background-image: url('assets/images/banners/banner3.png');background-size:cover;background-position:center;opacity:0;transition:opacity 1s ease-in-out;z-index:1;"></div>
+<style>
+  .hero-slider {
+    background: var(--navy-deep);
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    min-height: 500px;
+    overflow: hidden;
+  }
+  .hero-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: opacity 1s ease-in-out;
+  }
+  @media (max-width: 880px) {
+    .hero-slider {
+      height: 40vh;
+      min-height: 250px;
+      /* If the background-size is contain, it will show fully */
+    }
+    .hero-slide {
+      background-size: contain;
+      background-position: center center;
+    }
+  }
+  @media (max-width: 500px) {
+    .hero-slider {
+      height: 30vh;
+      min-height: 200px;
+    }
+  }
+</style>
+<div class="hero-slider" id="home">
+  <div class="hero-slide active" style="background-image: url('assets/images/banners/banner1.png'); opacity:1; z-index:2;"></div>
+  <div class="hero-slide" style="background-image: url('assets/images/banners/banner2.png'); opacity:0; z-index:1;"></div>
+  <div class="hero-slide" style="background-image: url('assets/images/banners/banner3.png'); opacity:0; z-index:1;"></div>
 </div>
 
 <script>

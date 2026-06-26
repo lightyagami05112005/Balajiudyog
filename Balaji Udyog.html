@@ -148,59 +148,131 @@
     .nav.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
   }
 
-  /* ---------- HERO ---------- */
-  .hero{
-    position:relative;min-height:100vh;background:var(--paper);color:var(--ink);
-    overflow:hidden;display:flex;align-items:flex-end;padding:140px 0 0;
+  /* ---------- HERO SLIDER (IPSA-style) ---------- */
+  .hero-slider{
+    position:relative;width:100%;height:100vh;min-height:600px;
+    overflow:hidden;background:#0a1d3a;
   }
-  .hero h1,.hero h2,.hero h3,.hero h4{color:var(--navy)}
-  .hero-bg{position:absolute;inset:0;display:grid;grid-template-columns:1.4fr 1fr;opacity:.7}
-  .hero-bg .h-img{position:relative;overflow:hidden}
-  .hero-bg .h-img::after{
-    content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg,rgba(250,249,246,.35) 0%,rgba(250,249,246,.85) 70%,var(--paper) 100%);
+  .hero-slide{
+    position:absolute;inset:0;opacity:0;
+    transition:opacity 1s cubic-bezier(.4,0,.2,1);
+    z-index:1;
   }
-  .hero-bg .h-img.left{
-    background:
-      repeating-linear-gradient(135deg, rgba(200,165,91,.10) 0 2px, transparent 2px 22px),
-      linear-gradient(180deg,#152f56 0%,#0a1d3a 100%);
+  .hero-slide.active{opacity:1;z-index:2}
+  .hero-slide .slide-bg{
+    position:absolute;inset:0;
+    background-size:cover;background-position:center;
+    transform:scale(1.06);
+    transition:transform 6s cubic-bezier(.2,.7,.2,1);
   }
-  .hero-bg .h-img.right{
-    background:
-      repeating-linear-gradient(45deg, rgba(200,165,91,.07) 0 2px, transparent 2px 18px),
-      radial-gradient(circle at 70% 30%, #1a3a6e 0%, #06122a 70%);
+  .hero-slide.active .slide-bg{transform:scale(1)}
+  .hero-slide .slide-overlay{
+    position:absolute;inset:0;
+    background:linear-gradient(
+      180deg,
+      rgba(10,29,58,.45) 0%,
+      rgba(10,29,58,.30) 40%,
+      rgba(10,29,58,.55) 70%,
+      rgba(10,29,58,.80) 100%
+    );
+    z-index:1;
   }
-  .hero-grid{
-    position:relative;z-index:2;width:100%;display:grid;grid-template-columns:1fr;
-    padding-bottom:80px;
+  .hero-slide-content{
+    position:absolute;inset:0;z-index:2;
+    display:flex;align-items:flex-end;
+    padding:0 0 120px;
   }
-  .hero-content{max-width:1100px}
-  .hero h1{margin:24px 0 28px;max-width:18ch}
-  .hero h1 em{font-style:normal;color:var(--gold);font-weight:300}
-  .hero .lede{font-size:clamp(16px,1.25vw,20px);max-width:60ch;color:var(--ink-2)}
-  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:42px}
-  .hero-meta{
-    margin-top:80px;border-top:1px solid var(--line-dark);padding-top:32px;
-    display:grid;grid-template-columns:repeat(4,1fr);gap:40px;
+  .hero-slide-inner{
+    max-width:900px;
+    padding:0 40px;
   }
-  .hero-meta .stat{display:flex;flex-direction:column;gap:6px}
-  .hero-meta .num{font-family:var(--display);font-size:clamp(28px,2.6vw,40px);color:var(--navy);font-weight:500;letter-spacing:-.02em}
-  .hero-meta .num em{color:var(--dark-gold-light);font-style:normal;font-weight:300}
-  .hero-meta .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--grey)}
-  @media (max-width:720px){
-    .hero-meta{grid-template-columns:repeat(2,1fr);gap:24px}
-    .hero-bg{grid-template-columns:1fr}
-    .hero-bg .h-img.right{display:none}
+  .hero-slide .slide-eyebrow{
+    font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--gold);display:inline-flex;align-items:center;gap:12px;
+    opacity:0;transform:translateY(20px);
+    transition:opacity .7s .3s,transform .7s .3s;
+  }
+  .hero-slide .slide-eyebrow::before{content:"";width:32px;height:1px;background:var(--gold)}
+  .hero-slide.active .slide-eyebrow{opacity:1;transform:translateY(0)}
+  .hero-slide .slide-title{
+    font-family:var(--display);font-size:clamp(36px,5vw,72px);font-weight:600;
+    letter-spacing:-.025em;line-height:1.06;color:#fff;
+    margin:20px 0 22px;max-width:16ch;
+    opacity:0;transform:translateY(30px);
+    transition:opacity .7s .5s,transform .7s .5s;
+  }
+  .hero-slide.active .slide-title{opacity:1;transform:translateY(0)}
+  .hero-slide .slide-desc{
+    font-size:clamp(15px,1.1vw,18px);color:rgba(255,255,255,.8);
+    max-width:52ch;line-height:1.65;
+    opacity:0;transform:translateY(20px);
+    transition:opacity .7s .7s,transform .7s .7s;
+  }
+  .hero-slide.active .slide-desc{opacity:1;transform:translateY(0)}
+  .hero-slide .slide-actions{
+    display:flex;flex-wrap:wrap;gap:14px;margin-top:36px;
+    opacity:0;transform:translateY(20px);
+    transition:opacity .7s .9s,transform .7s .9s;
+  }
+  .hero-slide.active .slide-actions{opacity:1;transform:translateY(0)}
+
+  /* Slider navigation dots */
+  .hero-dots{
+    position:absolute;bottom:40px;right:40px;z-index:10;
+    display:flex;gap:10px;align-items:center;
+  }
+  .hero-dot{
+    width:12px;height:12px;border-radius:50%;
+    border:1.5px solid rgba(255,255,255,.5);background:transparent;
+    cursor:pointer;transition:all .4s;padding:0;
+  }
+  .hero-dot.active{background:var(--gold);border-color:var(--gold);transform:scale(1.2)}
+  .hero-dot:hover{border-color:#fff}
+
+  /* Progress bar */
+  .hero-progress{
+    position:absolute;bottom:0;left:0;right:0;height:3px;z-index:10;
+    background:rgba(255,255,255,.12);
+  }
+  .hero-progress-bar{
+    height:100%;width:0;background:var(--gold);
+    transition:width .1s linear;
+  }
+  .hero-progress-bar.animating{
+    width:100%;transition:width 4.5s linear;
   }
 
-  .hero-corner{
-    position:absolute;top:120px;right:40px;z-index:3;
-    display:flex;flex-direction:column;gap:6px;text-align:right;
-    font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--dark-p)
+  /* Counter */
+  .hero-counter{
+    position:absolute;bottom:36px;left:40px;z-index:10;
+    font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:rgba(255,255,255,.6);
+    text-transform:uppercase;
   }
-  .hero-corner span{display:block}
-  .hero-corner .accent{color:var(--gold)}
-  @media (max-width:720px){.hero-corner{display:none}}
+  .hero-counter .cur{color:var(--gold);font-weight:600;font-size:18px}
+  .hero-counter .sep{margin:0 4px;color:rgba(255,255,255,.3)}
+  .hero-counter .tot{font-size:14px}
+
+  /* Stats bar at bottom of slider area */
+  .hero-stats{
+    position:absolute;bottom:80px;right:40px;z-index:10;
+    display:flex;gap:48px;
+  }
+  .hero-stat{display:flex;flex-direction:column;gap:4px;text-align:right}
+  .hero-stat .num{font-family:var(--display);font-size:clamp(24px,2.4vw,36px);color:#fff;font-weight:500;letter-spacing:-.02em}
+  .hero-stat .num em{color:var(--gold);font-style:normal;font-weight:300}
+  .hero-stat .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+
+  @media (max-width:980px){
+    .hero-stats{display:none}
+    .hero-dots{right:22px;bottom:24px}
+    .hero-counter{left:22px;bottom:22px}
+    .hero-slide-inner{padding:0 22px}
+  }
+  @media (max-width:720px){
+    .hero-slider{min-height:100vh}
+    .hero-slide-content{padding-bottom:90px}
+    .hero-slide .slide-title{font-size:clamp(28px,8vw,48px)}
+  }
 
   .ticker{
     position:relative;z-index:3;background:var(--navy);border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);
@@ -221,29 +293,31 @@
   .section-head h2{margin-top:14px}
   @media (max-width:880px){.section-head{grid-template-columns:1fr;gap:24px}}
 
-  /* ---------- PRODUCT GRID ---------- */
-  .cat-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+  /* ---------- PRODUCT MARQUEE ---------- */
+  .marquee-container {
+    width: 100%; overflow: hidden; position: relative; padding: 20px 0; margin-left: -40px; width: calc(100% + 80px);
+  }
+  .marquee-track {
+    display: flex; gap: 16px; width: max-content;
+    animation: scroll-left 30s linear infinite;
+  }
+  .marquee-track:hover { animation-play-state: paused; }
+  @keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 8px)); }
+  }
   .cat{
-    grid-column:span 4;background:var(--paper);border:1px solid var(--line);
+    flex: 0 0 380px;
+    background:var(--paper);border:1px solid var(--line);
     display:flex;flex-direction:column;
     position:relative;overflow:hidden;cursor:pointer;
     transition:transform .5s cubic-bezier(.2,.7,.2,1), box-shadow .5s;
   }
-  .cat:nth-child(1){grid-column:span 6;}
-  .cat:nth-child(2){grid-column:span 6;}
-  .cat:nth-child(n+3){grid-column:span 3;}
-  .cat .img-cover { position: relative; width: 100%; height: auto; object-fit: cover; }
-  .cat:nth-child(1) .img-cover, .cat:nth-child(2) .img-cover { aspect-ratio:16/10; }
-  .cat:nth-child(n+3) .img-cover { aspect-ratio:4/5; }
-  @media (max-width:980px){
-    .cat,.cat:nth-child(1),.cat:nth-child(2){grid-column:span 6;}
-    .cat:nth-child(n+3){grid-column:span 6}
-    .cat .img-cover, .cat:nth-child(1) .img-cover, .cat:nth-child(2) .img-cover { aspect-ratio:4/5; }
+  .cat .img-cover { position: relative; width: 100%; height: auto; object-fit: cover; aspect-ratio:4/5; }
+  @media (max-width:768px){
+    .cat { flex: 0 0 280px; }
   }
-  @media (max-width:560px){
-    .cat,.cat:nth-child(1),.cat:nth-child(2),.cat:nth-child(n+3){grid-column:span 12}
-  }
-  .cat:hover{box-shadow:0 30px 60px -30px rgba(10,29,58,.35)}
+  .cat:hover{box-shadow:0 30px 60px -30px rgba(10,29,58,.35); transform: translateY(-5px);}
   .cat-img{
     position:absolute;inset:0;
     background:
@@ -570,7 +644,7 @@
 <nav class="nav" id="nav">
   <div class="wrap nav-inner">
     <a href="#" class="logo">
-      
+      <img src="assets/images/logo.jpg" alt="Pearll Logo" style="height:45px; margin-right:5px; mix-blend-mode: multiply;">
       <div class="logo-text">
         <b>BALAJI UDYOG</b>
         <small>Est · India · Exporters</small>
@@ -582,18 +656,12 @@
       <div class="dropdown">
         <a href="pages/Products.html" class="has-down">Products</a>
         <div class="dropdown-panel">
-          <a href="pages/products/items/index.html"><span>All Products</span><small>72</small></a>
-          <a href="pages/products/Furniture Hardware.html"><span>Furniture Hardware</span><small>01</small></a>
-          <a href="pages/products/Locks - Hardware.html"><span>Locks &amp; Hardware</span><small>02</small></a>
-          <a href="pages/products/Bathroom Hardware.html"><span>Bathroom Hardware</span><small>03</small></a>
-          <a href="pages/products/Brassware.html"><span>Brassware</span><small>04</small></a>
-          <a href="pages/products/Metal Art Ware.html"><span>Metal Art Ware</span><small>05</small></a>
-          <a href="pages/products/Glassware.html"><span>Glassware</span><small>06</small></a>
-          <a href="pages/products/Home Decor.html"><span>Home Decor</span><small>07</small></a>
+          <a href="pages/products/Stainless Steel and Brass Cutleries.html"><span>Stainless Steel &amp; Brass Cutleries</span><small>01</small></a>
+          <a href="pages/products/Bathroom Fittings and Accessories.html"><span>Bathroom Fittings &amp; Accessories</span><small>02</small></a>
+          <a href="pages/products/Furniture Hardware and Locking Mechanism.html"><span>Furniture Hardware &amp; Locking Mechanism</span><small>03</small></a>
         </div>
       </div>
       <a href="pages/Export Services.html">Export Services</a>
-      <a href="pages/Blog.html">Blog</a>
       <a href="pages/Contact.html">Contact</a>
     </div>
     <div class="nav-cta">
@@ -603,40 +671,28 @@
   </div>
 </nav>
 
-<!-- ==================== HERO ==================== -->
-<header class="hero" id="home">
-  <div class="hero-bg">
-    <div class="h-img left"><img class="img-cover" src="assets/images/hero/hero-brass-foundry-left.webp" alt="Master artisan lifting a glowing hand-cast brass vessel in a India foundry" width="1080" height="1350" loading="eager" decoding="async" fetchpriority="high"></div>
-    <div class="h-img right"><img class="img-cover" src="assets/images/hero/hero-export-port-right.webp" alt="Shipping containers stacked at an Indian export seaport at dusk" width="1080" height="1350" loading="eager" decoding="async"></div>
-  </div>
+<!-- ==================== HERO SLIDER ==================== -->
+<div class="hero-slider" id="home" style="background:var(--navy-deep);position:relative;width:100%;height:80vh;min-height:500px;overflow:hidden;">
+  <div class="hero-slide active" style="position:absolute;inset:0;background-image: url('assets/images/banners/banner1.png');background-size:cover;background-position:center;opacity:1;transition:opacity 1s ease-in-out;z-index:2;"></div>
+  <div class="hero-slide" style="position:absolute;inset:0;background-image: url('assets/images/banners/banner2.png');background-size:cover;background-position:center;opacity:0;transition:opacity 1s ease-in-out;z-index:1;"></div>
+  <div class="hero-slide" style="position:absolute;inset:0;background-image: url('assets/images/banners/banner3.png');background-size:cover;background-position:center;opacity:0;transition:opacity 1s ease-in-out;z-index:1;"></div>
+</div>
 
-  <div class="wrap hero-grid">
-    <div class="hero-content">
-      <div class="eyebrow reveal">Indian Hardware &amp; Decor · Global Export Solutions</div>
-      <h1 class="display reveal" data-d="1">
-        Premium Indian Hardware<br>&amp; Decor Exporter
-      </h1>
-      <p class="lede reveal" data-d="2">
-        Trusted sourcing and export partner for importers, wholesalers and distributors worldwide. Trusted sourcing and export partner for importers, wholesalers and distributors. Delivering quality products through a reliable supplier network and efficient global trade operations.
-      </p>
-      <div class="hero-actions reveal" data-d="3">
-        <a href="#products" class="btn btn-gold">Explore Products <span class="arr"></span></a>
-        <a href="#contact" class="btn btn-ghost-light">Request Catalogue <span class="arr"></span></a>
-        <a href="https://wa.me/916290746602" target="_blank" class="btn btn-wa">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20.5 3.5A11 11 0 0 0 3.4 17.2L2 22l4.9-1.3a11 11 0 0 0 16.6-9.4 11 11 0 0 0-3-7.8zM12 20a8.9 8.9 0 0 1-4.6-1.3l-.3-.2-2.9.8.8-2.8-.2-.3A9 9 0 1 1 12 20zm5-6.6c-.3-.1-1.7-.8-1.9-.9s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.5.1a7.3 7.3 0 0 1-2.2-1.4 8 8 0 0 1-1.5-1.8c-.2-.3 0-.4.1-.6l.4-.4.3-.4c.1-.2 0-.3 0-.4l-.9-2.1c-.2-.5-.5-.4-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 6 6 0 0 0 1.2 3.1 13.6 13.6 0 0 0 5.1 4.4c.7.3 1.2.5 1.7.6a4 4 0 0 0 1.8.1 3 3 0 0 0 2-1.4 2.4 2.4 0 0 0 .2-1.4c-.1-.2-.3-.3-.6-.4z"/></svg>
-          WhatsApp Us
-        </a>
-      </div>
-      <div class="hero-meta reveal" data-d="4">
-        <div class="stat"><div class="num">25<em>+</em></div><div class="lbl">Years Exporting</div></div>
-        <div class="stat"><div class="num">600<em>+</em></div><div class="lbl">Verified Factories</div></div>
-        <div class="stat"><div class="num">3<em>k</em></div><div class="lbl">Container Shipments</div></div>
-      </div>
-    </div>
-  </div>
-</header>
-
-
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const slides = document.querySelectorAll('.hero-slide');
+  let currentSlide = 0;
+  setInterval(() => {
+    slides[currentSlide].style.opacity = '0';
+    slides[currentSlide].style.zIndex = '1';
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].style.opacity = '1';
+    slides[currentSlide].style.zIndex = '2';
+    slides[currentSlide].classList.add('active');
+  }, 4000);
+});
+</script>
 
 <!-- ==================== TRUST BAR ==================== -->
 <div class="trust-bar reveal">
@@ -654,85 +710,123 @@
     <div class="section-head reveal">
       <div>
         <div class="num">02 / Catalogue</div>
-        <h2 class="h2">Seven categories.<br>One reliable partner.</h2>
+        <h2 class="h2">Premium collections.<br>One reliable partner.</h2>
       </div>
-      <p class="lede">From hand-finished brassware in India to industrial-grade locks from India — every category is sourced directly from verified factories, quality-audited, and packaged for international freight.</p>
+      <p class="lede">From premium brassware and steel cutleries to modern bathroom fittings and elegant furniture hardware — every product is sourced directly from verified factories, quality-audited, and packaged for international freight.</p>
     </div>
 
-    <div class="cat-grid">
-      <a href="pages/products/Brassware.html" class="cat reveal">
+    <div class="marquee-container">
+      <div class="marquee-track">
+      <a href="pages/products/Stainless Steel and Brass Cutleries.html" class="cat reveal">
         <div class="cat-img"></div>
-        <img class="img-cover" src="assets/images/categories/brassware-hero.jpg?v=9999" alt="Handcrafted brassware and cast metals from India" width="1600" height="1000" loading="lazy" decoding="async">
-        <div class="cat-tag">Signature</div>
-        <div class="cat-foot">
-          <div>
-            <h3>Brassware &amp; Cast Metals</h3>
-          </div>
-          <div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
-        </div>
-      </a>
-
-      <a href="pages/products/Metal Art Ware.html" class="cat reveal" data-d="1">
-        <div class="cat-img"></div>
-        <img class="img-cover" src="assets/images/categories/metal-art-ware-hero.jpg?v=12345?v=999" alt="Handcrafted metal art ware and decorative sculptures" width="1600" height="1000" loading="lazy" decoding="async">
-        <div class="cat-tag">Handcrafted</div>
-        <div class="cat-foot">
-          <div>
-            <h3>Metal Art &amp; Handicrafts</h3>
-          </div>
-          <div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
-        </div>
-      </a>
-
-      <a href="pages/products/Furniture Hardware.html" class="cat reveal">
-        <div class="cat-img"></div>
-        <img class="img-cover" src="assets/images/categories/furniture-hardware-hero.jpg?v=999" alt="Precision furniture hardware — hinges, slides and handles" width="1000" height="1250" loading="lazy" decoding="async">
+        <img class="img-cover" src="assets/images/categories/brassware_cutlery_hero.png" alt="Brassware and Steel Cutleries" loading="lazy" decoding="async">
         <div class="cat-tag">01</div>
         <div class="cat-foot">
-          <div><h3>Furniture Hardware</h3></div>
+          <div><h3>Stainless Steel &amp; Brass Cutleries</h3></div>
           <div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
         </div>
       </a>
-
-      <a href="pages/products/Locks - Hardware.html" class="cat reveal" data-d="1">
+      <a href="pages/products/Bathroom Fittings and Accessories.html" class="cat reveal" data-d="1">
         <div class="cat-img"></div>
-        <img class="img-cover" src="assets/images/categories/locks-hardware-hero.jpg?v=999" alt="Precision-engineered locks and security hardware from India" width="1000" height="1250" loading="lazy" decoding="async">
+        <img class="img-cover" src="assets/images/categories/bathroom_fittings_hero.png" alt="Bathroom Fitting" loading="lazy" decoding="async">
         <div class="cat-tag">02</div>
         <div class="cat-foot">
-          <div><h3>Locks &amp; Hardware</h3></div>
+          <div><h3>Bathroom Fittings &amp; Accessories</h3></div>
           <div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
         </div>
       </a>
-
-      <a href="pages/products/Bathroom Hardware.html" class="cat reveal" data-d="2">
+      <a href="pages/products/Furniture Hardware and Locking Mechanism.html" class="cat reveal" data-d="2">
         <div class="cat-img"></div>
-        <img class="img-cover" src="assets/images/categories/bathroom-hardware-hero.webp?v2026060603" alt="Premium bathroom hardware and sanitary fittings" width="1000" height="1250" loading="lazy" decoding="async">
+        <img class="img-cover" src="assets/images/categories/furniture_hardware_hero.png" alt="Furniture Hardware" loading="lazy" decoding="async">
         <div class="cat-tag">03</div>
         <div class="cat-foot">
-          <div><h3>Bathroom Hardware</h3></div>
+          <div><h3>Furniture Hardware &amp; Locking Mechanism</h3></div>
+          <div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+      <a href="pages/products/Stainless Steel and Brass Cutleries.html" class="cat reveal">
+        <div class="cat-img"></div>
+        <img class="img-cover" src="assets/images/categories/brassware_cutlery_hero.png" alt="Brassware and Steel Cutleries" loading="lazy" decoding="async">
+        <div class="cat-tag">01</div>
+        <div class="cat-foot">
+          <div><h3>Stainless Steel &amp; Brass Cutleries</h3></div>
+          <div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+      <a href="pages/products/Bathroom Fittings and Accessories.html" class="cat reveal" data-d="1">
+        <div class="cat-img"></div>
+        <img class="img-cover" src="assets/images/categories/bathroom_fittings_hero.png" alt="Bathroom Fitting" loading="lazy" decoding="async">
+        <div class="cat-tag">02</div>
+        <div class="cat-foot">
+          <div><h3>Bathroom Fittings &amp; Accessories</h3></div>
+          <div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+      <a href="pages/products/Furniture Hardware and Locking Mechanism.html" class="cat reveal" data-d="2">
+        <div class="cat-img"></div>
+        <img class="img-cover" src="assets/images/categories/furniture_hardware_hero.png" alt="Furniture Hardware" loading="lazy" decoding="async">
+        <div class="cat-tag">03</div>
+        <div class="cat-foot">
+          <div><h3>Furniture Hardware &amp; Locking Mechanism</h3></div>
+          <div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+      <a href="pages/products/Stainless Steel and Brass Cutleries.html" class="cat reveal">
+        <div class="cat-img"></div>
+        <img class="img-cover" src="assets/images/categories/brassware_cutlery_hero.png" alt="Brassware and Steel Cutleries" loading="lazy" decoding="async">
+        <div class="cat-tag">01</div>
+        <div class="cat-foot">
+          <div><h3>Stainless Steel &amp; Brass Cutleries</h3></div>
+          <div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+      <a href="pages/products/Bathroom Fittings and Accessories.html" class="cat reveal" data-d="1">
+        <div class="cat-img"></div>
+        <img class="img-cover" src="assets/images/categories/bathroom_fittings_hero.png" alt="Bathroom Fitting" loading="lazy" decoding="async">
+        <div class="cat-tag">02</div>
+        <div class="cat-foot">
+          <div><h3>Bathroom Fittings &amp; Accessories</h3></div>
+          <div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+      <a href="pages/products/Furniture Hardware and Locking Mechanism.html" class="cat reveal" data-d="2">
+        <div class="cat-img"></div>
+        <img class="img-cover" src="assets/images/categories/furniture_hardware_hero.png" alt="Furniture Hardware" loading="lazy" decoding="async">
+        <div class="cat-tag">03</div>
+        <div class="cat-foot">
+          <div><h3>Furniture Hardware &amp; Locking Mechanism</h3></div>
+          <div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+      <a href="pages/products/Stainless Steel and Brass Cutleries.html" class="cat reveal">
+        <div class="cat-img"></div>
+        <img class="img-cover" src="assets/images/categories/brassware_cutlery_hero.png" alt="Brassware and Steel Cutleries" loading="lazy" decoding="async">
+        <div class="cat-tag">01</div>
+        <div class="cat-foot">
+          <div><h3>Stainless Steel &amp; Brass Cutleries</h3></div>
+          <div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+      <a href="pages/products/Bathroom Fittings and Accessories.html" class="cat reveal" data-d="1">
+        <div class="cat-img"></div>
+        <img class="img-cover" src="assets/images/categories/bathroom_fittings_hero.png" alt="Bathroom Fitting" loading="lazy" decoding="async">
+        <div class="cat-tag">02</div>
+        <div class="cat-foot">
+          <div><h3>Bathroom Fittings &amp; Accessories</h3></div>
+          <div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+      <a href="pages/products/Furniture Hardware and Locking Mechanism.html" class="cat reveal" data-d="2">
+        <div class="cat-img"></div>
+        <img class="img-cover" src="assets/images/categories/furniture_hardware_hero.png" alt="Furniture Hardware" loading="lazy" decoding="async">
+        <div class="cat-tag">03</div>
+        <div class="cat-foot">
+          <div><h3>Furniture Hardware &amp; Locking Mechanism</h3></div>
           <div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
         </div>
       </a>
 
-      <a href="pages/products/Glassware.html" class="cat reveal" data-d="3">
-        <div class="cat-img"></div>
-        <img class="img-cover" src="assets/images/categories/glassware-hero.jpg?v=99999" alt="Hand-blown glassware and crystal from India" width="1000" height="1250" loading="lazy" decoding="async">
-        <div class="cat-tag">06</div>
-        <div class="cat-foot">
-          <div><h3>Glassware</h3></div>
-          <div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
-        </div>
-      </a>
-
-      <a href="pages/products/Home Decor.html" class="cat reveal" data-d="3">
-        <div class="cat-img"></div>
-        <img class="img-cover" src="assets/images/categories/home-decor-hero.webp?v2026060603" alt="Curated home decor and accent pieces for export" width="1000" height="1250" loading="lazy" decoding="async">
-        <div class="cat-tag">07</div>
-        <div class="cat-foot">
-          <div><h3>Home Decor</h3></div>
-          <div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
-        </div>
-      </a>
+      </div>
     </div>
   </div>
 </section>
@@ -859,28 +953,6 @@
 
 
 
-<!-- ==================== GALLERY ==================== -->
-<section id="gallery">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div>
-        <div class="num">07 / Gallery</div>
-        <h2 class="h2">Selected work,<br>shipped.</h2>
-      </div>
-      <p class="lede">A small sample from recent shipments. Add a finished catalogue request to receive the complete product range with current pricing in your inbox within 24 hours.</p>
-    </div>
-
-    <div class="gallery-grid">
-      <div class="gi a reveal"><div class="gi-fill"></div><img class="img-cover" src="assets/images/gallery/brassware-moradabad.webp" alt="Brassware crafted in India" width="1200" height="900" loading="lazy" decoding="async"></div>
-      <div class="gi b reveal" data-d="1"><div class="gi-fill"></div><img class="img-cover" src="assets/images/gallery/cylinder-locks-aligarh.webp" alt="Cylinder locks manufactured in India" width="1200" height="900" loading="lazy" decoding="async"></div>
-      <div class="gi c reveal" data-d="2"><div class="gi-fill"></div><img class="img-cover" src="assets/images/gallery/home-decor.webp" alt="Home decor pieces ready for export" width="1200" height="900" loading="lazy" decoding="async"></div>
-      <div class="gi d reveal"><div class="gi-fill"></div><img class="img-cover" src="assets/images/gallery/chandelier-firozabad.webp" alt="Crystal chandelier crafted in India" width="1200" height="900" loading="lazy" decoding="async"></div>
-      <div class="gi e reveal" data-d="1"><div class="gi-fill"></div><img class="img-cover" src="assets/images/gallery/bathroom-hardware.webp" alt="Premium bathroom hardware fittings" width="1200" height="900" loading="lazy" decoding="async"></div>
-      <div class="gi f reveal" data-d="2"><div class="gi-fill"></div><img class="img-cover" src="assets/images/gallery/metal-artware.webp" alt="Handcrafted metal art ware" width="1200" height="900" loading="lazy" decoding="async"></div>
-      <div class="gi g reveal" data-d="3"><div class="gi-fill"></div><img class="img-cover" src="assets/images/gallery/container-loading-mundra.webp" alt="Container loading at Mundra port" width="1600" height="900" loading="lazy" decoding="async"></div>
-    </div>
-  </div>
-</section>
 
 <!-- ==================== TESTIMONIALS ==================== -->
 <section id="testimonials">
@@ -912,45 +984,6 @@
   </div>
 </section>
 
-<!-- ==================== BLOG ==================== -->
-<section id="blog" style="background:var(--paper-2)">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div>
-        <div class="num">08 / Journal</div>
-        <h2 class="h2">Notes from the<br>export floor.</h2>
-      </div>
-      <p class="lede">Market briefings, factory tours, and trade insights — written for global importers and sourcing professionals.</p>
-    </div>
-
-    <div class="blog-grid">
-      <article class="post reveal">
-        <div class="post-img"><div class="pi-fill"></div><img class="img-cover" src="assets/images/blog/market-insight.webp" alt="Why global importers prefer Indian hardware — journal banner" width="1200" height="900" loading="lazy" decoding="async"><span class="post-tag">Market Insight</span></div>
-        <div class="post-meta"><span>May 12 · 2026</span><span>8 min read</span></div>
-        <h3>Why global importers increasingly prefer Indian hardware over Chinese alternatives.</h3>
-        <p>Quality consistency, smaller MOQs, and 30% better margins on retail — a deep dive into the structural shift unfolding across West Global distribution.</p>
-        <a href="#" class="read">Read article</a>
-      </article>
-
-      <article class="post reveal" data-d="1">
-        <div class="post-img"><div class="pi-fill"></div><img class="img-cover" src="assets/images/blog/hub-guide.webp" alt="The India brass industry — journal banner" width="1200" height="900" loading="lazy" decoding="async"><span class="post-tag">Hub Guide</span></div>
-        <div class="post-meta"><span>Apr 28 · 2026</span><span>12 min read</span></div>
-        <h3>The India brass industry: a buyer's guide to the world's oldest export cluster.</h3>
-        <p>How 400 years of craft expertise scaled into a $1.2B export economy — and what to look for when sourcing brassware at scale.</p>
-        <a href="#" class="read">Read article</a>
-      </article>
-
-      <article class="post reveal" data-d="2">
-        <div class="post-img"><div class="pi-fill"></div><img class="img-cover" src="assets/images/blog/directory.webp" alt="Best furniture hardware exporters in India — journal banner" width="1200" height="900" loading="lazy" decoding="async"><span class="post-tag">Directory</span></div>
-        <div class="post-meta"><span>Apr 15 · 2026</span><span>6 min read</span></div>
-        <h3>The best furniture hardware exporters in India — and how to vet them.</h3>
-        <p>Five red flags, four green ones, and the certifications that actually matter when picking a long-term sourcing partner.</p>
-        <a href="#" class="read">Read article</a>
-      </article>
-    </div>
-  </div>
-</section>
-
 <!-- ==================== CATALOG DOWNLOADS ==================== -->
 <section id="catalog" style="background:var(--paper-2)">
   <div class="wrap">
@@ -963,25 +996,25 @@
     </div>
     <div class="dl-grid">
       <div class="dl-card reveal">
-        <div class="dl-top"><div class="dl-icon"><svg viewBox="0 0 24 24"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></svg></div><span class="fmt">PDF · 2026</span></div>
-        <h3>Master Export Catalogue 2026</h3>
-        <p>2,228 SKUs across nine collections — 900 distinct products fully illustrated, every finish &amp; size, with material, MOQ, lead time and FOB Mundra pricing. Built for global importers.</p>
-        <div class="dl-meta"><span>123 pages</span><span>~91 MB · PDF</span></div>
-        <a href="assets/catalogs/master-export-catalogue-2026.pdf" target="_blank" rel="noopener" class="dl-btn">Download PDF</a>
+        <div class="dl-top"><div class="dl-icon"><svg viewBox="0 0 24 24"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></svg></div><span class="fmt">PDF · Catalogue</span></div>
+        <h3>Stainless Steel &amp; Brass Cutleries</h3>
+        <p>Complete export catalogue for brassware and premium steel cutleries.</p>
+        <div class="dl-meta"><span>10+ pages</span><span>PDF</span></div>
+        <a href="assets/catalogs/_Balaji Udyog Brassware And Steel Cutleries  (1).pdf" target="_blank" rel="noopener" class="dl-btn">Download PDF</a>
       </div>
       <div class="dl-card reveal" data-d="1">
-        <div class="dl-top"><div class="dl-icon"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div><span class="fmt">PDF · Line sheets</span></div>
-        <h3>Category Collections</h3>
-        <p>Per-category line sheets — brassware, locks, bathroom, glassware and more — with specs and packing data.</p>
-        <div class="dl-meta"><span>9 collections</span><span>~3 MB ea.</span></div>
-        <a href="assets/catalogs/brassware-collection.html" target="_blank" rel="noopener" class="dl-btn">View collection</a>
+        <div class="dl-top"><div class="dl-icon"><svg viewBox="0 0 24 24"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></svg></div><span class="fmt">PDF · Catalogue</span></div>
+        <h3>Bathroom Fittings &amp; Accessories</h3>
+        <p>Complete export catalogue for modern bathroom fittings.</p>
+        <div class="dl-meta"><span>10+ pages</span><span>PDF</span></div>
+        <a href="assets/catalogs/Balaji Udyog Bathroom Fitting (1).pdf" target="_blank" rel="noopener" class="dl-btn">Download PDF</a>
       </div>
       <div class="dl-card reveal" data-d="2">
-        <div class="dl-top"><div class="dl-icon"><svg viewBox="0 0 24 24"><path d="M3 7h13l5 5v5h-3M3 7v10h11M3 7l3-3h10l3 3"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></div><span class="fmt">PDF · Brochure</span></div>
-        <h3>Global export Brochure</h3>
-        <p>How we ship into international ports — lanes, conformity schemes, packaging and the six-stage export process.</p>
-        <div class="dl-meta"><span>16 pages</span><span>~5 MB</span></div>
-        <a href="assets/catalogs/global-export-brochure.html" target="_blank" rel="noopener" class="dl-btn">Open brochure</a>
+        <div class="dl-top"><div class="dl-icon"><svg viewBox="0 0 24 24"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></svg></div><span class="fmt">PDF · Catalogue</span></div>
+        <h3>Furniture Hardware &amp; Locking Mechanism</h3>
+        <p>Complete export catalogue for premium furniture hardware pieces.</p>
+        <div class="dl-meta"><span>10+ pages</span><span>PDF</span></div>
+        <a href="assets/catalogs/Balaji Udyog Furniture Hardware (1).pdf" target="_blank" rel="noopener" class="dl-btn">Download PDF</a>
       </div>
     </div>
   </div>
@@ -1037,7 +1070,7 @@
           <div class="field"><label>Product Interest</label>
             <select>
               <option>Multiple categories</option>
-              <option>Furniture Hardware</option><option>Locks &amp; Hardware</option>
+              <option>Furniture Hardware &amp; Locking Mechanism</option><option>Locks &amp; Hardware</option>
               <option>Bathroom Hardware</option><option>Brassware</option>
               <option>Metal Art Ware</option><option>Glassware</option><option>Home Decor</option>
             </select>
@@ -1082,7 +1115,6 @@
           <li><a href="pages/Capabilities.html">Capability &amp; Quality</a></li>
           <li><a href="pages/Export Services.html">Export Services</a></li>
           <li></li>
-          <li><a href="pages/Blog.html">Blog</a></li>
           <li><a href="pages/Contact.html">Contact</a></li>
         </ul>
       </div>
@@ -1090,13 +1122,9 @@
       <div class="foot-col">
         <h4>Product Categories</h4>
         <ul>
-          <li><a href="pages/products/Furniture Hardware.html">Furniture Hardware</a></li>
-          <li><a href="pages/products/Locks - Hardware.html">Locks &amp; Hardware</a></li>
-          <li><a href="pages/products/Bathroom Hardware.html">Bathroom Hardware</a></li>
-          <li><a href="pages/products/Brassware.html">Brassware</a></li>
-          <li><a href="pages/products/Metal Art Ware.html">Metal Art Ware</a></li>
-          <li><a href="pages/products/Glassware.html">Glassware</a></li>
-          <li><a href="pages/products/Home Decor.html">Home Decor</a></li>
+          <li><a href="pages/products/Stainless Steel and Brass Cutleries.html">Stainless Steel &amp; Brass Cutleries</a></li>
+          <li><a href="pages/products/Bathroom Fittings and Accessories.html">Bathroom Fittings &amp; Accessories</a></li>
+          <li><a href="pages/products/Furniture Hardware and Locking Mechanism.html">Furniture Hardware &amp; Locking Mechanism</a></li>
         </ul>
       </div>
 
@@ -1145,6 +1173,8 @@
     });
   },{rootMargin:'-40px 0px -40px 0px', threshold:0.05});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+
 
   // Cinematic load curtain
   const lift = () => document.body.classList.add('loaded');

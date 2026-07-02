@@ -1,16 +1,14 @@
-import os
-
-template = """<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>{title} — Balaji Udyog</title>
+<title>Lighting — Balaji Udyog</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-  :root{{
+  :root{
     --navy:#4682B4;
     --navy-2:#355E7C;
     --navy-deep:#2B4C63;
@@ -23,39 +21,39 @@ template = """<!doctype html>
     --display:'Montserrat',sans-serif;
     --body:'Inter',sans-serif;
     --mono:'JetBrains Mono',ui-monospace,monospace;
-  }}
-  *{{box-sizing:border-box;margin:0;padding:0}}
-  body{{font-family:var(--body);background:var(--paper);color:var(--ink);}}
-  a{{color:inherit;text-decoration:none}}
-  .wrap{{max-width:1360px;margin:0 auto;padding:0 40px}}
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--body);background:var(--paper);color:var(--ink);}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1360px;margin:0 auto;padding:0 40px}
   
   /* Nav Minimal */
-  .nav{{padding:20px 0;border-bottom:1px solid var(--line);background:#fff}}
-  .nav-inner{{display:flex;justify-content:space-between;align-items:center}}
-  .logo-text b{{font-family:var(--display);font-weight:600;font-size:15px;color:var(--navy)}}
+  .nav{padding:20px 0;border-bottom:1px solid var(--line);background:#fff}
+  .nav-inner{display:flex;justify-content:space-between;align-items:center}
+  .logo-text b{font-family:var(--display);font-weight:600;font-size:15px;color:var(--navy)}
   
   /* Hero */
-  .hero{{padding:80px 0;text-align:center;background:var(--navy-deep);color:#fff}}
-  .hero h1{{font-family:var(--display);font-size:48px;font-weight:600}}
+  .hero{padding:80px 0;text-align:center;background:var(--navy-deep);color:#fff}
+  .hero h1{font-family:var(--display);font-size:48px;font-weight:600}
   
   /* Grid */
-  .cat-gallery{{padding:80px 0}}
-  .grid{{display:grid;grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));gap:30px}}
-  .grid-item{{background:#fff;border:1px solid var(--line);padding:20px;text-align:center}}
-  .grid-item img{{max-width:100%;height:auto;display:block}}
-  .btn{{
+  .cat-gallery{padding:80px 0}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));gap:30px}
+  .grid-item{background:#fff;border:1px solid var(--line);padding:20px;text-align:center}
+  .grid-item img{max-width:100%;height:auto;display:block}
+  .btn{
     display:inline-flex;align-items:center;gap:12px;
     padding:16px 26px;font-weight:500;font-size:14px;letter-spacing:.04em;
     border:1px solid transparent;transition:all .35s cubic-bezier(.2,.7,.2,1);
     text-transform:uppercase;font-family:var(--body);
     background:var(--gold);color:#fff;cursor:pointer;
-  }}
-  .btn:hover {{ background:var(--gold-dim); }}
-  .btn .arr{{width:16px;height:1px;background:currentColor;position:relative;transition:width .35s}}
-  .btn .arr::after{{content:"";position:absolute;right:-1px;top:-3px;width:7px;height:7px;border-right:1px solid currentColor;border-top:1px solid currentColor;transform:rotate(45deg)}}
-  .btn:hover .arr{{width:26px}}
+  }
+  .btn:hover { background:var(--gold-dim); }
+  .btn .arr{width:16px;height:1px;background:currentColor;position:relative;transition:width .35s}
+  .btn .arr::after{content:"";position:absolute;right:-1px;top:-3px;width:7px;height:7px;border-right:1px solid currentColor;border-top:1px solid currentColor;transform:rotate(45deg)}
+  .btn:hover .arr{width:26px}
   
-  .wa-float {{
+  .wa-float {
     position: fixed;
     bottom: 30px;
     right: 30px;
@@ -71,12 +69,12 @@ template = """<!doctype html>
     box-shadow: 2px 2px 10px rgba(0,0,0,0.15);
     z-index: 100;
     transition: transform 0.3s;
-  }}
-  .wa-float:hover {{
+  }
+  .wa-float:hover {
     transform: translateY(-3px);
     box-shadow: 2px 5px 15px rgba(0,0,0,0.25);
-  }}
-  .wa-float svg {{ width: 24px; height: 24px; fill: currentColor; }}
+  }
+  .wa-float svg { width: 24px; height: 24px; fill: currentColor; }
 </style>
 </head>
 <body>
@@ -92,10 +90,10 @@ template = """<!doctype html>
 
 <div class="hero">
   <div class="wrap">
-    <h1>{title}</h1>
-    <p style="margin-top:20px;color:rgba(255,255,255,0.8)">Explore our latest {title} collection for global export.</p>
+    <h1>Lighting</h1>
+    <p style="margin-top:20px;color:rgba(255,255,255,0.8)">Explore our latest Lighting collection for global export.</p>
     <div style="margin-top:30px">
-      <a href="../../assets/catalogs/{pdf_filename}" target="_blank" download class="btn">
+      <a href="../../assets/catalogs/Balaji Udyog Lighting .pdf" target="_blank" download class="btn">
         Download Catalogue <div class="arr"></div>
       </a>
     </div>
@@ -104,7 +102,16 @@ template = """<!doctype html>
 
 <div class="cat-gallery wrap">
   <div class="grid">
-    {images_html}
+    <div class="grid-item"><img src="../../assets/images/products/lighting/page_4.jpg" alt="Product 4" loading="lazy"></div>
+<div class="grid-item"><img src="../../assets/images/products/lighting/page_5.jpg" alt="Product 5" loading="lazy"></div>
+<div class="grid-item"><img src="../../assets/images/products/lighting/page_6.jpg" alt="Product 6" loading="lazy"></div>
+<div class="grid-item"><img src="../../assets/images/products/lighting/page_7.jpg" alt="Product 7" loading="lazy"></div>
+<div class="grid-item"><img src="../../assets/images/products/lighting/page_8.jpg" alt="Product 8" loading="lazy"></div>
+<div class="grid-item"><img src="../../assets/images/products/lighting/page_9.jpg" alt="Product 9" loading="lazy"></div>
+<div class="grid-item"><img src="../../assets/images/products/lighting/page_10.jpg" alt="Product 10" loading="lazy"></div>
+<div class="grid-item"><img src="../../assets/images/products/lighting/page_11.jpg" alt="Product 11" loading="lazy"></div>
+<div class="grid-item"><img src="../../assets/images/products/lighting/page_12.jpg" alt="Product 12" loading="lazy"></div>
+
   </div>
 </div>
 
@@ -123,57 +130,3 @@ template = """<!doctype html>
 </a>
 </body>
 </html>
-"""
-
-categories = [
-    {
-        "filename": "Stainless Steel and Brass Cutleries.html",
-        "title": "Stainless Steel & Brass Cutleries",
-        "img_dir": "brassware_steel_cutleries",
-        "start_idx": 5,
-        "total_pages": 14,
-        "pdf": "_Balaji Udyog Brassware And Steel Cutleries  (1).pdf"
-    },
-    {
-        "filename": "Bathroom Fittings and Accessories.html",
-        "title": "Bathroom Fittings & Accessories",
-        "img_dir": "bathroom_fitting",
-        "start_idx": 3,
-        "total_pages": 19,
-        "pdf": "Balaji Udyog Bathroom Fitting (1).pdf"
-    },
-    {
-        "filename": "Furniture Hardware and Locking Mechanism.html",
-        "title": "Furniture Hardware & Locking Mechanism",
-        "img_dir": "furniture_hardware",
-        "start_idx": 3,
-        "total_pages": 19,
-        "pdf": "Balaji Udyog Furniture Hardware (1).pdf"
-    },
-    {
-        "filename": "Lighting.html",
-        "title": "Lighting",
-        "img_dir": "lighting",
-        "start_idx": 4,
-        "total_pages": 15,
-        "exclude_pages": [13, 14, 15],
-        "pdf": "Balaji Udyog Lighting .pdf"
-    }
-]
-
-base_dir = r"c:\Users\Shubham\Downloads\balaji udhyog-handoff\balaji-udhyog\project\pages\products"
-
-for cat in categories:
-    images_html = ""
-    for i in range(cat["start_idx"], cat["total_pages"] + 1):
-        if "exclude_pages" in cat and i in cat["exclude_pages"]:
-            continue
-        # We link relatively to assets/images/products/...
-        img_src = f"../../assets/images/products/{cat['img_dir']}/page_{i}.jpg"
-        images_html += f'<div class="grid-item"><img src="{img_src}" alt="Product {i}" loading="lazy"></div>\n'
-    
-    html_content = template.format(title=cat["title"], images_html=images_html, pdf_filename=cat["pdf"])
-    out_path = os.path.join(base_dir, cat["filename"])
-    with open(out_path, "w", encoding="utf-8") as f:
-        f.write(html_content)
-    print(f"Generated {out_path}")

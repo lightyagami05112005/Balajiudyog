@@ -8,133 +8,659 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-  :root{
-    --navy:#4682B4;
-    --navy-2:#355E7C;
-    --navy-deep:#2B4C63;
-    --gold:#C87B53;
-    --gold-dim:#B56942;
-    --paper:#FAF9F6;
-    --ink:#1F2937;
-    --ink-2:#4B5563;
-    --line:rgba(10,29,58,0.12);
-    --display:'Montserrat',sans-serif;
-    --body:'Inter',sans-serif;
-    --mono:'JetBrains Mono',ui-monospace,monospace;
-  }
+  :root{--navy:#4682B4;--navy-2:#355E7C;--navy-deep:#2B4C63;--gold:#C87B53;--gold-dim:#B56942;--paper:#FAF9F6;--ink:#1F2937;--ink-2:#4B5563;--line:rgba(10,29,58,0.12);--display:'Montserrat',sans-serif;--body:'Inter',sans-serif}
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:var(--body);background:var(--paper);color:var(--ink);}
+  body{font-family:var(--body);background:var(--paper);color:var(--ink)}
   a{color:inherit;text-decoration:none}
   .wrap{max-width:1360px;margin:0 auto;padding:0 40px}
-  
-  /* Nav Minimal */
   .nav{padding:20px 0;border-bottom:1px solid var(--line);background:#fff}
   .nav-inner{display:flex;justify-content:space-between;align-items:center}
   .logo-text b{font-family:var(--display);font-weight:600;font-size:15px;color:var(--navy)}
-  
-  /* Hero */
   .hero{padding:80px 0;text-align:center;background:var(--navy-deep);color:#fff}
   .hero h1{font-family:var(--display);font-size:48px;font-weight:600}
-  
-  /* Grid */
   .cat-gallery{padding:80px 0}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));gap:30px}
-  .grid-item{background:#fff;border:1px solid var(--line);padding:20px;text-align:center}
-  .grid-item img{max-width:100%;height:auto;display:block}
-  .btn{
-    display:inline-flex;align-items:center;gap:12px;
-    padding:16px 26px;font-weight:500;font-size:14px;letter-spacing:.04em;
-    border:1px solid transparent;transition:all .35s cubic-bezier(.2,.7,.2,1);
-    text-transform:uppercase;font-family:var(--body);
-    background:var(--gold);color:#fff;cursor:pointer;
-  }
-  .btn:hover { background:var(--gold-dim); }
+  .grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));gap:30px}
+  .grid-item{background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;height:100%;display:flex;flex-direction:column;transition:transform 0.3s, box-shadow 0.3s}
+  .grid-item:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,0.08)}
+  .grid-item img{max-width:100%;max-height:100%;object-fit:contain}
+  .btn{display:inline-flex;align-items:center;gap:12px;padding:16px 26px;font-weight:500;font-size:14px;letter-spacing:.04em;border:1px solid transparent;transition:all .35s;text-transform:uppercase;font-family:var(--body);background:var(--gold);color:#fff;cursor:pointer}
+  .btn:hover{background:var(--gold-dim)}
   .btn .arr{width:16px;height:1px;background:currentColor;position:relative;transition:width .35s}
   .btn .arr::after{content:"";position:absolute;right:-1px;top:-3px;width:7px;height:7px;border-right:1px solid currentColor;border-top:1px solid currentColor;transform:rotate(45deg)}
   .btn:hover .arr{width:26px}
-  
-  .wa-float {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: #25d366;
-    color: #FFF;
-    border-radius: 50px;
-    padding: 12px 24px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 15px;
-    font-weight: 600;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.15);
-    z-index: 100;
-    transition: transform 0.3s;
-  }
-  .wa-float:hover {
-    transform: translateY(-3px);
-    box-shadow: 2px 5px 15px rgba(0,0,0,0.25);
-  }
-  .wa-float svg { width: 24px; height: 24px; fill: currentColor; }
+  .wa-float{position:fixed;bottom:30px;right:30px;background-color:#25d366;color:#FFF;border-radius:50px;padding:12px 24px;display:flex;align-items:center;gap:10px;font-size:15px;font-weight:600;box-shadow:2px 2px 10px rgba(0,0,0,0.15);z-index:100;transition:transform 0.3s}
+  .wa-float:hover{transform:translateY(-3px);box-shadow:2px 5px 15px rgba(0,0,0,0.25)}
+  .wa-float svg{width:24px;height:24px;fill:currentColor}
 </style>
 </head>
 <body>
-<nav class="nav">
-  <div class="wrap nav-inner">
-    <a href="../../Balaji Udyog.html" class="logo-text" style="display:flex;align-items:center;gap:10px;">
-      <img src="../../assets/images/logo.jpg" alt="Balaji Udyog Logo" style="height:40px; border-radius:4px;">
-      <b>BALAJI UDYOG</b>
-    </a>
-    <a href="../../Balaji Udyog.html" style="font-size:14px;color:var(--ink-2)">← Back to Home</a>
-  </div>
-</nav>
-
-<div class="hero">
-  <div class="wrap">
-    <h1>Furniture Hardware & Locking Mechanism</h1>
-    <p style="margin-top:20px;color:rgba(255,255,255,0.8)">Explore our latest Furniture Hardware & Locking Mechanism collection for global export.</p>
-    <div style="margin-top:30px">
-      <a href="../../assets/catalogs/Balaji Udyog Furniture Hardware (1).pdf" target="_blank" download class="btn">
-        Download Catalogue <div class="arr"></div>
-      </a>
-    </div>
-  </div>
-</div>
-
-<div class="cat-gallery wrap">
-  <div class="grid">
-    <div class="grid-item"><img src="../../assets/images/products/furniture_hardware/page_3.jpg" alt="Product 3" loading="lazy"></div>
-<div class="grid-item"><img src="../../assets/images/products/furniture_hardware/page_4.jpg" alt="Product 4" loading="lazy"></div>
-<div class="grid-item"><img src="../../assets/images/products/furniture_hardware/page_5.jpg" alt="Product 5" loading="lazy"></div>
-<div class="grid-item"><img src="../../assets/images/products/furniture_hardware/page_6.jpg" alt="Product 6" loading="lazy"></div>
-<div class="grid-item"><img src="../../assets/images/products/furniture_hardware/page_7.jpg" alt="Product 7" loading="lazy"></div>
-<div class="grid-item"><img src="../../assets/images/products/furniture_hardware/page_8.jpg" alt="Product 8" loading="lazy"></div>
-<div class="grid-item"><img src="../../assets/images/products/furniture_hardware/page_9.jpg" alt="Product 9" loading="lazy"></div>
-<div class="grid-item"><img src="../../assets/images/products/furniture_hardware/page_10.jpg" alt="Product 10" loading="lazy"></div>
-<div class="grid-item"><img src="../../assets/images/products/furniture_hardware/page_11.jpg" alt="Product 11" loading="lazy"></div>
-<div class="grid-item"><img src="../../assets/images/products/furniture_hardware/page_12.jpg" alt="Product 12" loading="lazy"></div>
-<div class="grid-item"><img src="../../assets/images/products/furniture_hardware/page_13.jpg" alt="Product 13" loading="lazy"></div>
-<div class="grid-item"><img src="../../assets/images/products/furniture_hardware/page_14.jpg" alt="Product 14" loading="lazy"></div>
-<div class="grid-item"><img src="../../assets/images/products/furniture_hardware/page_15.jpg" alt="Product 15" loading="lazy"></div>
-<div class="grid-item"><img src="../../assets/images/products/furniture_hardware/page_16.jpg" alt="Product 16" loading="lazy"></div>
-<div class="grid-item"><img src="../../assets/images/products/furniture_hardware/page_17.jpg" alt="Product 17" loading="lazy"></div>
-<div class="grid-item"><img src="../../assets/images/products/furniture_hardware/page_18.jpg" alt="Product 18" loading="lazy"></div>
-<div class="grid-item"><img src="../../assets/images/products/furniture_hardware/page_19.jpg" alt="Product 19" loading="lazy"></div>
-
-  </div>
-</div>
-
-<div class="wa-cta-section wrap" style="margin: 60px auto; text-align: center; background: #25d366; padding: 50px 20px; border-radius: 12px; color: #fff;">
-  <h2 style="font-family: var(--display); font-size: 32px; font-weight: 600; margin-bottom: 15px;">Need help with pricing or shipping?</h2>
-  <p style="font-size: 16px; margin-bottom: 30px; opacity: 0.9;">Our export team is available on WhatsApp to answer your queries instantly.</p>
-  <a href="https://wa.me/916290746602" target="_blank" style="display: inline-flex; align-items: center; gap: 10px; background: #fff; color: #25d366; padding: 15px 30px; border-radius: 50px; font-weight: 600; font-size: 16px; text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none;">
-    <svg viewBox="0 0 24 24" style="width: 24px; height: 24px; fill: currentColor;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    Chat on WhatsApp
+<nav class="nav"><div class="wrap nav-inner">
+  <a href="../../Balaji Udyog.html" class="logo-text" style="display:flex;align-items:center;gap:10px;">
+    <img src="../../assets/images/logo.jpg" alt="Logo" style="height:40px;border-radius:4px;">
+    <b>BALAJI UDYOG</b>
   </a>
-</div>
-
-<a href="https://wa.me/916290746602" target="_blank" class="wa-float">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <a href="../../Balaji Udyog.html" style="font-size:14px;color:var(--ink-2)">← Back to Home</a>
+</div></nav>
+<div class="hero"><div class="wrap">
+  <h1>Furniture Hardware & Locking Mechanism</h1>
+  <p style="margin-top:20px;color:rgba(255,255,255,0.8)">Explore our Furniture Hardware & Locking Mechanism collection for global export.</p>
+  <div style="margin-top:30px">
+    <a href="../../assets/catalogs/Balaji Udyog Furniture Hardware (1).pdf" target="_blank" download class="btn">Download Catalogue <div class="arr"></div></a>
+  </div>
+</div></div>
+<div class="cat-gallery wrap"><div class="grid">
+  
+  
+    <a href="items/rbm-12-heavy-spoon-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/rbm-12-heavy-spoon-16x9.jpg" alt="RBM-12 Heavy Spoon" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: RBM-12</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">RBM-12 Heavy Spoon</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/rbm-cielo-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/rbm-cielo-16x9.jpg" alt="RBM Cielo" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: RBM-Cielo</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">RBM Cielo</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/rbm-7-zen-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/rbm-7-zen-16x9.jpg" alt="RBM-7 Zen" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: RBM-7</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">RBM-7 Zen</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/rbm-logan-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/rbm-logan-16x9.jpg" alt="RBM Logan" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: RBM-Logan</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">RBM Logan</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/rbm-8-renault-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/rbm-8-renault-16x9.jpg" alt="RBM-8 Renault" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: RBM-8-Renault</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">RBM-8 Renault</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/rbm-8-smart-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/rbm-8-smart-16x9.jpg" alt="RBM-8 Smart" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: RBM-8-Smart</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">RBM-8 Smart</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/rbm-19-roxy-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/rbm-19-roxy-16x9.jpg" alt="RBM-19 Roxy" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: RBM-19</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">RBM-19 Roxy</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/rbm-13-verna-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/rbm-13-verna-16x9.jpg" alt="RBM-13 Verna" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: RBM-13</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">RBM-13 Verna</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/rbm-8-nayaab-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/rbm-8-nayaab-16x9.jpg" alt="RBM-8 Nayaab" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: RBM-8-Nayaab</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">RBM-8 Nayaab</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/rbm-8-cedia-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/rbm-8-cedia-16x9.jpg" alt="RBM-8 Cedia" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: RBM-8-Cedia</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">RBM-8 Cedia</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/rbm-9-simple-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/rbm-9-simple-16x9.jpg" alt="RBM-9 Simple" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: RBM-9</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">RBM-9 Simple</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/rbm-11-niks-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/rbm-11-niks-16x9.jpg" alt="RBM-11 Niks" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: RBM-11</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">RBM-11 Niks</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/rbm-19-wonder-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/rbm-19-wonder-16x9.jpg" alt="RBM-19 Wonder" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: RBM-19-Wonder</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">RBM-19 Wonder</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/rbm-11-new-venus-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/rbm-11-new-venus-16x9.jpg" alt="RBM-11 New Venus" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: RBM-11-NV</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">RBM-11 New Venus</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/rbm-20-holo-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/rbm-20-holo-16x9.jpg" alt="RBM-20 Holo" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: RBM-20</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">RBM-20 Holo</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/rbm-9-flora-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/rbm-9-flora-16x9.jpg" alt="RBM-9 Flora" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: RBM-9-Flora</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">RBM-9 Flora</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/rbm-21-jojo-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/rbm-21-jojo-16x9.jpg" alt="RBM-21 Jojo" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: RBM-21</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">RBM-21 Jojo</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/rbm-23-estilc-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/rbm-23-estilc-16x9.jpg" alt="RBM-23 Estilc" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: RBM-23</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">RBM-23 Estilc</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/rbm-24-streak-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/rbm-24-streak-16x9.jpg" alt="RBM-24 Streak" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: RBM-24</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">RBM-24 Streak</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/rbm-17-tavera-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/rbm-17-tavera-16x9.jpg" alt="RBM-17 Tavera" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: RBM-17</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">RBM-17 Tavera</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/rbm-oval-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/rbm-oval-16x9.jpg" alt="RBM Oval" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: RBM-Oval</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">RBM Oval</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/rbm-25-cute-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/rbm-25-cute-16x9.jpg" alt="RBM-25 Cute" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: RBM-25</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">RBM-25 Cute</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/rbm-8-slim-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/rbm-8-slim-16x9.jpg" alt="RBM-8 Slim" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: RBM-8-Slim</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">RBM-8 Slim</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/rbm-8-antique-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/rbm-8-antique-16x9.jpg" alt="RBM-8 Antique" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: RBM-8-Antique</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">RBM-8 Antique</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/rsm-1-ss-plate-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/rsm-1-ss-plate-16x9.jpg" alt="RSM-1 SS Plate" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: RSM-1</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">RSM-1 SS Plate</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/rsm-1-stella-gold-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/rsm-1-stella-gold-16x9.jpg" alt="RSM-1 Stella Gold" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: RSM-1-SG</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">RSM-1 Stella Gold</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/rsm-stigma-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/rsm-stigma-16x9.jpg" alt="RSM Stigma" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: RSM-Stigma</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">RSM Stigma</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/rsm-1-style-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/rsm-1-style-16x9.jpg" alt="RSM-1 Style" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: RSM-1-Style</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">RSM-1 Style</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/rsm-2-stanley-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/rsm-2-stanley-16x9.jpg" alt="RSM-2 Stanley" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: RSM-2</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">RSM-2 Stanley</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/dust-socket-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/dust-socket-16x9.jpg" alt="Dust Socket" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: DS-01</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Dust Socket</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/door-stopper-oval-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/door-stopper-oval-16x9.jpg" alt="Door Stopper Oval" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: DSO-01</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Door Stopper Oval</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/ph-101-classic-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/ph-101-classic-16x9.jpg" alt="PH-101 Classic" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: PH-101</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">PH-101 Classic</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/ph-102-sleek-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/ph-102-sleek-16x9.jpg" alt="PH-102 Sleek" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: PH-102</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">PH-102 Sleek</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/ph-103-luxe-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/ph-103-luxe-16x9.jpg" alt="PH-103 Luxe" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: PH-103</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">PH-103 Luxe</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/ph-104-square-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/ph-104-square-16x9.jpg" alt="PH-104 Square" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: PH-104</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">PH-104 Square</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/ph-105-wave-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/ph-105-wave-16x9.jpg" alt="PH-105 Wave" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: PH-105</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">PH-105 Wave</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/ph-106-wooden-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/ph-106-wooden-16x9.jpg" alt="PH-106 Wooden" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: PH-106</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">PH-106 Wooden</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/ph-107-matt-black-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/ph-107-matt-black-16x9.jpg" alt="PH-107 Matt Black" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: PH-107</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">PH-107 Matt Black</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/ph-108-antique-brass-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/ph-108-antique-brass-16x9.jpg" alt="PH-108 Antique Brass" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: PH-108</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">PH-108 Antique Brass</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/ph-109-rose-gold-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/ph-109-rose-gold-16x9.jpg" alt="PH-109 Rose Gold" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: PH-109</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">PH-109 Rose Gold</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/ph-110-crystal-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/ph-110-crystal-16x9.jpg" alt="PH-110 Crystal" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: PH-110</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">PH-110 Crystal</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/ph-111-modern-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/ph-111-modern-16x9.jpg" alt="PH-111 Modern" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: PH-111</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">PH-111 Modern</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/ph-112-tapered-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/ph-112-tapered-16x9.jpg" alt="PH-112 Tapered" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: PH-112</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">PH-112 Tapered</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/dh-201-classic-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/dh-201-classic-16x9.jpg" alt="DH-201 Classic" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: DH-201</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">DH-201 Classic</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/dh-202-arc-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/dh-202-arc-16x9.jpg" alt="DH-202 Arc" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: DH-202</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">DH-202 Arc</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/dh-203-elite-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/dh-203-elite-16x9.jpg" alt="DH-203 Elite" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: DH-203</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">DH-203 Elite</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/dh-204-luxe-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/dh-204-luxe-16x9.jpg" alt="DH-204 Luxe" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: DH-204</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">DH-204 Luxe</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/dh-205-square-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/dh-205-square-16x9.jpg" alt="DH-205 Square" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: DH-205</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">DH-205 Square</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/dh-206-wave-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/dh-206-wave-16x9.jpg" alt="DH-206 Wave" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: DH-206</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">DH-206 Wave</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/dh-207-wooden-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/dh-207-wooden-16x9.jpg" alt="DH-207 Wooden" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: DH-207</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">DH-207 Wooden</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/dh-208-matt-black-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/dh-208-matt-black-16x9.jpg" alt="DH-208 Matt Black" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: DH-208</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">DH-208 Matt Black</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/dh-209-ribbed-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/dh-209-ribbed-16x9.jpg" alt="DH-209 Ribbed" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: DH-209</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">DH-209 Ribbed</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/dh-210-crystal-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/dh-210-crystal-16x9.jpg" alt="DH-210 Crystal" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: DH-210</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">DH-210 Crystal</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/dh-211-modern-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/dh-211-modern-16x9.jpg" alt="DH-211 Modern" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: DH-211</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">DH-211 Modern</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/dh-212-tapered-16x9.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/dh-212-tapered-16x9.jpg" alt="DH-212 Tapered" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: DH-212</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">DH-212 Tapered</h3>
+        </div>
+      </div>
+    </a>
+  </div></div>
+<a href="https://wa.me/916290746602?text=Hello%2C%20I%27m%20interested%20in%20your%20Furniture%20Hardware%20%26%20Locking%20Mechanism%20products." target="_blank" class="wa-float">
+  <svg viewBox="0 0 32 32"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.128 6.744 3.046 9.378L1.054 31.29l6.118-1.958A15.907 15.907 0 0016.004 32C24.826 32 32 24.826 32 16.004 32 7.176 24.826 0 16.004 0zm9.302 22.602c-.388 1.092-1.924 1.998-3.148 2.264-.84.178-1.936.32-5.63-1.21-4.726-1.956-7.768-6.756-8.004-7.07-.226-.314-1.904-2.536-1.904-4.836s1.204-3.432 1.632-3.902c.428-.47.936-.588 1.248-.588.312 0 .624.004.898.016.288.014.674-.11 1.054.804.388.936 1.322 3.236 1.438 3.472.116.236.194.51.038.824-.156.314-.234.51-.47.784-.234.274-.494.612-.704.822-.236.236-.482.49-.208.96.274.47 1.22 2.012 2.618 3.26 1.798 1.606 3.314 2.104 3.784 2.34.47.236.744.196 1.018-.118.274-.314 1.176-1.372 1.49-1.842.314-.47.628-.39 1.058-.234.43.156 2.726 1.286 3.196 1.522.468.236.782.352.898.548.116.196.116 1.13-.272 2.224z"/></svg>
   Chat with us
 </a>
+  <script src="../../assets/inquiry-modal.js" defer></script>
 </body>
 </html>

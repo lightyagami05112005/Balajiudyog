@@ -105,7 +105,7 @@
   waBtn.addEventListener('click', (e) => {
     e.preventDefault();
     const msg = encodeURIComponent("Hello Balaji Udyog, I am interested in your products and would like to discuss sourcing options.");
-    window.open(\`https://wa.me/916290746602?text=\${msg}\`, '_blank');
+    window.open(`https://wa.me/916290746602?text=${msg}`, '_blank');
   });
 
   // Close logic
@@ -114,8 +114,8 @@
 
   // Attach to existing elements dynamically
   function attachTriggers() {
-    // Select all product grid items, gallery items, and category cards
-    const targets = document.querySelectorAll('.show .it, .gal .gi, .cat, .rel-row .r');
+    // Select all product grid items, gallery items, category cards, and PDP buttons
+    const targets = document.querySelectorAll('.show .it, .gal .gi, .cat, .rel-row .r, .btn-primary');
     targets.forEach(t => {
       // Prevent anchor link navigation if it's an <a> tag
       t.addEventListener('click', (e) => {

@@ -114,6 +114,15 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:600;letter-spacing:-.01em;col
   padding:14px 0;opacity:0;pointer-events:none;transform:translateY(-6px);
   transition:opacity .25s, transform .25s;
 }
+.dropdown-panel::before {
+  content: "";
+  position: absolute;
+  top: -18px;
+  left: 0;
+  right: 0;
+  height: 18px;
+  background: transparent;
+}
 .dropdown:hover .dropdown-panel{opacity:1;pointer-events:auto;transform:translateY(0)}
 .dropdown-panel a{display:flex;justify-content:space-between;align-items:center;padding:11px 24px;font-size:13px;color:var(--ink-2)}
 .dropdown-panel a:hover{color:var(--gold);background:rgba(200,165,91,.06)}

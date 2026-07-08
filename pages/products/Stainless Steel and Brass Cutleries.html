@@ -8,126 +8,1372 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-  :root{
-    --navy:#4682B4;
-    --navy-2:#355E7C;
-    --navy-deep:#2B4C63;
-    --gold:#C87B53;
-    --gold-dim:#B56942;
-    --paper:#FAF9F6;
-    --ink:#1F2937;
-    --ink-2:#4B5563;
-    --line:rgba(10,29,58,0.12);
-    --display:'Montserrat',sans-serif;
-    --body:'Inter',sans-serif;
-    --mono:'JetBrains Mono',ui-monospace,monospace;
-  }
+  :root{--navy:#4682B4;--navy-2:#355E7C;--navy-deep:#2B4C63;--gold:#C87B53;--gold-dim:#B56942;--paper:#FAF9F6;--ink:#1F2937;--ink-2:#4B5563;--line:rgba(10,29,58,0.12);--display:'Montserrat',sans-serif;--body:'Inter',sans-serif}
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:var(--body);background:var(--paper);color:var(--ink);}
+  body{font-family:var(--body);background:var(--paper);color:var(--ink)}
   a{color:inherit;text-decoration:none}
   .wrap{max-width:1360px;margin:0 auto;padding:0 40px}
-  
-  /* Nav Minimal */
   .nav{padding:20px 0;border-bottom:1px solid var(--line);background:#fff}
   .nav-inner{display:flex;justify-content:space-between;align-items:center}
   .logo-text b{font-family:var(--display);font-weight:600;font-size:15px;color:var(--navy)}
-  
-  /* Hero */
   .hero{padding:80px 0;text-align:center;background:var(--navy-deep);color:#fff}
   .hero h1{font-family:var(--display);font-size:48px;font-weight:600}
-  
-  /* Grid */
   .cat-gallery{padding:80px 0}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));gap:30px}
-  .grid-item{background:#fff;border:1px solid var(--line);padding:20px;text-align:center}
-  .grid-item img{max-width:100%;height:auto;display:block}
-  .btn{
-    display:inline-flex;align-items:center;gap:12px;
-    padding:16px 26px;font-weight:500;font-size:14px;letter-spacing:.04em;
-    border:1px solid transparent;transition:all .35s cubic-bezier(.2,.7,.2,1);
-    text-transform:uppercase;font-family:var(--body);
-    background:var(--gold);color:#fff;cursor:pointer;
-  }
-  .btn:hover { background:var(--gold-dim); }
+  .grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));gap:30px}
+  .grid-item{background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;height:100%;display:flex;flex-direction:column;transition:transform 0.3s, box-shadow 0.3s}
+  .grid-item:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,0.08)}
+  .grid-item img{max-width:100%;max-height:100%;object-fit:contain}
+  .btn{display:inline-flex;align-items:center;gap:12px;padding:16px 26px;font-weight:500;font-size:14px;letter-spacing:.04em;border:1px solid transparent;transition:all .35s;text-transform:uppercase;font-family:var(--body);background:var(--gold);color:#fff;cursor:pointer}
+  .btn:hover{background:var(--gold-dim)}
   .btn .arr{width:16px;height:1px;background:currentColor;position:relative;transition:width .35s}
   .btn .arr::after{content:"";position:absolute;right:-1px;top:-3px;width:7px;height:7px;border-right:1px solid currentColor;border-top:1px solid currentColor;transform:rotate(45deg)}
   .btn:hover .arr{width:26px}
-  
-  .wa-float {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: #25d366;
-    color: #FFF;
-    border-radius: 50px;
-    padding: 12px 24px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 15px;
-    font-weight: 600;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.15);
-    z-index: 100;
-    transition: transform 0.3s;
-  }
-  .wa-float:hover {
-    transform: translateY(-3px);
-    box-shadow: 2px 5px 15px rgba(0,0,0,0.25);
-  }
-  .wa-float svg { width: 24px; height: 24px; fill: currentColor; }
+  .wa-float{position:fixed;bottom:30px;right:30px;background-color:#25d366;color:#FFF;border-radius:50px;padding:12px 24px;display:flex;align-items:center;gap:10px;font-size:15px;font-weight:600;box-shadow:2px 2px 10px rgba(0,0,0,0.15);z-index:100;transition:transform 0.3s}
+  .wa-float:hover{transform:translateY(-3px);box-shadow:2px 5px 15px rgba(0,0,0,0.25)}
+  .wa-float svg{width:24px;height:24px;fill:currentColor}
 </style>
 </head>
 <body>
-<nav class="nav">
-  <div class="wrap nav-inner">
-    <a href="../../Balaji Udyog.html" class="logo-text" style="display:flex;align-items:center;gap:10px;">
-      <img src="../../assets/images/logo.jpg" alt="Balaji Udyog Logo" style="height:40px; border-radius:4px;">
-      <b>BALAJI UDYOG</b>
-    </a>
-    <a href="../../Balaji Udyog.html" style="font-size:14px;color:var(--ink-2)">← Back to Home</a>
-  </div>
-</nav>
-
-<div class="hero">
-  <div class="wrap">
-    <h1>Stainless Steel & Brass Cutleries</h1>
-    <p style="margin-top:20px;color:rgba(255,255,255,0.8)">Explore our latest Stainless Steel & Brass Cutleries collection for global export.</p>
-    <div style="margin-top:30px">
-      <a href="../../assets/catalogs/_Balaji Udyog Brassware And Steel Cutleries  (1).pdf" target="_blank" download class="btn">
-        Download Catalogue <div class="arr"></div>
-      </a>
-    </div>
-  </div>
-</div>
-
-<div class="cat-gallery wrap">
-  <div class="grid">
-    <div class="grid-item"><img src="../../assets/images/products/brassware_steel_cutleries/page_5.jpg" alt="Product 5" loading="lazy"></div>
-<div class="grid-item"><img src="../../assets/images/products/brassware_steel_cutleries/page_6.jpg" alt="Product 6" loading="lazy"></div>
-<div class="grid-item"><img src="../../assets/images/products/brassware_steel_cutleries/page_7.jpg" alt="Product 7" loading="lazy"></div>
-<div class="grid-item"><img src="../../assets/images/products/brassware_steel_cutleries/page_8.jpg" alt="Product 8" loading="lazy"></div>
-<div class="grid-item"><img src="../../assets/images/products/brassware_steel_cutleries/page_9.jpg" alt="Product 9" loading="lazy"></div>
-<div class="grid-item"><img src="../../assets/images/products/brassware_steel_cutleries/page_10.jpg" alt="Product 10" loading="lazy"></div>
-<div class="grid-item"><img src="../../assets/images/products/brassware_steel_cutleries/page_11.jpg" alt="Product 11" loading="lazy"></div>
-<div class="grid-item"><img src="../../assets/images/products/brassware_steel_cutleries/page_12.jpg" alt="Product 12" loading="lazy"></div>
-<div class="grid-item"><img src="../../assets/images/products/brassware_steel_cutleries/page_13.jpg" alt="Product 13" loading="lazy"></div>
-<div class="grid-item"><img src="../../assets/images/products/brassware_steel_cutleries/page_14.jpg" alt="Product 14" loading="lazy"></div>
-
-  </div>
-</div>
-
-<div class="wa-cta-section wrap" style="margin: 60px auto; text-align: center; background: #25d366; padding: 50px 20px; border-radius: 12px; color: #fff;">
-  <h2 style="font-family: var(--display); font-size: 32px; font-weight: 600; margin-bottom: 15px;">Need help with pricing or shipping?</h2>
-  <p style="font-size: 16px; margin-bottom: 30px; opacity: 0.9;">Our export team is available on WhatsApp to answer your queries instantly.</p>
-  <a href="https://wa.me/916290746602" target="_blank" style="display: inline-flex; align-items: center; gap: 10px; background: #fff; color: #25d366; padding: 15px 30px; border-radius: 50px; font-weight: 600; font-size: 16px; text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none;">
-    <svg viewBox="0 0 24 24" style="width: 24px; height: 24px; fill: currentColor;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    Chat on WhatsApp
+<nav class="nav"><div class="wrap nav-inner">
+  <a href="../../Balaji Udyog.html" class="logo-text" style="display:flex;align-items:center;gap:10px;">
+    <img src="../../assets/images/logo.jpg" alt="Logo" style="height:40px;border-radius:4px;">
+    <b>BALAJI UDYOG</b>
   </a>
-</div>
-
-<a href="https://wa.me/916290746602" target="_blank" class="wa-float">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <a href="../../Balaji Udyog.html" style="font-size:14px;color:var(--ink-2)">← Back to Home</a>
+</div></nav>
+<div class="hero"><div class="wrap">
+  <h1>Stainless Steel & Brass Cutleries</h1>
+  <p style="margin-top:20px;color:rgba(255,255,255,0.8)">Explore our Stainless Steel & Brass Cutleries collection for global export.</p>
+  <div style="margin-top:30px">
+    <a href="../../assets/catalogs/_Balaji Udyog Brassware And Steel Cutleries  (1).pdf" target="_blank" download class="btn">Download Catalogue <div class="arr"></div></a>
+  </div>
+</div></div>
+<div class="cat-gallery wrap"><div class="grid">
+    <a href="items/ts-101.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/ts-101.jpg" alt="TS-101 Classic Tea Spoon" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: TS-101</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">TS-101 Classic Tea Spoon</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/ts-102.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/ts-102.jpg" alt="TS-102 Plain Tea Spoon" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: TS-102</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">TS-102 Plain Tea Spoon</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/ts-103.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/ts-103.jpg" alt="TS-103 Hammered Tea Spoon" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: TS-103</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">TS-103 Hammered Tea Spoon</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/ts-104.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/ts-104.jpg" alt="TS-104 Royal Tea Spoon" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: TS-104</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">TS-104 Royal Tea Spoon</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/ts-105.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/ts-105.jpg" alt="TS-105 Beaded Tea Spoon" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: TS-105</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">TS-105 Beaded Tea Spoon</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/ts-106.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/ts-106.jpg" alt="TS-106 Floral Tea Spoon" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: TS-106</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">TS-106 Floral Tea Spoon</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/ts-107.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/ts-107.jpg" alt="TS-107 Designer Tea Spoon" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: TS-107</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">TS-107 Designer Tea Spoon</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/ts-108.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/ts-108.jpg" alt="TS-108 Leaf Tea Spoon" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: TS-108</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">TS-108 Leaf Tea Spoon</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/ts-109.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/ts-109.jpg" alt="TS-109 Slim Tea Spoon" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: TS-109</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">TS-109 Slim Tea Spoon</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/ts-110.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/ts-110.jpg" alt="TS-110 Antique Tea Spoon" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: TS-110</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">TS-110 Antique Tea Spoon</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/ts-111.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/ts-111.jpg" alt="TS-111 Zig Zag Tea Spoon" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: TS-111</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">TS-111 Zig Zag Tea Spoon</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/ts-112.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/ts-112.jpg" alt="TS-112 Twist Tea Spoon" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: TS-112</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">TS-112 Twist Tea Spoon</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/tb-201.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/tb-201.jpg" alt="TB-201 Classic Table Spoon" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: TB-201</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">TB-201 Classic Table Spoon</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/tb-202.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/tb-202.jpg" alt="TB-202 Plain Table Spoon" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: TB-202</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">TB-202 Plain Table Spoon</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/tb-203.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/tb-203.jpg" alt="TB-203 Hammered Table Spoon" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: TB-203</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">TB-203 Hammered Table Spoon</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/tb-204.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/tb-204.jpg" alt="TB-204 Royal Table Spoon" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: TB-204</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">TB-204 Royal Table Spoon</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/tb-205.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/tb-205.jpg" alt="TB-205 Beaded Table Spoon" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: TB-205</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">TB-205 Beaded Table Spoon</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/tb-206.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/tb-206.jpg" alt="TB-206 Floral Table Spoon" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: TB-206</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">TB-206 Floral Table Spoon</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/tb-207.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/tb-207.jpg" alt="TB-207 Designer Table Spoon" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: TB-207</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">TB-207 Designer Table Spoon</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/tb-208.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/tb-208.jpg" alt="TB-208 Leaf Table Spoon" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: TB-208</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">TB-208 Leaf Table Spoon</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/tb-209.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/tb-209.jpg" alt="TB-209 Slim Table Spoon" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: TB-209</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">TB-209 Slim Table Spoon</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/tb-210.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/tb-210.jpg" alt="TB-210 Antique Table Spoon" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: TB-210</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">TB-210 Antique Table Spoon</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/tb-211.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/tb-211.jpg" alt="TB-211 Zig Zag Table Spoon" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: TB-211</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">TB-211 Zig Zag Table Spoon</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/tb-212.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/tb-212.jpg" alt="TB-212 Twist Table Spoon" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: TB-212</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">TB-212 Twist Table Spoon</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-025.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-025.jpg" alt="Brass Cutlery Item 025" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-025</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 025</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-026.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-026.jpg" alt="Brass Cutlery Item 026" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-026</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 026</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-027.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-027.jpg" alt="Brass Cutlery Item 027" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-027</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 027</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-028.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-028.jpg" alt="Brass Cutlery Item 028" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-028</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 028</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-029.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-029.jpg" alt="Brass Cutlery Item 029" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-029</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 029</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-030.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-030.jpg" alt="Brass Cutlery Item 030" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-030</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 030</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-031.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-031.jpg" alt="Brass Cutlery Item 031" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-031</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 031</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-032.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-032.jpg" alt="Brass Cutlery Item 032" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-032</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 032</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-033.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-033.jpg" alt="Brass Cutlery Item 033" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-033</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 033</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-034.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-034.jpg" alt="Brass Cutlery Item 034" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-034</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 034</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-035.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-035.jpg" alt="Brass Cutlery Item 035" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-035</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 035</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-036.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-036.jpg" alt="Brass Cutlery Item 036" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-036</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 036</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-037.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-037.jpg" alt="Brass Cutlery Item 037" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-037</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 037</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-038.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-038.jpg" alt="Brass Cutlery Item 038" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-038</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 038</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-039.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-039.jpg" alt="Brass Cutlery Item 039" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-039</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 039</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-040.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-040.jpg" alt="Brass Cutlery Item 040" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-040</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 040</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-041.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-041.jpg" alt="Brass Cutlery Item 041" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-041</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 041</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-042.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-042.jpg" alt="Brass Cutlery Item 042" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-042</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 042</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-043.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-043.jpg" alt="Brass Cutlery Item 043" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-043</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 043</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-044.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-044.jpg" alt="Brass Cutlery Item 044" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-044</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 044</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-045.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-045.jpg" alt="Brass Cutlery Item 045" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-045</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 045</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-046.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-046.jpg" alt="Brass Cutlery Item 046" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-046</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 046</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-047.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-047.jpg" alt="Brass Cutlery Item 047" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-047</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 047</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-048.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-048.jpg" alt="Brass Cutlery Item 048" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-048</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 048</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-049.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-049.jpg" alt="Brass Cutlery Item 049" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-049</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 049</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-050.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-050.jpg" alt="Brass Cutlery Item 050" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-050</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 050</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-051.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-051.jpg" alt="Brass Cutlery Item 051" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-051</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 051</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-052.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-052.jpg" alt="Brass Cutlery Item 052" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-052</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 052</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-053.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-053.jpg" alt="Brass Cutlery Item 053" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-053</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 053</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-054.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-054.jpg" alt="Brass Cutlery Item 054" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-054</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 054</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-055.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-055.jpg" alt="Brass Cutlery Item 055" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-055</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 055</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-056.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-056.jpg" alt="Brass Cutlery Item 056" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-056</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 056</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-057.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-057.jpg" alt="Brass Cutlery Item 057" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-057</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 057</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-058.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-058.jpg" alt="Brass Cutlery Item 058" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-058</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 058</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-059.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-059.jpg" alt="Brass Cutlery Item 059" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-059</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 059</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-060.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-060.jpg" alt="Brass Cutlery Item 060" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-060</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 060</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-061.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-061.jpg" alt="Brass Cutlery Item 061" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-061</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 061</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-062.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-062.jpg" alt="Brass Cutlery Item 062" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-062</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 062</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-063.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-063.jpg" alt="Brass Cutlery Item 063" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-063</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 063</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-064.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-064.jpg" alt="Brass Cutlery Item 064" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-064</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 064</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-065.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-065.jpg" alt="Brass Cutlery Item 065" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-065</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 065</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-066.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-066.jpg" alt="Brass Cutlery Item 066" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-066</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 066</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-067.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-067.jpg" alt="Brass Cutlery Item 067" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-067</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 067</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-068.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-068.jpg" alt="Brass Cutlery Item 068" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-068</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 068</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-069.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-069.jpg" alt="Brass Cutlery Item 069" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-069</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 069</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-070.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-070.jpg" alt="Brass Cutlery Item 070" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-070</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 070</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-071.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-071.jpg" alt="Brass Cutlery Item 071" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-071</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 071</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-072.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-072.jpg" alt="Brass Cutlery Item 072" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-072</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 072</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-073.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-073.jpg" alt="Brass Cutlery Item 073" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-073</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 073</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-074.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-074.jpg" alt="Brass Cutlery Item 074" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-074</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 074</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-075.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-075.jpg" alt="Brass Cutlery Item 075" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-075</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 075</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-076.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-076.jpg" alt="Brass Cutlery Item 076" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-076</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 076</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-077.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-077.jpg" alt="Brass Cutlery Item 077" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-077</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 077</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-078.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-078.jpg" alt="Brass Cutlery Item 078" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-078</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 078</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-079.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-079.jpg" alt="Brass Cutlery Item 079" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-079</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 079</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-080.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-080.jpg" alt="Brass Cutlery Item 080" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-080</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 080</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-081.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-081.jpg" alt="Brass Cutlery Item 081" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-081</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 081</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-082.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-082.jpg" alt="Brass Cutlery Item 082" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-082</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 082</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-083.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-083.jpg" alt="Brass Cutlery Item 083" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-083</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 083</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-084.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-084.jpg" alt="Brass Cutlery Item 084" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-084</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 084</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-085.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-085.jpg" alt="Brass Cutlery Item 085" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-085</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 085</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-086.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-086.jpg" alt="Brass Cutlery Item 086" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-086</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 086</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-087.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-087.jpg" alt="Brass Cutlery Item 087" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-087</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 087</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-088.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-088.jpg" alt="Brass Cutlery Item 088" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-088</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 088</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-089.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-089.jpg" alt="Brass Cutlery Item 089" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-089</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 089</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-090.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-090.jpg" alt="Brass Cutlery Item 090" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-090</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 090</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-091.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-091.jpg" alt="Brass Cutlery Item 091" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-091</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 091</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-092.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-092.jpg" alt="Brass Cutlery Item 092" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-092</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 092</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-093.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-093.jpg" alt="Brass Cutlery Item 093" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-093</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 093</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-094.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-094.jpg" alt="Brass Cutlery Item 094" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-094</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 094</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-095.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-095.jpg" alt="Brass Cutlery Item 095" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-095</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 095</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-096.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-096.jpg" alt="Brass Cutlery Item 096" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-096</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 096</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-097.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-097.jpg" alt="Brass Cutlery Item 097" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-097</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 097</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-098.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-098.jpg" alt="Brass Cutlery Item 098" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-098</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 098</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-099.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-099.jpg" alt="Brass Cutlery Item 099" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-099</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 099</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-100.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-100.jpg" alt="Brass Cutlery Item 100" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-100</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 100</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-101.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-101.jpg" alt="Brass Cutlery Item 101" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-101</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 101</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-102.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-102.jpg" alt="Brass Cutlery Item 102" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-102</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 102</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-103.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-103.jpg" alt="Brass Cutlery Item 103" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-103</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 103</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-104.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-104.jpg" alt="Brass Cutlery Item 104" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-104</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 104</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-105.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-105.jpg" alt="Brass Cutlery Item 105" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-105</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 105</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-106.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-106.jpg" alt="Brass Cutlery Item 106" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-106</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 106</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-107.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-107.jpg" alt="Brass Cutlery Item 107" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-107</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 107</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-108.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-108.jpg" alt="Brass Cutlery Item 108" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-108</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 108</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-109.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-109.jpg" alt="Brass Cutlery Item 109" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-109</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 109</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-110.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-110.jpg" alt="Brass Cutlery Item 110" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-110</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 110</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-111.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-111.jpg" alt="Brass Cutlery Item 111" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-111</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 111</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-112.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-112.jpg" alt="Brass Cutlery Item 112" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-112</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 112</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-113.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-113.jpg" alt="Brass Cutlery Item 113" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-113</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 113</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-114.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-114.jpg" alt="Brass Cutlery Item 114" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-114</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 114</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-115.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-115.jpg" alt="Brass Cutlery Item 115" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-115</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 115</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-116.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-116.jpg" alt="Brass Cutlery Item 116" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-116</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 116</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-117.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-117.jpg" alt="Brass Cutlery Item 117" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-117</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 117</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-118.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-118.jpg" alt="Brass Cutlery Item 118" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-118</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 118</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-119.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-119.jpg" alt="Brass Cutlery Item 119" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-119</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 119</h3>
+        </div>
+      </div>
+    </a>
+    <a href="items/brass-item-120.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="grid-item">
+        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
+          <img src="../../assets/images/products/items/brass-item-120.jpg" alt="Brass Cutlery Item 120" style="max-width:100%;max-height:100%;object-fit:contain;">
+        </div>
+        <div style="padding:20px;text-align:left;">
+          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: BC-120</div>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Brass Cutlery Item 120</h3>
+        </div>
+      </div>
+    </a>
+  </div></div>
+<a href="https://wa.me/916290746602?text=Hello%2C%20I%27m%20interested%20in%20your%20Stainless%20Steel%20%26%20Brass%20Cutleries%20products." target="_blank" class="wa-float">
+  <svg viewBox="0 0 32 32"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.128 6.744 3.046 9.378L1.054 31.29l6.118-1.958A15.907 15.907 0 0016.004 32C24.826 32 32 24.826 32 16.004 32 7.176 24.826 0 16.004 0zm9.302 22.602c-.388 1.092-1.924 1.998-3.148 2.264-.84.178-1.936.32-5.63-1.21-4.726-1.956-7.768-6.756-8.004-7.07-.226-.314-1.904-2.536-1.904-4.836s1.204-3.432 1.632-3.902c.428-.47.936-.588 1.248-.588.312 0 .624.004.898.016.288.014.674-.11 1.054.804.388.936 1.322 3.236 1.438 3.472.116.236.194.51.038.824-.156.314-.234.51-.47.784-.234.274-.494.612-.704.822-.236.236-.482.49-.208.96.274.47 1.22 2.012 2.618 3.26 1.798 1.606 3.314 2.104 3.784 2.34.47.236.744.196 1.018-.118.274-.314 1.176-1.372 1.49-1.842.314-.47.628-.39 1.058-.234.43.156 2.726 1.286 3.196 1.522.468.236.782.352.898.548.116.196.116 1.13-.272 2.224z"/></svg>
   Chat with us
 </a>
+  <script src="../../assets/inquiry-modal.js" defer></script>
 </body>
 </html>

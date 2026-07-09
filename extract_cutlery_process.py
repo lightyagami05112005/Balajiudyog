@@ -36,8 +36,8 @@ for name, title, sku in tea_spoons:
         "name": name,
         "title": title,
         "sku": sku,
-        "material": "Stainless Steel & Brass",
-        "finish": "Mirror / Gold Polish"
+        "material": "Stainless Steel",
+        "finish": "Mirror Finish"
     })
 
 # 12 Table Spoons (Pages 12–23)
@@ -61,8 +61,8 @@ for name, title, sku in table_spoons:
         "name": name,
         "title": title,
         "sku": sku,
-        "material": "Stainless Steel & Brass",
-        "finish": "Mirror / Gold Polish"
+        "material": "Stainless Steel",
+        "finish": "Mirror Finish"
     })
 
 # 36 Brassware cutlery items (Pages 24–59)
@@ -81,8 +81,8 @@ def make_product_page(product, category_name, category_file):
     img_file = product['img']
     wa_text = urllib.parse.quote(f"Hello, I'm interested in {title} ({sku}).")
     img_path = f"../../../assets/images/products/items/{img_file}"
-    material = product.get('material', 'Stainless Steel & Brass')
-    finish = product.get('finish', 'Mirror / Gold Polish')
+    material = product.get('material', 'Stainless Steel')
+    finish = product.get('finish', 'Mirror Finish')
     
     html = f"""<!doctype html>
 <html lang="en">

@@ -192,20 +192,24 @@ for i in range(len(doc)):
 
     print(f"Processed page {i}: {title}")
 
-# Replace the grid in Lighting.html using BeautifulSoup
+# Replace the grid in Lighting.html using string slicing to remove all broken legacy markup below the grid
 with open(CAT_PAGE, 'r', encoding='utf-8') as f:
-    soup = BeautifulSoup(f.read(), 'html.parser')
+    content = f.read()
 
-grid_div = soup.find('div', class_='grid')
-if grid_div:
-    grid_div.clear()
-    for item_html in html_items_to_inject:
-        card_soup = BeautifulSoup(item_html, 'html.parser')
-        grid_div.append(card_soup)
+gallery_start = content.find('<div class="cat-gallery wrap">')
+# Fallback search if tag style varies
+if gallery_start == -1:
+    gallery_start = content.find('<div class="cat-gallery')
+
+wa_start = content.find('<div class="wa-cta-section wrap"')
+
+if gallery_start != -1 and wa_start != -1:
+    new_gallery_html = '<div class="cat-gallery wrap">\n  <div class="grid">\n' + '\n'.join(html_items_to_inject) + '\n  </div>\n</div>\n\n'
+    updated_content = content[:gallery_start] + new_gallery_html + content[wa_start:]
     
-    # Save Lighting.html back
     with open(CAT_PAGE, 'w', encoding='utf-8') as f:
-        f.write(str(soup))
-    print("Successfully updated the grid in Lighting.html using BeautifulSoup.")
+        f.write(updated_content)
+    print("Successfully updated the grid in Lighting.html using clean string slicing.")
 else:
-    print("Error: Could not find <div class='grid'> in Lighting.html.")
+    print(f"Error: Could not locate markers. gallery_start: {gallery_start}, wa_start: {wa_start}")
+

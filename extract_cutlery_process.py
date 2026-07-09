@@ -81,11 +81,22 @@ for i in range(6):
         "finish": "Mirror Finish"
     })
 
-# Pages 48–59: Stainless Steel Serving Cutleries (SC-501 to SC-512)
-for i in range(12):
+# Pages 48–53: Stainless Steel Table Knives (TK-401 to TK-406)
+for i in range(6):
+    sku = f"TK-{401+i}"
+    CUTLERY_PRODUCTS.append({
+        "name": f"tk-{401+i}-steel",
+        "title": f"{sku} Stainless Steel Table Knife",
+        "sku": sku,
+        "material": "Stainless Steel",
+        "finish": "Mirror Finish"
+    })
+
+# Pages 54–59: Stainless Steel Serving Cutleries (SC-501 to SC-506)
+for i in range(6):
     sku = f"SC-{501+i}"
     CUTLERY_PRODUCTS.append({
-        "name": f"sc-{501+i}",
+        "name": f"sc-{501+i}-steel",
         "title": f"{sku} Stainless Steel Serving Cutlery",
         "sku": sku,
         "material": "Stainless Steel",

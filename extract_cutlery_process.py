@@ -37,12 +37,23 @@ for i in range(12):
         "finish": "Rich Gold"
     })
 
-# Pages 24–35: Brass Table Knives (TK-401 to TK-412)
-for i in range(12):
+# Pages 24–29: Brass Table Knives (TK-401 to TK-406)
+for i in range(6):
     sku = f"TK-{401+i}"
     CUTLERY_PRODUCTS.append({
         "name": f"tk-{401+i}",
         "title": f"{sku} Brass Table Knife",
+        "sku": sku,
+        "material": "Solid Brass",
+        "finish": "Rich Gold"
+    })
+
+# Pages 30–35: Brass Serving Cutleries (SC-501 to SC-506)
+for i in range(6):
+    sku = f"SC-{501+i}"
+    CUTLERY_PRODUCTS.append({
+        "name": f"sc-{501+i}-brass",
+        "title": f"{sku} Brass Serving Cutlery",
         "sku": sku,
         "material": "Solid Brass",
         "finish": "Rich Gold"

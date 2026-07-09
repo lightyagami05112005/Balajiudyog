@@ -16,8 +16,42 @@
   .nav{padding:20px 0;border-bottom:1px solid var(--line);background:#fff}
   .nav-inner{display:flex;justify-content:space-between;align-items:center}
   .logo-text b{font-family:var(--display);font-weight:600;font-size:15px;color:var(--navy)}
-  .hero{padding:80px 0;text-align:center;background:var(--navy-deep);color:#fff}
-  .hero h1{font-family:var(--display);font-size:48px;font-weight:600}
+  .hero-banner-container {
+    position: relative;
+    width: 100%;
+    max-width: 1280px;
+    margin: 40px auto 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  }
+  .hero-banner-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .hero-overlay-content {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+  }
+  @media (max-width: 768px) {
+    .hero-banner-container {
+      margin: 20px 20px 0;
+      border-radius: 8px;
+      width: calc(100% - 40px);
+    }
+    .hero-overlay-content {
+      position: static;
+      padding: 20px;
+      background: #0f1d35;
+      text-align: center;
+    }
+    .hero-overlay-content .btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
   .cat-gallery{padding:80px 0}
   .grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));gap:30px}
   .grid-item{background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;height:100%;display:flex;flex-direction:column;transition:transform 0.3s, box-shadow 0.3s}
@@ -41,13 +75,12 @@
   </a>
   <a href="../../Balaji Udyog.html" style="font-size:14px;color:var(--ink-2)">← Back to Home</a>
 </div></nav>
-<div class="hero"><div class="wrap">
-  <h1>Bathroom Fittings & Accessories</h1>
-  <p style="margin-top:20px;color:rgba(255,255,255,0.8)">Explore our Bathroom Fittings & Accessories collection for global export.</p>
-  <div style="margin-top:30px">
+<div class="hero-banner-container">
+  <img src="../../assets/images/categories/bathroom_hero_banner.png" alt="Bathroom Fittings & Accessories" class="hero-banner-img">
+  <div class="hero-overlay-content">
     <a href="../../assets/catalogs/Balaji Udyog Bathroom Fitting (1).pdf" target="_blank" download class="btn">Download Catalogue <div class="arr"></div></a>
   </div>
-</div></div>
+</div>
 <div class="cat-gallery wrap"><div class="grid">
     <a href="items/bath-fl-1001-bib-cock-16x9.html" style="text-decoration:none;color:inherit;display:block;">
       <div class="grid-item">

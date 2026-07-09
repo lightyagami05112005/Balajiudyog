@@ -53,7 +53,27 @@
       justify-content: center;
     }
   }
-  .cat-gallery{padding:80px 0}
+  .cat-gallery{padding:60px 0}
+  .section-title-bar {
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+  }
+  .section-title {
+    font-family: var(--display);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--navy-deep);
+    letter-spacing: -0.02em;
+  }
+  .section-subtitle {
+    margin-top: 8px;
+    font-size: 15px;
+    color: var(--ink-2);
+    max-width: 600px;
+    line-height: 1.5;
+  }
   .grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));gap:30px}
   .grid-item{background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;height:100%;display:flex;flex-direction:column;transition:transform 0.3s, box-shadow 0.3s}
   .grid-item:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,0.08)}
@@ -82,7 +102,12 @@
     <a href="../../assets/catalogs/Balaji Udyog Bathroom Fitting (1).pdf" target="_blank" download class="btn">Download Catalogue <div class="arr"></div></a>
   </div>
 </div>
-<div class="cat-gallery wrap"><div class="grid">
+<div class="cat-gallery wrap">
+  <div class="section-title-bar">
+    <h2 class="section-title">Product Catalog</h2>
+    <p class="section-subtitle">Discover our comprehensive collection of premium bathroom faucets, valves, mixers, showers, and accessories crafted for international export markets.</p>
+  </div>
+  <div class="grid">
     <a href="items/bath-fl-1001-bib-cock-16x9.html" style="text-decoration:none;color:inherit;display:block;">
       <div class="grid-item">
         <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">

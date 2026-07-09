@@ -59,12 +59,23 @@ for i in range(6):
         "finish": "Rich Gold"
     })
 
-# Pages 36–47: Stainless Steel Table Spoons (TS-201 to TS-212)
-for i in range(12):
+# Pages 36–41: Stainless Steel Table Spoons (TS-201 to TS-206)
+for i in range(6):
     sku = f"TS-{201+i}"
     CUTLERY_PRODUCTS.append({
         "name": f"ts-{201+i}",
         "title": f"{sku} Stainless Steel Table Spoon",
+        "sku": sku,
+        "material": "Stainless Steel",
+        "finish": "Mirror Finish"
+    })
+
+# Pages 42–47: Stainless Steel Table Forks (TF-301 to TF-306)
+for i in range(6):
+    sku = f"TF-{301+i}"
+    CUTLERY_PRODUCTS.append({
+        "name": f"tf-{301+i}-steel",
+        "title": f"{sku} Stainless Steel Table Fork",
         "sku": sku,
         "material": "Stainless Steel",
         "finish": "Mirror Finish"

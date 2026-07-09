@@ -16,9 +16,64 @@
   .nav{padding:20px 0;border-bottom:1px solid var(--line);background:#fff}
   .nav-inner{display:flex;justify-content:space-between;align-items:center}
   .logo-text b{font-family:var(--display);font-weight:600;font-size:15px;color:var(--navy)}
-  .hero{padding:80px 0;text-align:center;background:var(--navy-deep);color:#fff}
-  .hero h1{font-family:var(--display);font-size:48px;font-weight:600}
-  .cat-gallery{padding:80px 0}
+  .hero-banner-container {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    overflow: hidden;
+    background: #0b1528;
+  }
+  .hero-banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .hero-overlay-content {
+    position: absolute;
+    top: 40px;
+    right: 5%;
+    z-index: 10;
+  }
+  @media (max-width: 768px) {
+    .hero-banner-container {
+      height: auto;
+    }
+    .hero-banner-img {
+      height: auto;
+    }
+    .hero-overlay-content {
+      position: static;
+      padding: 20px;
+      background: #0f1d35;
+      text-align: center;
+    }
+    .hero-overlay-content .btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+  .cat-gallery{padding:60px 0}
+  .section-title-bar {
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+  }
+  .section-title {
+    font-family: var(--display);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--navy-deep);
+    letter-spacing: -0.02em;
+  }
+  .section-subtitle {
+    margin-top: 8px;
+    font-size: 15px;
+    color: var(--ink-2);
+    max-width: 600px;
+    line-height: 1.5;
+  }
   .grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));gap:30px}
   .grid-item{background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;height:100%;display:flex;flex-direction:column;transition:transform 0.3s, box-shadow 0.3s}
   .grid-item:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,0.08)}
@@ -41,14 +96,18 @@
   </a>
   <a href="../../Balaji Udyog.html" style="font-size:14px;color:var(--ink-2)">← Back to Home</a>
 </div></nav>
-<div class="hero"><div class="wrap">
-  <h1>Furniture Hardware & Locking Mechanism</h1>
-  <p style="margin-top:20px;color:rgba(255,255,255,0.8)">Explore our Furniture Hardware & Locking Mechanism collection for global export.</p>
-  <div style="margin-top:30px">
+<div class="hero-banner-container">
+  <img src="../../assets/images/categories/furniture_hero_banner.png" alt="Furniture Hardware & Locking Mechanism" class="hero-banner-img">
+  <div class="hero-overlay-content">
     <a href="../../assets/catalogs/Balaji Udyog Furniture Hardware (1).pdf" target="_blank" download class="btn">Download Catalogue <div class="arr"></div></a>
   </div>
-</div></div>
-<div class="cat-gallery wrap"><div class="grid">
+</div>
+<div class="cat-gallery wrap">
+  <div class="section-title-bar">
+    <h2 class="section-title">Product Catalog</h2>
+    <p class="section-subtitle">Browse our premium collection of export-quality furniture hardware, hinges, drawer systems, locks, and security mechanisms.</p>
+  </div>
+  <div class="grid">
   
   
     <a href="items/rbm-12-heavy-spoon-16x9.html" style="text-decoration:none;color:inherit;display:block;">

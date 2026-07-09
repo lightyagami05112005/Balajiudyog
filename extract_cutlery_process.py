@@ -15,64 +15,59 @@ doc = fitz.open(pdf_path)
 # Detailed mapping of the 60 pages of the cutleries process PDF
 CUTLERY_PRODUCTS = []
 
-# 12 Tea Spoons (Pages 0–11)
-tea_spoons = [
-    ("ts-101", "TS-101 Classic Tea Spoon", "TS-101"),
-    ("ts-102", "TS-102 Plain Tea Spoon", "TS-102"),
-    ("ts-103", "TS-103 Hammered Tea Spoon", "TS-103"),
-    ("ts-104", "TS-104 Royal Tea Spoon", "TS-104"),
-    ("ts-105", "TS-105 Beaded Tea Spoon", "TS-105"),
-    ("ts-106", "TS-106 Floral Tea Spoon", "TS-106"),
-    ("ts-107", "TS-107 Designer Tea Spoon", "TS-107"),
-    ("ts-108", "TS-108 Leaf Tea Spoon", "TS-108"),
-    ("ts-109", "TS-109 Slim Tea Spoon", "TS-109"),
-    ("ts-110", "TS-110 Antique Tea Spoon", "TS-110"),
-    ("ts-111", "TS-111 Zig Zag Tea Spoon", "TS-111"),
-    ("ts-112", "TS-112 Twist Tea Spoon", "TS-112")
-]
-
-for name, title, sku in tea_spoons:
+# Pages 0–11: Brass Tea Spoons (TS-101 to TS-112)
+for i in range(12):
+    sku = f"TS-{101+i}"
     CUTLERY_PRODUCTS.append({
-        "name": name,
-        "title": title,
+        "name": f"ts-{101+i}",
+        "title": f"{sku} Brass Tea Spoon",
         "sku": sku,
-        "material": "Stainless Steel",
-        "finish": "Mirror Finish"
-    })
-
-# 12 Table Spoons (Pages 12–23)
-table_spoons = [
-    ("tb-201", "TB-201 Classic Table Spoon", "TB-201"),
-    ("tb-202", "TB-202 Plain Table Spoon", "TB-202"),
-    ("tb-203", "TB-203 Hammered Table Spoon", "TB-203"),
-    ("tb-204", "TB-204 Royal Table Spoon", "TB-204"),
-    ("tb-205", "TB-205 Beaded Table Spoon", "TB-205"),
-    ("tb-206", "TB-206 Floral Table Spoon", "TB-206"),
-    ("tb-207", "TB-207 Designer Table Spoon", "TB-207"),
-    ("tb-208", "TB-208 Leaf Table Spoon", "TB-208"),
-    ("tb-209", "TB-209 Slim Table Spoon", "TB-209"),
-    ("tb-210", "TB-210 Antique Table Spoon", "TB-210"),
-    ("tb-211", "TB-211 Zig Zag Table Spoon", "TB-211"),
-    ("tb-212", "TB-212 Twist Table Spoon", "TB-212")
-]
-
-for name, title, sku in table_spoons:
-    CUTLERY_PRODUCTS.append({
-        "name": name,
-        "title": title,
-        "sku": sku,
-        "material": "Stainless Steel",
-        "finish": "Mirror Finish"
-    })
-
-# 36 Brassware cutlery items (Pages 24–59)
-for num in range(25, 61):
-    CUTLERY_PRODUCTS.append({
-        "name": f"brass-item-{num:03d}",
-        "title": f"Brass Cutlery Item {num:03d}",
-        "sku": f"BC-{num:03d}",
         "material": "Solid Brass",
-        "finish": "Gold Plated"
+        "finish": "Rich Gold"
+    })
+
+# Pages 12–23: Brass Table Forks (TF-301 to TF-312)
+for i in range(12):
+    sku = f"TF-{301+i}"
+    CUTLERY_PRODUCTS.append({
+        "name": f"tf-{301+i}",
+        "title": f"{sku} Brass Table Fork",
+        "sku": sku,
+        "material": "Solid Brass",
+        "finish": "Rich Gold"
+    })
+
+# Pages 24–35: Brass Table Knives (TK-401 to TK-412)
+for i in range(12):
+    sku = f"TK-{401+i}"
+    CUTLERY_PRODUCTS.append({
+        "name": f"tk-{401+i}",
+        "title": f"{sku} Brass Table Knife",
+        "sku": sku,
+        "material": "Solid Brass",
+        "finish": "Rich Gold"
+    })
+
+# Pages 36–47: Stainless Steel Table Spoons (TS-201 to TS-212)
+for i in range(12):
+    sku = f"TS-{201+i}"
+    CUTLERY_PRODUCTS.append({
+        "name": f"ts-{201+i}",
+        "title": f"{sku} Stainless Steel Table Spoon",
+        "sku": sku,
+        "material": "Stainless Steel",
+        "finish": "Mirror Finish"
+    })
+
+# Pages 48–59: Stainless Steel Serving Cutleries (SC-501 to SC-512)
+for i in range(12):
+    sku = f"SC-{501+i}"
+    CUTLERY_PRODUCTS.append({
+        "name": f"sc-{501+i}",
+        "title": f"{sku} Stainless Steel Serving Cutlery",
+        "sku": sku,
+        "material": "Stainless Steel",
+        "finish": "Mirror Finish"
     })
 
 def make_product_page(product, category_name, category_file):

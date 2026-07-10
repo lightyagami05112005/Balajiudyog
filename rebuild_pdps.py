@@ -342,7 +342,7 @@ template = """<!doctype html>
       Premium Indian hardware and decor exporter since 1998.
     </div>
     <div>
-      balaji6ab@gmail.com &nbsp;|&nbsp; +91 6290 746 602<br>
+      info@balajiudyog.net &nbsp;|&nbsp; +91 6290 746 602<br>
       &copy; 2026 Balaji Udyog. All rights reserved.
     </div>
   </div>

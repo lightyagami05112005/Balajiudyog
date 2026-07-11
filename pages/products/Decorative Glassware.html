@@ -8,21 +8,93 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-  :root{--navy:#4682B4;--navy-2:#355E7C;--navy-deep:#2B4C63;--gold:#C87B53;--gold-dim:#B56942;--paper:#FAF9F6;--ink:#1F2937;--ink-2:#4B5563;--line:rgba(10,29,58,0.12);--display:'Montserrat',sans-serif;--body:'Inter',sans-serif}
+  :root{
+    --navy:#4682B4;
+    --navy-2:#355E7C;
+    --navy-deep:#2B4C63;
+    --gold:#C87B53;
+    --gold-dim:#B56942;
+    --paper:#FAF9F6;
+    --ink:#1F2937;
+    --ink-2:#4B5563;
+    --line:rgba(10,29,58,0.12);
+    --display:'Montserrat',sans-serif;
+    --body:'Inter',sans-serif;
+  }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:var(--body);background:var(--paper);color:var(--ink)}
+  body{font-family:var(--body);background:var(--paper);color:var(--ink);}
   a{color:inherit;text-decoration:none}
   .wrap{max-width:1360px;margin:0 auto;padding:0 40px}
+  
   .nav{padding:20px 0;border-bottom:1px solid var(--line);background:#fff}
   .nav-inner{display:flex;justify-content:space-between;align-items:center}
   .logo-text b{font-family:var(--display);font-weight:600;font-size:15px;color:var(--navy)}
-  .hero{padding:80px 0;text-align:center;background:var(--navy-deep);color:#fff}
-  .hero h1{font-family:var(--display);font-size:48px;font-weight:600}
-  .cat-gallery{padding:80px 0}
+  
+  .hero-banner-container {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    overflow: hidden;
+    background: #0b1528;
+  }
+  .hero-banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .hero-overlay-content {
+    position: absolute;
+    top: 40px;
+    right: 5%;
+    z-index: 10;
+  }
+  @media (max-width: 768px) {
+    .hero-banner-container {
+      height: auto;
+    }
+    .hero-banner-img {
+      height: auto;
+    }
+    .hero-overlay-content {
+      position: static;
+      padding: 20px;
+      background: #0f1d35;
+      text-align: center;
+    }
+    .hero-overlay-content .btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+  
+  .cat-gallery{padding:60px 0}
+  .section-title-bar {
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+  }
+  .section-title {
+    font-family: var(--display);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--navy-deep);
+    letter-spacing: -0.02em;
+  }
+  .section-subtitle {
+    margin-top: 8px;
+    font-size: 15px;
+    color: var(--ink-2);
+    max-width: 600px;
+    line-height: 1.5;
+  }
+  
   .grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));gap:30px}
   .grid-item{background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;height:100%;display:flex;flex-direction:column;transition:transform 0.3s, box-shadow 0.3s}
   .grid-item:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,0.08)}
   .grid-item img{max-width:100%;max-height:100%;object-fit:contain}
+  
   .btn{display:inline-flex;align-items:center;gap:12px;padding:16px 26px;font-weight:500;font-size:14px;letter-spacing:.04em;border:1px solid transparent;transition:all .35s;text-transform:uppercase;font-family:var(--body);background:var(--gold);color:#fff;cursor:pointer}
   .btn:hover{background:var(--gold-dim)}
   .btn .arr{width:16px;height:1px;background:currentColor;position:relative;transition:width .35s}
@@ -41,899 +113,124 @@
   </a>
   <a href="../../Balaji Udyog.html" style="font-size:14px;color:var(--ink-2)">← Back to Home</a>
 </div></nav>
-<div class="hero"><div class="wrap">
-  <h1>Decorative Glassware</h1>
-  <p style="margin-top:20px;color:rgba(255,255,255,0.8)">Explore our Decorative Glassware collection for global export.</p>
-  <div style="margin-top:30px">
+
+<div class="hero-banner-container">
+  <img src="../../assets/images/categories/glassware_hero_banner.png" alt="Decorative Glassware" class="hero-banner-img">
+  <div class="hero-overlay-content">
     <a href="../../assets/catalogs/Balaji Udyog Decorative Glassware.pdf" target="_blank" download class="btn">Download Catalogue <div class="arr"></div></a>
   </div>
-</div></div>
-<div class="cat-gallery wrap"><div class="grid">
-    <a href="items/vase-01.html" style="text-decoration:none;color:inherit;display:block;">
+</div>
+
+<div class="cat-gallery wrap">
+  <div class="section-title-bar">
+    <h2 class="section-title">Product Catalog</h2>
+    <p class="section-subtitle">Discover our comprehensive collection of premium decorative glassware and vases crafted for international B2B export markets.</p>
+  </div>
+  <div class="grid">
+    
+    <a href="items/glassware-item-01-16x9.html" style="text-decoration:none;color:inherit;display:block;">
       <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/vase-01.jpg" alt="Decorative Vase 01" style="max-width:100%;max-height:100%;object-fit:contain;">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/glassware-item-01-16x9.jpg" alt="Amber & Honey textured glass vase collection" style="width:100%;height:100%;object-fit:cover;">
         </div>
         <div style="padding:20px;text-align:left;">
           <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: DV-01</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Decorative Vase 01</h3>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Amber & Honey textured glass vase collection</h3>
         </div>
       </div>
     </a>
-    <a href="items/vase-02.html" style="text-decoration:none;color:inherit;display:block;">
+    <a href="items/glassware-item-02-16x9.html" style="text-decoration:none;color:inherit;display:block;">
       <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/vase-02.jpg" alt="Decorative Vase 02" style="max-width:100%;max-height:100%;object-fit:contain;">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/glassware-item-02-16x9.jpg" alt="Olive & Forest Green luxury glass vases" style="width:100%;height:100%;object-fit:cover;">
         </div>
         <div style="padding:20px;text-align:left;">
           <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: DV-02</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Decorative Vase 02</h3>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Olive & Forest Green luxury glass vases</h3>
         </div>
       </div>
     </a>
-    <a href="items/vase-03.html" style="text-decoration:none;color:inherit;display:block;">
+    <a href="items/glassware-item-03-16x9.html" style="text-decoration:none;color:inherit;display:block;">
       <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/vase-03.jpg" alt="Decorative Vase 03" style="max-width:100%;max-height:100%;object-fit:contain;">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/glassware-item-03-16x9.jpg" alt="Amethyst Purple textured glass vases" style="width:100%;height:100%;object-fit:cover;">
         </div>
         <div style="padding:20px;text-align:left;">
           <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: DV-03</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Decorative Vase 03</h3>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Amethyst Purple textured glass vases</h3>
         </div>
       </div>
     </a>
-    <a href="items/vase-04.html" style="text-decoration:none;color:inherit;display:block;">
+    <a href="items/glassware-item-04-16x9.html" style="text-decoration:none;color:inherit;display:block;">
       <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/vase-04.jpg" alt="Decorative Vase 04" style="max-width:100%;max-height:100%;object-fit:contain;">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/glassware-item-04-16x9.jpg" alt="Midnight Blue and smoke glass vases" style="width:100%;height:100%;object-fit:cover;">
         </div>
         <div style="padding:20px;text-align:left;">
           <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: DV-04</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Decorative Vase 04</h3>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Midnight Blue and smoke glass vases</h3>
         </div>
       </div>
     </a>
-    <a href="items/vase-05.html" style="text-decoration:none;color:inherit;display:block;">
+    <a href="items/glassware-item-05-16x9.html" style="text-decoration:none;color:inherit;display:block;">
       <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/vase-05.jpg" alt="Decorative Vase 05" style="max-width:100%;max-height:100%;object-fit:contain;">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/glassware-item-05-16x9.jpg" alt="Ruby Pink & Smoked Grey glass vases" style="width:100%;height:100%;object-fit:cover;">
         </div>
         <div style="padding:20px;text-align:left;">
           <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: DV-05</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Decorative Vase 05</h3>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Ruby Pink & Smoked Grey glass vases</h3>
         </div>
       </div>
     </a>
-    <a href="items/vase-06.html" style="text-decoration:none;color:inherit;display:block;">
+    <a href="items/glassware-item-06-16x9.html" style="text-decoration:none;color:inherit;display:block;">
       <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/vase-06.jpg" alt="Decorative Vase 06" style="max-width:100%;max-height:100%;object-fit:contain;">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/glassware-item-06-16x9.jpg" alt="Classic Clear & Frosted decorative glass vases" style="width:100%;height:100%;object-fit:cover;">
         </div>
         <div style="padding:20px;text-align:left;">
           <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: DV-06</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Decorative Vase 06</h3>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Classic Clear & Frosted decorative glass vases</h3>
         </div>
       </div>
     </a>
-    <a href="items/vase-07.html" style="text-decoration:none;color:inherit;display:block;">
+    <a href="items/glassware-item-07-16x9.html" style="text-decoration:none;color:inherit;display:block;">
       <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/vase-07.jpg" alt="Decorative Vase 07" style="max-width:100%;max-height:100%;object-fit:contain;">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/glassware-item-07-16x9.jpg" alt="Emerald Green Gold Lustre glass vases" style="width:100%;height:100%;object-fit:cover;">
         </div>
         <div style="padding:20px;text-align:left;">
           <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: DV-07</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Decorative Vase 07</h3>
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Emerald Green Gold Lustre glass vases</h3>
         </div>
       </div>
     </a>
-    <a href="items/vase-08.html" style="text-decoration:none;color:inherit;display:block;">
+    <a href="items/glassware-item-08-16x9.html" style="text-decoration:none;color:inherit;display:block;">
       <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/vase-08.jpg" alt="Decorative Vase 08" style="max-width:100%;max-height:100%;object-fit:contain;">
+        <div style="aspect-ratio:16/9;background:#f9f9f9;padding:0;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden;">
+          <img src="../../assets/images/products/items/glassware-item-08-16x9.jpg" alt="Noir Black and Bronze metallic glass vases" style="width:100%;height:100%;object-fit:cover;">
         </div>
         <div style="padding:20px;text-align:left;">
           <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: DV-08</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Decorative Vase 08</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/vase-09.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/vase-09.jpg" alt="Decorative Vase 09" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: DV-09</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Decorative Vase 09</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/vase-10.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/vase-10.jpg" alt="Decorative Vase 10" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: DV-10</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Decorative Vase 10</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-11.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-11.jpg" alt="Glass Item 11" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-11</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 11</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-12.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-12.jpg" alt="Glass Item 12" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-12</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 12</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-13.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-13.jpg" alt="Glass Item 13" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-13</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 13</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-14.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-14.jpg" alt="Glass Item 14" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-14</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 14</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-15.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-15.jpg" alt="Glass Item 15" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-15</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 15</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-16.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-16.jpg" alt="Glass Item 16" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-16</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 16</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-17.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-17.jpg" alt="Glass Item 17" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-17</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 17</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-18.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-18.jpg" alt="Glass Item 18" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-18</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 18</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-19.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-19.jpg" alt="Glass Item 19" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-19</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 19</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-20.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-20.jpg" alt="Glass Item 20" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-20</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 20</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-21.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-21.jpg" alt="Glass Item 21" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-21</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 21</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-22.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-22.jpg" alt="Glass Item 22" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-22</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 22</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-23.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-23.jpg" alt="Glass Item 23" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-23</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 23</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-24.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-24.jpg" alt="Glass Item 24" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-24</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 24</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-25.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-25.jpg" alt="Glass Item 25" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-25</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 25</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-26.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-26.jpg" alt="Glass Item 26" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-26</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 26</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-27.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-27.jpg" alt="Glass Item 27" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-27</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 27</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-28.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-28.jpg" alt="Glass Item 28" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-28</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 28</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-29.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-29.jpg" alt="Glass Item 29" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-29</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 29</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-30.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-30.jpg" alt="Glass Item 30" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-30</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 30</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-31.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-31.jpg" alt="Glass Item 31" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-31</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 31</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-32.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-32.jpg" alt="Glass Item 32" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-32</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 32</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-33.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-33.jpg" alt="Glass Item 33" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-33</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 33</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-34.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-34.jpg" alt="Glass Item 34" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-34</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 34</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-35.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-35.jpg" alt="Glass Item 35" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-35</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 35</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-36.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-36.jpg" alt="Glass Item 36" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-36</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 36</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-37.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-37.jpg" alt="Glass Item 37" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-37</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 37</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-38.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-38.jpg" alt="Glass Item 38" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-38</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 38</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-39.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-39.jpg" alt="Glass Item 39" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-39</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 39</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-40.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-40.jpg" alt="Glass Item 40" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-40</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 40</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-41.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-41.jpg" alt="Glass Item 41" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-41</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 41</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-42.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-42.jpg" alt="Glass Item 42" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-42</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 42</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-43.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-43.jpg" alt="Glass Item 43" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-43</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 43</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-44.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-44.jpg" alt="Glass Item 44" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-44</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 44</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-45.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-45.jpg" alt="Glass Item 45" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-45</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 45</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-46.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-46.jpg" alt="Glass Item 46" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-46</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 46</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-47.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-47.jpg" alt="Glass Item 47" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-47</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 47</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-48.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-48.jpg" alt="Glass Item 48" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-48</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 48</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-49.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-49.jpg" alt="Glass Item 49" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-49</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 49</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-50.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-50.jpg" alt="Glass Item 50" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-50</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 50</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-51.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-51.jpg" alt="Glass Item 51" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-51</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 51</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-52.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-52.jpg" alt="Glass Item 52" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-52</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 52</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-53.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-53.jpg" alt="Glass Item 53" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-53</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 53</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-54.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-54.jpg" alt="Glass Item 54" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-54</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 54</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-55.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-55.jpg" alt="Glass Item 55" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-55</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 55</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-56.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-56.jpg" alt="Glass Item 56" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-56</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 56</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-57.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-57.jpg" alt="Glass Item 57" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-57</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 57</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-58.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-58.jpg" alt="Glass Item 58" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-58</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 58</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-59.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-59.jpg" alt="Glass Item 59" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-59</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 59</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-60.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-60.jpg" alt="Glass Item 60" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-60</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 60</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-61.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-61.jpg" alt="Glass Item 61" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-61</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 61</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-62.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-62.jpg" alt="Glass Item 62" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-62</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 62</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-63.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-63.jpg" alt="Glass Item 63" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-63</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 63</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-64.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-64.jpg" alt="Glass Item 64" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-64</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 64</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-65.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-65.jpg" alt="Glass Item 65" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-65</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 65</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-66.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-66.jpg" alt="Glass Item 66" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-66</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 66</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-67.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-67.jpg" alt="Glass Item 67" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-67</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 67</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-68.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-68.jpg" alt="Glass Item 68" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-68</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 68</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-69.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-69.jpg" alt="Glass Item 69" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-69</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 69</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-70.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-70.jpg" alt="Glass Item 70" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-70</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 70</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-71.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-71.jpg" alt="Glass Item 71" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-71</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 71</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-72.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-72.jpg" alt="Glass Item 72" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-72</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 72</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-73.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-73.jpg" alt="Glass Item 73" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-73</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 73</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-74.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-74.jpg" alt="Glass Item 74" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-74</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 74</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-75.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-75.jpg" alt="Glass Item 75" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-75</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 75</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-76.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-76.jpg" alt="Glass Item 76" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-76</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 76</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-77.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-77.jpg" alt="Glass Item 77" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-77</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 77</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-78.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-78.jpg" alt="Glass Item 78" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-78</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 78</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-79.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-79.jpg" alt="Glass Item 79" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-79</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 79</h3>
-        </div>
-      </div>
-    </a>
-    <a href="items/glass-item-80.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="grid-item">
-        <div style="aspect-ratio:3/4;background:#f9f9f9;padding:24px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);">
-          <img src="../../assets/images/products/items/glass-item-80.jpg" alt="Glass Item 80" style="max-width:100%;max-height:100%;object-fit:contain;">
-        </div>
-        <div style="padding:20px;text-align:left;">
-          <div style="font-size:12px;font-family:monospace;color:var(--ink-2);margin-bottom:8px;">SKU: GL-80</div>
-          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Glass Item 80</h3>
-        </div>
-      </div>
-    </a>
-  </div></div>
-<a href="https://wa.me/916290746602?text=Hello%2C%20I%27m%20interested%20in%20your%20Decorative%20Glassware%20products." target="_blank" class="wa-float">
-  <svg viewBox="0 0 32 32"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.128 6.744 3.046 9.378L1.054 31.29l6.118-1.958A15.907 15.907 0 0016.004 32C24.826 32 32 24.826 32 16.004 32 7.176 24.826 0 16.004 0zm9.302 22.602c-.388 1.092-1.924 1.998-3.148 2.264-.84.178-1.936.32-5.63-1.21-4.726-1.956-7.768-6.756-8.004-7.07-.226-.314-1.904-2.536-1.904-4.836s1.204-3.432 1.632-3.902c.428-.47.936-.588 1.248-.588.312 0 .624.004.898.016.288.014.674-.11 1.054.804.388.936 1.322 3.236 1.438 3.472.116.236.194.51.038.824-.156.314-.234.51-.47.784-.234.274-.494.612-.704.822-.236.236-.482.49-.208.96.274.47 1.22 2.012 2.618 3.26 1.798 1.606 3.314 2.104 3.784 2.34.47.236.744.196 1.018-.118.274-.314 1.176-1.372 1.49-1.842.314-.47.628-.39 1.058-.234.43.156 2.726 1.286 3.196 1.522.468.236.782.352.898.548.116.196.116 1.13-.272 2.224z"/></svg>
-  Chat with us
+          <h3 style="font-size:16px;font-weight:600;margin:0;color:var(--navy-deep);line-height:1.4;">Noir Black and Bronze metallic glass vases</h3>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="wa-cta-section wrap" style="margin: 60px auto; text-align: center; background: #25d366; padding: 50px 20px; border-radius: 12px; color: #fff;">
+  <h2 style="font-family: var(--display); font-size: 32px; font-weight: 600; margin-bottom: 15px;">Need help with pricing or shipping?</h2>
+  <p style="font-size: 16px; margin-bottom: 30px; opacity: 0.9;">Our export team is available on WhatsApp to answer your queries instantly.</p>
+  <a href="https://wa.me/916290746602?text=Hello%2C%20I%27m%20interested%20in%20Decorative%20Glassware%20products." target="_blank" style="display: inline-flex; align-items: center; gap: 10px; background: #fff; color: #25d366; padding: 15px 30px; border-radius: 50px; font-weight: 600; font-size: 16px; text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none;">
+    <svg viewBox="0 0 24 24" style="width: 24px; height: 24px; fill: currentColor;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Chat with us
+  </a>
+</div>
+
+<a href="https://wa.me/916290746602?text=Hello%2C%20I%20have%20an%20inquiry%20regarding%20Balaji%20Udyog%20products." class="wa-float" target="_blank">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
-  <script src="../../assets/inquiry-modal.js" defer></script>
+
 </body>
 </html>

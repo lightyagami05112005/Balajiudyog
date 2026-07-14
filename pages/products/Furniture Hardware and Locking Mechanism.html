@@ -13,9 +13,77 @@
   body{font-family:var(--body);background:var(--paper);color:var(--ink)}
   a{color:inherit;text-decoration:none}
   .wrap{max-width:1360px;margin:0 auto;padding:0 40px}
-  .nav{padding:20px 0;border-bottom:1px solid var(--line);background:#fff}
-  .nav-inner{display:flex;justify-content:space-between;align-items:center}
-  .logo-text b{font-family:var(--display);font-weight:600;font-size:15px;color:var(--navy)}
+  /* ---------- NAV ---------- */
+  .nav{
+      position:sticky;top:0;left:0;right:0;z-index:80;
+      transition:background .4s ease, backdrop-filter .4s ease, border-color .4s;
+      background:var(--paper);
+      border-bottom:1px solid var(--line);
+  }
+  .nav.solid{background:rgba(255,255,255,.95);backdrop-filter:blur(18px);border-bottom-color:var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:78px}
+  .logo{display:flex;align-items:center;gap:12px;color:var(--navy);text-decoration:none}
+  .logo-text{display:flex;flex-direction:column;line-height:1.05}
+  .logo-text b{font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:.08em;color:var(--navy)}
+  .logo-text small{font-family:monospace;font-size:9px;letter-spacing:.28em;color:var(--gold);text-transform:uppercase;margin-top:2px}
+  .nav-menu{display:flex;align-items:center;gap:38px}
+  .nav-menu a{font-size:13px;color:var(--ink-2);letter-spacing:.03em;position:relative;padding:6px 0;transition:color .2s;text-decoration:none;font-weight:500}
+  .nav-menu a:hover,.nav-menu a.active{color:var(--navy)}
+  .nav-menu a.has-down::after{content:"";display:inline-block;width:5px;height:5px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(45deg);margin-left:7px;margin-bottom:2px;vertical-align:middle}
+  .nav-menu .dropdown{position:relative}
+  .dropdown-panel{
+    position:absolute;top:calc(100% + 18px);left:-24px;width:280px;
+    background:#fff;border:1px solid var(--line);
+    padding:14px 0;opacity:0;pointer-events:none;transform:translateY(-6px);
+    transition:opacity .25s, transform .25s;
+    text-align:left;
+  }
+  .dropdown-panel::before {
+    content: "";
+    position: absolute;
+    top: -18px;
+    left: 0;
+    right: 0;
+    height: 18px;
+    background: transparent;
+  }
+  .dropdown:hover .dropdown-panel{opacity:1;pointer-events:auto;transform:translateY(0)}
+  .dropdown-panel a{display:flex;justify-content:space-between;align-items:center;padding:11px 24px;font-size:13px;color:var(--ink-2);text-decoration:none}
+  .dropdown-panel a:hover{color:var(--gold);background:rgba(200,165,91,.06)}
+  .dropdown-panel a small{font-family:monospace;font-size:10px;color:var(--gold)}
+  .nav-cta{display:flex;align-items:center;gap:14px}
+  .nav-cta .pill{padding:9px 16px;border:1px solid var(--gold);color:var(--gold);font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-family:var(--body);transition:all .3s;text-decoration:none}
+  .nav-cta .pill:hover{background:var(--gold);color:#fff}
+  .burger{display:none}
+
+  @media (max-width:1080px){
+    .nav-menu{gap:22px}
+  }
+  @media (max-width:980px){
+    .nav-menu,.nav-cta .pill{display:none}
+    .burger{display:flex;flex-direction:column;gap:5px;width:28px;cursor:pointer;z-index:90}
+    .burger span{height:2px;background:var(--navy);width:100%;transition:transform .3s, opacity .3s;border-radius:1px}
+    .nav.nav-open .nav-menu{
+      display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;
+      background:rgba(255,255,255,.98);backdrop-filter:blur(18px);padding:20px 30px;align-items:flex-start;
+      border-bottom:1px solid var(--line);
+      box-shadow:0 12px 32px rgba(0,0,0,.08);
+    }
+    .nav.nav-open .nav-menu > a, .nav.nav-open .dropdown{width:100%;border-bottom:1px solid var(--line);padding:12px 0}
+    .nav.nav-open .nav-menu > a{color:var(--ink);font-size:15px}
+    .nav.nav-open .dropdown > a{width:100%;display:block;color:var(--ink);font-size:15px}
+    .nav.nav-open .dropdown-panel{
+      position:static;transform:none;opacity:1;pointer-events:auto;
+      background:transparent;border:none;padding:10px 0 0 15px;width:100%;
+      min-width:auto;backdrop-filter:none;
+    }
+    .nav.nav-open .dropdown-panel a{padding:8px 0;border-bottom:none;color:var(--ink);font-size:14px}
+    .nav.nav-open .dropdown-panel a:hover{color:var(--gold)}
+    .nav.nav-open .burger span{background:var(--navy)}
+    .nav.nav-open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .nav.nav-open .burger span:nth-child(2){opacity:0}
+    .nav.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  }
   .hero-banner-container {
     position: relative;
     width: 100%;
@@ -89,13 +157,33 @@
 </style>
 </head>
 <body>
-<nav class="nav"><div class="wrap nav-inner">
-  <a href="../../Balaji Udyog.html" class="logo-text" style="display:flex;align-items:center;gap:10px;">
-    <img src="../../assets/images/logo.jpg" alt="Logo" style="height:40px;border-radius:4px;">
-    <b>BALAJI UDYOG</b>
-  </a>
-  <a href="../../Balaji Udyog.html" style="font-size:14px;color:var(--ink-2)">← Back to Home</a>
-</div></nav>
+<nav class="nav solid" id="nav">
+  <div class="wrap nav-inner">
+    <a href="../../Balaji Udyog.html" class="logo">
+      <img src="../../assets/images/logo.jpg" alt="Balaji Udyog Logo" style="height:45px; margin-right:5px; mix-blend-mode: multiply;">
+      <div class="logo-text"><b>BALAJI UDYOG</b><small>Est · India · Exporters</small></div>
+    </a>
+    <div class="nav-menu">
+      <a href="../../Balaji Udyog.html">Home</a>
+      <a href="../About.html">About</a>
+      <div class="dropdown">
+        <a href="../Products.html" class="has-down">Products</a>
+        <div class="dropdown-panel">
+          <a href="Stainless Steel and Brass Cutleries.html"><span>Stainless Steel &amp; Brass Cutleries</span><small>01</small></a>
+          <a href="Bathroom Fittings and Accessories.html"><span>Bathroom Fittings &amp; Accessories</span><small>02</small></a>
+          <a href="Furniture Hardware and Locking Mechanism.html"><span>Furniture Hardware &amp; Locking Mechanism</span><small>03</small></a>
+          <a href="Lighting.html"><span>Lighting</span><small>04</small></a>
+          <a href="Decorative Glassware.html"><span>Decorative Glassware</span><small>05</small></a>
+        </div>
+      </div>
+      <a href="../Contact.html">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a href="../Contact.html" class="pill">Request Catalogue</a>
+      <div class="burger"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
 <div class="hero-banner-container">
   <img src="../../assets/images/categories/furniture_hero_banner.png" alt="Furniture Hardware & Locking Mechanism" class="hero-banner-img">
   <div class="hero-overlay-content">

@@ -29,6 +29,14 @@
     --font-head: 'Montserrat', sans-serif;
     --font-body: 'Inter', sans-serif;
   }
+  *, *:before, *:after {
+    box-sizing: border-box;
+  }
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
   body { background: var(--b2b-bg); color: var(--b2b-text); font-family: var(--font-body); margin: 0; padding: 0; line-height: 1.6; }
   .wrap { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
   

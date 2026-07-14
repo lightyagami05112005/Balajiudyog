@@ -14,6 +14,14 @@
     --primary:#0F172A;--primary-hover:#1E293B;--accent:#C87B53;--wa:#25D366;
     --shadow:0 4px 24px rgba(0,0,0,0.06);--font-head:'Montserrat',sans-serif;--font-body:'Inter',sans-serif;
   }
+  *, *:before, *:after {
+    box-sizing: border-box;
+  }
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
   body{background:var(--bg);color:var(--text);font-family:var(--font-body);margin:0;padding:0;line-height:1.6}
   .wrap{max-width:1400px;margin:0 auto;padding:0 40px}
   .pdp-header{padding:20px 0;border-bottom:1px solid var(--border);background:#fff;position:sticky;top:0;z-index:100}
@@ -23,7 +31,7 @@
   .pdp-logo span{color:var(--accent);font-weight:400;font-size:13px;margin-left:8px;letter-spacing:0.05em;text-transform:uppercase}
   .pdp-nav a{color:var(--text);text-decoration:none;font-size:14px;font-weight:500;margin-left:24px;transition:color 0.2s}
   .pdp-nav a:hover{color:var(--accent)}
-  .breadcrumbs{padding:24px 0 0;font-size:13px;color:var(--text-light)}
+  .breadcrumbs{padding:24px 0 0;font-size:13px;color:var(--text-light);display:flex;flex-wrap:wrap;align-items:center;line-height:1.5}
   .breadcrumbs a{color:var(--text);text-decoration:none}
   .breadcrumbs a:hover{color:var(--accent)}
   .breadcrumbs span{margin:0 8px}

@@ -747,7 +747,15 @@
   window.addEventListener('load',reveal);setTimeout(reveal,1400);
   document.querySelectorAll('[data-thumb]').forEach(t=>t.addEventListener('click',()=>{
     const main=document.getElementById('pdp-main-img');if(main){main.src=t.dataset.thumb;}
-  }));
+  }
+  *, *:before, *:after {
+    box-sizing: border-box;
+  }
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+));
 </script>
 
 <script>document.querySelector('.burger')?.addEventListener('click', function(){document.getElementById('nav')?.classList.toggle('nav-open')});</script>

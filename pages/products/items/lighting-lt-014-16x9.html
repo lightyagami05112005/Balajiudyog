@@ -47,6 +47,80 @@
   .btn-primary:hover{background:var(--primary-hover);transform:translateY(-2px);box-shadow:var(--shadow)}
   .btn-wa{background:var(--wa);color:#fff}
   .btn-wa:hover{background:#22BF5B;transform:translateY(-2px);box-shadow:var(--shadow)}
+
+  /* Mobile responsiveness and no horizontal scroll fixes */
+  @media(max-width: 768px) {
+    .wrap {
+      padding: 0 20px;
+    }
+    .pdp-header {
+      padding: 15px 0;
+    }
+    .pdp-header .wrap {
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+    .pdp-logo {
+      font-size: 18px;
+      gap: 8px;
+    }
+    .pdp-logo span {
+      font-size: 11px;
+      margin-left: 4px;
+    }
+    .pdp-nav {
+      margin-top: 4px;
+      display: flex;
+      gap: 16px;
+    }
+    .pdp-nav a {
+      margin-left: 0;
+      font-size: 13px;
+    }
+    .breadcrumbs {
+      padding: 16px 0 0;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+    .pdp-main-grid {
+      gap: 30px;
+      padding: 24px 0 48px;
+    }
+    .pdp-gallery {
+      position: static;
+    }
+    .pdp-title {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+    .pdp-sku {
+      margin-bottom: 16px;
+    }
+    .pdp-desc {
+      font-size: 15px;
+      margin-bottom: 24px;
+    }
+    .pdp-specs {
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+    .spec-card {
+      padding: 12px;
+    }
+    .pdp-actions {
+      margin-bottom: 30px;
+    }
+    .btn-primary, .btn-wa {
+      padding: 14px 24px;
+      font-size: 15px;
+    }
+  }
+  @media(max-width: 480px) {
+    .pdp-specs {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>
 </head>
 <body>
